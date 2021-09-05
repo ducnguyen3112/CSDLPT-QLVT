@@ -58,6 +58,7 @@ namespace QLVT_DH
 
         public FormLogin()
         {
+            
             InitializeComponent();
         }
 
@@ -120,9 +121,20 @@ namespace QLVT_DH
             Program.myReader.Close();
 
             Program.mainForm = new FormMain();
-            Program.mainForm.Activate();
-            Program.mainForm.Show();
-            this.Visible = false;
+            this.Hide();
+            Program.mainForm.ShowDialog();
+            txtPasswd.Text = "";
+            txtUserName.Text = "";
+            this.Show();
+        }
+
+        private void FormLogin_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            DialogResult result = MessageBox.Show("Bạn chắc chắn muốn thoát?", "Message", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+            if (result != DialogResult.Yes)
+            {
+                e.Cancel = true;
+            }
         }
     }
 }

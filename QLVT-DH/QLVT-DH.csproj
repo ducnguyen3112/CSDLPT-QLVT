@@ -96,6 +96,42 @@
   <ItemGroup>
     <None Include="Resources\vat-tu.jpg" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\add.svg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\app.svg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\lock.svg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\log-out.svg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\pin.svg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\refresh.svg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\remove.svg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\save.svg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\undo-arrow.svg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\user.svg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\userblur.svg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\x-mark.svg" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it.
        Other similar extension points exist, see Microsoft.Common.targets.

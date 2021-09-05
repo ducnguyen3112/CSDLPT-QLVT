@@ -33,5 +33,29 @@ namespace QLVT_DH
             lbGroup.Text = "Nhóm:" + Program.mGroup;
             lbMaNV.Text = "Mã NV:" + Program.userName;
         }
+
+        private void FormMain_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            DialogResult result = MessageBox.Show("Bạn chắc chắn muốn thoát?", "Message", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+            if (result!=DialogResult.Yes)
+            {
+                e.Cancel = true;
+            }
+            
+        }
+
+        private void btnLogout_Click(object sender, EventArgs e)
+        {
+            
+
+            DialogResult result = MessageBox.Show("Bạn chắc chắn muốn thoát chương trình!", "Message", MessageBoxButtons.YesNo,MessageBoxIcon.Question);
+            if (result==DialogResult.Yes)
+            {
+                this.Hide();
+                Program.loginForm.Visible = true;
+                /*Program.loginForm = new FormLogin();
+                Program.loginForm.Show();*/
+            }
+        }
     }
 }

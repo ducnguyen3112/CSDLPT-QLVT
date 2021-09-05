@@ -80,40 +80,43 @@ namespace QLVT_DH
             // 
             // txtUserName
             // 
-            this.txtUserName.Location = new System.Drawing.Point(31, 4);
+            this.txtUserName.Location = new System.Drawing.Point(48, 4);
             this.txtUserName.Name = "txtUserName";
             this.txtUserName.Properties.Appearance.Font = new System.Drawing.Font("Courier New", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtUserName.Properties.Appearance.Options.UseFont = true;
             this.txtUserName.Properties.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.NoBorder;
             this.txtUserName.Properties.Mask.BeepOnError = true;
             this.txtUserName.Properties.Mask.EditMask = "Username";
-            this.txtUserName.Size = new System.Drawing.Size(276, 26);
-            this.txtUserName.TabIndex = 2;
+            this.txtUserName.Size = new System.Drawing.Size(259, 26);
+            this.txtUserName.TabIndex = 1;
             // 
             // txtPasswd
             // 
-            this.txtPasswd.Location = new System.Drawing.Point(31, 4);
+            this.txtPasswd.Location = new System.Drawing.Point(48, 3);
             this.txtPasswd.Name = "txtPasswd";
             this.txtPasswd.Properties.Appearance.Font = new System.Drawing.Font("Courier New", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtPasswd.Properties.Appearance.Options.UseFont = true;
             this.txtPasswd.Properties.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.NoBorder;
             this.txtPasswd.Properties.UseSystemPasswordChar = true;
-            this.txtPasswd.Size = new System.Drawing.Size(276, 26);
-            this.txtPasswd.TabIndex = 3;
+            this.txtPasswd.Size = new System.Drawing.Size(259, 26);
+            this.txtPasswd.TabIndex = 2;
             // 
             // btnLogin
             // 
             this.btnLogin.Appearance.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(66)))), ((int)(((byte)(133)))), ((int)(((byte)(244)))));
-            this.btnLogin.Appearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(66)))), ((int)(((byte)(132)))), ((int)(((byte)(244)))));
+            this.btnLogin.Appearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(66)))), ((int)(((byte)(133)))), ((int)(((byte)(244)))));
             this.btnLogin.Appearance.Font = new System.Drawing.Font("Courier New", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnLogin.Appearance.Options.UseBackColor = true;
             this.btnLogin.Appearance.Options.UseBorderColor = true;
             this.btnLogin.Appearance.Options.UseFont = true;
+            this.btnLogin.AppearanceHovered.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(97)))), ((int)(((byte)(153)))), ((int)(((byte)(245)))));
+            this.btnLogin.AppearanceHovered.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(97)))), ((int)(((byte)(153)))), ((int)(((byte)(245)))));
+            this.btnLogin.AppearanceHovered.Options.UseBackColor = true;
             this.btnLogin.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnLogin.Location = new System.Drawing.Point(80, 475);
             this.btnLogin.Name = "btnLogin";
             this.btnLogin.Size = new System.Drawing.Size(312, 54);
-            this.btnLogin.TabIndex = 4;
+            this.btnLogin.TabIndex = 3;
             this.btnLogin.Text = "Login now";
             this.btnLogin.Click += new System.EventHandler(this.btnLogin_Click);
             // 
@@ -130,21 +133,33 @@ namespace QLVT_DH
             // 
             // labelControl3
             // 
+            this.labelControl3.Appearance.Font = new System.Drawing.Font("Tahoma", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelControl3.Appearance.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(150)))), ((int)(((byte)(150)))), ((int)(((byte)(150)))));
+            this.labelControl3.Appearance.Options.UseFont = true;
+            this.labelControl3.Appearance.Options.UseForeColor = true;
+            this.labelControl3.ImageAlignToText = DevExpress.XtraEditors.ImageAlignToText.LeftBottom;
             this.labelControl3.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("labelControl3.ImageOptions.SvgImage")));
             this.labelControl3.ImageOptions.SvgImageSize = new System.Drawing.Size(20, 20);
-            this.labelControl3.Location = new System.Drawing.Point(5, 5);
+            this.labelControl3.Location = new System.Drawing.Point(4, 1);
             this.labelControl3.Name = "labelControl3";
-            this.labelControl3.Size = new System.Drawing.Size(25, 25);
+            this.labelControl3.Size = new System.Drawing.Size(39, 29);
             this.labelControl3.TabIndex = 6;
+            this.labelControl3.Text = "|";
             // 
             // labelControl4
             // 
+            this.labelControl4.Appearance.Font = new System.Drawing.Font("Tahoma", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelControl4.Appearance.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(150)))), ((int)(((byte)(150)))), ((int)(((byte)(150)))));
+            this.labelControl4.Appearance.Options.UseFont = true;
+            this.labelControl4.Appearance.Options.UseForeColor = true;
+            this.labelControl4.ImageAlignToText = DevExpress.XtraEditors.ImageAlignToText.LeftBottom;
             this.labelControl4.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("labelControl4.ImageOptions.SvgImage")));
             this.labelControl4.ImageOptions.SvgImageSize = new System.Drawing.Size(20, 20);
-            this.labelControl4.Location = new System.Drawing.Point(5, 4);
+            this.labelControl4.Location = new System.Drawing.Point(3, 0);
             this.labelControl4.Name = "labelControl4";
-            this.labelControl4.Size = new System.Drawing.Size(25, 25);
+            this.labelControl4.Size = new System.Drawing.Size(39, 29);
             this.labelControl4.TabIndex = 7;
+            this.labelControl4.Text = "|";
             // 
             // panel2
             // 
@@ -153,7 +168,7 @@ namespace QLVT_DH
             this.panel2.Controls.Add(this.labelControl3);
             this.panel2.Location = new System.Drawing.Point(80, 307);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(312, 36);
+            this.panel2.Size = new System.Drawing.Size(312, 35);
             this.panel2.TabIndex = 10;
             // 
             // panel3
@@ -176,7 +191,7 @@ namespace QLVT_DH
             this.cbChiNhanh.Location = new System.Drawing.Point(112, 248);
             this.cbChiNhanh.Name = "cbChiNhanh";
             this.cbChiNhanh.Size = new System.Drawing.Size(280, 30);
-            this.cbChiNhanh.TabIndex = 12;
+            this.cbChiNhanh.TabIndex = 0;
             // 
             // FormLogin
             // 
@@ -195,6 +210,7 @@ namespace QLVT_DH
             this.Name = "FormLogin";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Login";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.FormLogin_FormClosing);
             this.Load += new System.EventHandler(this.FormLogin_Load);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
