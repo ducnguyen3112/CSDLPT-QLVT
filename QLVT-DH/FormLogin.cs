@@ -58,6 +58,7 @@ namespace QLVT_DH
 
         public FormLogin()
         {
+            
             InitializeComponent();
         }
 
@@ -122,7 +123,7 @@ namespace QLVT_DH
             Program.mainForm = new FormMain();
             Program.mainForm.Activate();
             Program.mainForm.Show();
-            this.Visible = false;
+            this.Hide();
         }
     }
 }

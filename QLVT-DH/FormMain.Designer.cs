@@ -51,14 +51,18 @@ namespace QLVT_DH
             this.accordionControlElement7 = new DevExpress.XtraBars.Navigation.AccordionControlElement();
             this.accordionControlElement8 = new DevExpress.XtraBars.Navigation.AccordionControlElement();
             this.accordionControlElement9 = new DevExpress.XtraBars.Navigation.AccordionControlElement();
-            this.accordionControlElement10 = new DevExpress.XtraBars.Navigation.AccordionControlElement();
+            this.btnLogout = new DevExpress.XtraBars.Navigation.AccordionControlElement();
+            this.panel1 = new System.Windows.Forms.Panel();
+            this.comboBox1 = new System.Windows.Forms.ComboBox();
             ((System.ComponentModel.ISupportInitialize)(this.repositoryItemTextEdit2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.repositoryItemTextEdit1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.repositoryItemComboBox1)).BeginInit();
+            this.fluentDesignFormContainer1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.accordionControl1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.fluentDesignFormControl1)).BeginInit();
             this.fluentDesignFormControl1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.buttonEdit1.Properties)).BeginInit();
+            this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
             // repositoryItemTextEdit2
@@ -80,6 +84,7 @@ namespace QLVT_DH
             // 
             // fluentDesignFormContainer1
             // 
+            this.fluentDesignFormContainer1.Controls.Add(this.panel1);
             this.fluentDesignFormContainer1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.fluentDesignFormContainer1.Location = new System.Drawing.Point(312, 39);
             this.fluentDesignFormContainer1.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
@@ -90,19 +95,25 @@ namespace QLVT_DH
             // accordionControl1
             // 
             this.accordionControl1.Appearance.AccordionControl.BackColor = System.Drawing.Color.SteelBlue;
+            this.accordionControl1.Appearance.AccordionControl.ForeColor = System.Drawing.Color.White;
             this.accordionControl1.Appearance.AccordionControl.Options.UseBackColor = true;
+            this.accordionControl1.Appearance.AccordionControl.Options.UseForeColor = true;
             this.accordionControl1.Appearance.Group.Hovered.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(106)))), ((int)(((byte)(156)))), ((int)(((byte)(198)))));
             this.accordionControl1.Appearance.Group.Hovered.Font = new System.Drawing.Font("Consolas", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.accordionControl1.Appearance.Group.Hovered.Options.UseBackColor = true;
             this.accordionControl1.Appearance.Group.Hovered.Options.UseFont = true;
             this.accordionControl1.Appearance.Group.Normal.Font = new System.Drawing.Font("Consolas", 12F, System.Drawing.FontStyle.Bold);
+            this.accordionControl1.Appearance.Group.Normal.ForeColor = System.Drawing.Color.White;
             this.accordionControl1.Appearance.Group.Normal.Options.UseFont = true;
+            this.accordionControl1.Appearance.Group.Normal.Options.UseForeColor = true;
             this.accordionControl1.Appearance.Group.Pressed.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(55)))), ((int)(((byte)(96)))), ((int)(((byte)(145)))));
             this.accordionControl1.Appearance.Group.Pressed.Font = new System.Drawing.Font("Consolas", 12F, System.Drawing.FontStyle.Bold);
             this.accordionControl1.Appearance.Group.Pressed.Options.UseBackColor = true;
             this.accordionControl1.Appearance.Group.Pressed.Options.UseFont = true;
             this.accordionControl1.Appearance.Hint.BackColor = System.Drawing.Color.Red;
             this.accordionControl1.Appearance.Hint.Options.UseBackColor = true;
+            this.accordionControl1.Appearance.Item.Normal.ForeColor = System.Drawing.Color.White;
+            this.accordionControl1.Appearance.Item.Normal.Options.UseForeColor = true;
             this.accordionControl1.Dock = System.Windows.Forms.DockStyle.Left;
             this.accordionControl1.Elements.AddRange(new DevExpress.XtraBars.Navigation.AccordionControlElement[] {
             this.accordionControlElement1,
@@ -111,7 +122,7 @@ namespace QLVT_DH
             this.accordionControlElement4,
             this.accordionControlElement5,
             this.accordionControlElement6,
-            this.accordionControlElement10});
+            this.btnLogout});
             this.accordionControl1.Location = new System.Drawing.Point(0, 39);
             this.accordionControl1.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
             this.accordionControl1.Name = "accordionControl1";
@@ -125,7 +136,6 @@ namespace QLVT_DH
             // 
             this.accordionControlElement1.Appearance.Normal.Font = new System.Drawing.Font("Consolas", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.accordionControlElement1.Appearance.Normal.Options.UseFont = true;
-            this.accordionControlElement1.Expanded = true;
             this.accordionControlElement1.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("accordionControlElement1.ImageOptions.SvgImage")));
             this.accordionControlElement1.Name = "accordionControlElement1";
             this.accordionControlElement1.Text = "NHÂN VIÊN";
@@ -160,6 +170,7 @@ namespace QLVT_DH
             this.accordionControlElement7,
             this.accordionControlElement8,
             this.accordionControlElement9});
+            this.accordionControlElement4.Expanded = true;
             this.accordionControlElement4.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("accordionControlElement4.ImageOptions.SvgImage")));
             this.accordionControlElement4.Name = "accordionControlElement4";
             this.accordionControlElement4.Text = "PHIẾU";
@@ -168,6 +179,7 @@ namespace QLVT_DH
             // 
             this.accordionControlElement5.Appearance.Normal.Font = new System.Drawing.Font("Consolas", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.accordionControlElement5.Appearance.Normal.Options.UseFont = true;
+            this.accordionControlElement5.Expanded = true;
             this.accordionControlElement5.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("accordionControlElement5.ImageOptions.SvgImage")));
             this.accordionControlElement5.Name = "accordionControlElement5";
             this.accordionControlElement5.Text = "TÀI KHOẢN";
@@ -279,14 +291,40 @@ namespace QLVT_DH
             this.accordionControlElement9.Style = DevExpress.XtraBars.Navigation.ElementStyle.Item;
             this.accordionControlElement9.Text = "Đơn đặt hàng";
             // 
-            // accordionControlElement10
+            // btnLogout
             // 
-            this.accordionControlElement10.Appearance.Normal.Font = new System.Drawing.Font("Consolas", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.accordionControlElement10.Appearance.Normal.Options.UseFont = true;
-            this.accordionControlElement10.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("accordionControlElement10.ImageOptions.SvgImage")));
-            this.accordionControlElement10.Name = "accordionControlElement10";
-            this.accordionControlElement10.Style = DevExpress.XtraBars.Navigation.ElementStyle.Item;
-            this.accordionControlElement10.Text = "ĐĂNG XUẤT";
+            this.btnLogout.Appearance.Hovered.Font = new System.Drawing.Font("Consolas", 12F, System.Drawing.FontStyle.Bold);
+            this.btnLogout.Appearance.Hovered.Options.UseFont = true;
+            this.btnLogout.Appearance.Hovered.Options.UseTextOptions = true;
+            this.btnLogout.Appearance.Hovered.TextOptions.VAlignment = DevExpress.Utils.VertAlignment.Center;
+            this.btnLogout.Appearance.Normal.Font = new System.Drawing.Font("Consolas", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnLogout.Appearance.Normal.Options.UseFont = true;
+            this.btnLogout.Appearance.Normal.Options.UseTextOptions = true;
+            this.btnLogout.Appearance.Normal.TextOptions.VAlignment = DevExpress.Utils.VertAlignment.Center;
+            this.btnLogout.Appearance.Pressed.Font = new System.Drawing.Font("Consolas", 12F, System.Drawing.FontStyle.Bold);
+            this.btnLogout.Appearance.Pressed.Options.UseFont = true;
+            this.btnLogout.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("accordionControlElement10.ImageOptions.SvgImage")));
+            this.btnLogout.Name = "btnLogout";
+            this.btnLogout.Style = DevExpress.XtraBars.Navigation.ElementStyle.Item;
+            this.btnLogout.Text = "ĐĂNG XUẤT";
+            this.btnLogout.Click += new System.EventHandler(this.btnLogout_Click);
+            // 
+            // panel1
+            // 
+            this.panel1.Controls.Add(this.comboBox1);
+            this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panel1.Location = new System.Drawing.Point(0, 0);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(1064, 688);
+            this.panel1.TabIndex = 0;
+            // 
+            // comboBox1
+            // 
+            this.comboBox1.FormattingEnabled = true;
+            this.comboBox1.Location = new System.Drawing.Point(6, 4);
+            this.comboBox1.Name = "comboBox1";
+            this.comboBox1.Size = new System.Drawing.Size(180, 24);
+            this.comboBox1.TabIndex = 0;
             // 
             // FormMain
             // 
@@ -298,19 +336,23 @@ namespace QLVT_DH
             this.Controls.Add(this.accordionControl1);
             this.Controls.Add(this.fluentDesignFormControl1);
             this.FluentDesignFormControl = this.fluentDesignFormControl1;
+            this.IconOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("FormMain.IconOptions.SvgImage")));
             this.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
             this.Name = "FormMain";
             this.NavigationControl = this.accordionControl1;
-            this.Text = "Form1";
+            this.Text = "Chương trình quản lí vật tư";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.FormMain_FormClosing);
             this.Load += new System.EventHandler(this.FormMain_Load);
             ((System.ComponentModel.ISupportInitialize)(this.repositoryItemTextEdit2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.repositoryItemTextEdit1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.repositoryItemComboBox1)).EndInit();
+            this.fluentDesignFormContainer1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.accordionControl1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.fluentDesignFormControl1)).EndInit();
             this.fluentDesignFormControl1.ResumeLayout(false);
             this.fluentDesignFormControl1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.buttonEdit1.Properties)).EndInit();
+            this.panel1.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -337,7 +379,9 @@ namespace QLVT_DH
         private DevExpress.XtraBars.Navigation.AccordionControlElement accordionControlElement7;
         private DevExpress.XtraBars.Navigation.AccordionControlElement accordionControlElement8;
         private DevExpress.XtraBars.Navigation.AccordionControlElement accordionControlElement9;
-        private DevExpress.XtraBars.Navigation.AccordionControlElement accordionControlElement10;
+        private DevExpress.XtraBars.Navigation.AccordionControlElement btnLogout;
+        private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.ComboBox comboBox1;
     }
 }
 
