@@ -73,6 +73,7 @@ namespace QLVT_DH
             ((System.ComponentModel.ISupportInitialize)(this.fluentDesignFormControl1)).BeginInit();
             this.fluentDesignFormControl1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.buttonEdit1.Properties)).BeginInit();
+            this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
             // repositoryItemTextEdit2
@@ -278,6 +279,7 @@ namespace QLVT_DH
             this.accordionControlElement7,
             this.accordionControlElement8,
             this.accordionControlElement9});
+            this.accordionControlElement4.Expanded = true;
             this.accordionControlElement4.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("accordionControlElement4.ImageOptions.SvgImage")));
             this.accordionControlElement4.Name = "accordionControlElement4";
             this.accordionControlElement4.Text = "PHIẾU";
@@ -451,6 +453,7 @@ namespace QLVT_DH
             this.fluentDesignFormControl1.ResumeLayout(false);
             this.fluentDesignFormControl1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.buttonEdit1.Properties)).EndInit();
+            this.panel1.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
