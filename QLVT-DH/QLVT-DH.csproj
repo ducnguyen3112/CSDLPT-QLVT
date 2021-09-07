@@ -39,6 +39,7 @@
     <Reference Include="DevExpress.XtraBars.v19.2" />
     <Reference Include="DevExpress.Sparkline.v19.2.Core" />
     <Reference Include="DevExpress.XtraEditors.v19.2" />
+    <Reference Include="DevExpress.XtraLayout.v19.2, Version=19.2.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
@@ -94,9 +95,6 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\vat-tu.jpg" />
-  </ItemGroup>
-  <ItemGroup>
     <None Include="Resources\add.svg" />
   </ItemGroup>
   <ItemGroup>
@@ -131,6 +129,18 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\x-mark.svg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\employee.svg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\vattu.svg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\warehouse.svg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\bill.svg" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it.

@@ -88,7 +88,7 @@ namespace QLVT_DH
             this.txtUserName.Properties.Mask.BeepOnError = true;
             this.txtUserName.Properties.Mask.EditMask = "Username";
             this.txtUserName.Size = new System.Drawing.Size(259, 26);
-            this.txtUserName.TabIndex = 1;
+            this.txtUserName.TabIndex = 0;
             // 
             // txtPasswd
             // 
@@ -112,6 +112,7 @@ namespace QLVT_DH
             this.btnLogin.AppearanceHovered.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(97)))), ((int)(((byte)(153)))), ((int)(((byte)(245)))));
             this.btnLogin.AppearanceHovered.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(97)))), ((int)(((byte)(153)))), ((int)(((byte)(245)))));
             this.btnLogin.AppearanceHovered.Options.UseBackColor = true;
+            this.btnLogin.AppearanceHovered.Options.UseBorderColor = true;
             this.btnLogin.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnLogin.Location = new System.Drawing.Point(80, 475);
             this.btnLogin.Name = "btnLogin";
@@ -191,7 +192,7 @@ namespace QLVT_DH
             this.cbChiNhanh.Location = new System.Drawing.Point(112, 248);
             this.cbChiNhanh.Name = "cbChiNhanh";
             this.cbChiNhanh.Size = new System.Drawing.Size(280, 30);
-            this.cbChiNhanh.TabIndex = 0;
+            this.cbChiNhanh.TabIndex = 1;
             // 
             // FormLogin
             // 
