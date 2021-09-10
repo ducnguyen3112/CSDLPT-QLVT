@@ -93,6 +93,16 @@ namespace QLVT_DH.Properties {
         /// <summary>
         ///   Looks up a localized resource of type DevExpress.Utils.Svg.SvgImage.
         /// </summary>
+        internal static DevExpress.Utils.Svg.SvgImage b2b {
+            get {
+                object obj = ResourceManager.GetObject("b2b", resourceCulture);
+                return ((DevExpress.Utils.Svg.SvgImage)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type DevExpress.Utils.Svg.SvgImage.
+        /// </summary>
         internal static DevExpress.Utils.Svg.SvgImage bill {
             get {
                 object obj = ResourceManager.GetObject("bill", resourceCulture);
@@ -106,6 +116,16 @@ namespace QLVT_DH.Properties {
         internal static DevExpress.Utils.Svg.SvgImage employee {
             get {
                 object obj = ResourceManager.GetObject("employee", resourceCulture);
+                return ((DevExpress.Utils.Svg.SvgImage)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type DevExpress.Utils.Svg.SvgImage.
+        /// </summary>
+        internal static DevExpress.Utils.Svg.SvgImage kyc {
+            get {
+                object obj = ResourceManager.GetObject("kyc", resourceCulture);
                 return ((DevExpress.Utils.Svg.SvgImage)(obj));
             }
         }
