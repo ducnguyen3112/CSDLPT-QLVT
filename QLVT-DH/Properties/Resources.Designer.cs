@@ -113,6 +113,16 @@ namespace QLVT_DH.Properties {
         /// <summary>
         ///   Looks up a localized resource of type DevExpress.Utils.Svg.SvgImage.
         /// </summary>
+        internal static DevExpress.Utils.Svg.SvgImage data_transfer {
+            get {
+                object obj = ResourceManager.GetObject("data-transfer", resourceCulture);
+                return ((DevExpress.Utils.Svg.SvgImage)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type DevExpress.Utils.Svg.SvgImage.
+        /// </summary>
         internal static DevExpress.Utils.Svg.SvgImage employee {
             get {
                 object obj = ResourceManager.GetObject("employee", resourceCulture);
@@ -136,6 +146,26 @@ namespace QLVT_DH.Properties {
         internal static DevExpress.Utils.Svg.SvgImage log_out {
             get {
                 object obj = ResourceManager.GetObject("log-out", resourceCulture);
+                return ((DevExpress.Utils.Svg.SvgImage)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type DevExpress.Utils.Svg.SvgImage.
+        /// </summary>
+        internal static DevExpress.Utils.Svg.SvgImage log_out1 {
+            get {
+                object obj = ResourceManager.GetObject("log-out1", resourceCulture);
+                return ((DevExpress.Utils.Svg.SvgImage)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type DevExpress.Utils.Svg.SvgImage.
+        /// </summary>
+        internal static DevExpress.Utils.Svg.SvgImage logout {
+            get {
+                object obj = ResourceManager.GetObject("logout", resourceCulture);
                 return ((DevExpress.Utils.Svg.SvgImage)(obj));
             }
         }

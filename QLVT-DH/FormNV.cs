@@ -46,7 +46,16 @@ namespace QLVT_DH
             cbChiNhanh.DisplayMember = "TENCN";
             cbChiNhanh.ValueMember = "TENSERVER";
             cbChiNhanh.SelectedIndex = Program.mChiNhanh;
-
+            if (Program.mGroup=="CONGTY")
+            {
+                cbChiNhanh.Enabled = true;
+                btnThem.Enabled = btnXoa.Enabled = btnGhi.Enabled = btnUndo.Enabled = false;
+            }
+            else
+            {
+                cbChiNhanh.Enabled = false;
+                btnThem.Enabled = btnXoa.Enabled = btnGhi.Enabled = btnUndo.Enabled = true;
+            }
 
 
         }

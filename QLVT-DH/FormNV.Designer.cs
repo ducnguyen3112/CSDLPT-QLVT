@@ -39,12 +39,13 @@ namespace QLVT_DH
             System.Windows.Forms.Label trangThaiXoaLabel;
             System.Windows.Forms.Label dIACHILabel;
             this.panelControl1 = new DevExpress.XtraEditors.PanelControl();
-            this.simpleButton6 = new DevExpress.XtraEditors.SimpleButton();
-            this.simpleButton5 = new DevExpress.XtraEditors.SimpleButton();
-            this.simpleButton4 = new DevExpress.XtraEditors.SimpleButton();
-            this.simpleButton3 = new DevExpress.XtraEditors.SimpleButton();
-            this.simpleButton2 = new DevExpress.XtraEditors.SimpleButton();
-            this.simpleButton1 = new DevExpress.XtraEditors.SimpleButton();
+            this.btnThoat = new DevExpress.XtraEditors.SimpleButton();
+            this.btnChuyen = new DevExpress.XtraEditors.SimpleButton();
+            this.btnReload = new DevExpress.XtraEditors.SimpleButton();
+            this.btnUndo = new DevExpress.XtraEditors.SimpleButton();
+            this.btnGhi = new DevExpress.XtraEditors.SimpleButton();
+            this.btnXoa = new DevExpress.XtraEditors.SimpleButton();
+            this.btnThem = new DevExpress.XtraEditors.SimpleButton();
             this.DS = new QLVT_DH.DS();
             this.dbsNV = new System.Windows.Forms.BindingSource(this.components);
             this.nhanVienTableAdapter = new QLVT_DH.DSTableAdapters.NhanVienTableAdapter();
@@ -183,82 +184,94 @@ namespace QLVT_DH
             // 
             this.panelControl1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.panelControl1.Controls.Add(this.simpleButton6);
-            this.panelControl1.Controls.Add(this.simpleButton5);
-            this.panelControl1.Controls.Add(this.simpleButton4);
-            this.panelControl1.Controls.Add(this.simpleButton3);
-            this.panelControl1.Controls.Add(this.simpleButton2);
-            this.panelControl1.Controls.Add(this.simpleButton1);
+            this.panelControl1.Controls.Add(this.btnThoat);
+            this.panelControl1.Controls.Add(this.btnChuyen);
+            this.panelControl1.Controls.Add(this.btnReload);
+            this.panelControl1.Controls.Add(this.btnUndo);
+            this.panelControl1.Controls.Add(this.btnGhi);
+            this.panelControl1.Controls.Add(this.btnXoa);
+            this.panelControl1.Controls.Add(this.btnThem);
             this.panelControl1.Location = new System.Drawing.Point(0, 0);
             this.panelControl1.Name = "panelControl1";
             this.panelControl1.Size = new System.Drawing.Size(1537, 36);
             this.panelControl1.TabIndex = 0;
             // 
-            // simpleButton6
+            // btnThoat
             // 
-            this.simpleButton6.ImageOptions.ImageToTextAlignment = DevExpress.XtraEditors.ImageAlignToText.LeftCenter;
-            this.simpleButton6.ImageOptions.SvgImage = global::QLVT_DH.Properties.Resources.b2b;
-            this.simpleButton6.ImageOptions.SvgImageSize = new System.Drawing.Size(15, 15);
-            this.simpleButton6.Location = new System.Drawing.Point(506, 4);
-            this.simpleButton6.Name = "simpleButton6";
-            this.simpleButton6.Size = new System.Drawing.Size(121, 29);
-            this.simpleButton6.TabIndex = 5;
-            this.simpleButton6.Text = "Chuyển CN";
+            this.btnThoat.ImageOptions.ImageToTextAlignment = DevExpress.XtraEditors.ImageAlignToText.LeftCenter;
+            this.btnThoat.ImageOptions.SvgImage = global::QLVT_DH.Properties.Resources.logout;
+            this.btnThoat.ImageOptions.SvgImageSize = new System.Drawing.Size(15, 15);
+            this.btnThoat.Location = new System.Drawing.Point(633, 4);
+            this.btnThoat.Name = "btnThoat";
+            this.btnThoat.Size = new System.Drawing.Size(121, 29);
+            this.btnThoat.TabIndex = 6;
+            this.btnThoat.Text = "Thoát";
             // 
-            // simpleButton5
+            // btnChuyen
             // 
-            this.simpleButton5.ImageOptions.ImageToTextAlignment = DevExpress.XtraEditors.ImageAlignToText.LeftCenter;
-            this.simpleButton5.ImageOptions.SvgImage = global::QLVT_DH.Properties.Resources.refresh;
-            this.simpleButton5.ImageOptions.SvgImageSize = new System.Drawing.Size(15, 15);
-            this.simpleButton5.Location = new System.Drawing.Point(406, 4);
-            this.simpleButton5.Name = "simpleButton5";
-            this.simpleButton5.Size = new System.Drawing.Size(94, 29);
-            this.simpleButton5.TabIndex = 4;
-            this.simpleButton5.Text = "Reload";
+            this.btnChuyen.ImageOptions.ImageToTextAlignment = DevExpress.XtraEditors.ImageAlignToText.LeftCenter;
+            this.btnChuyen.ImageOptions.SvgImage = global::QLVT_DH.Properties.Resources.data_transfer;
+            this.btnChuyen.ImageOptions.SvgImageSize = new System.Drawing.Size(15, 15);
+            this.btnChuyen.Location = new System.Drawing.Point(506, 4);
+            this.btnChuyen.Name = "btnChuyen";
+            this.btnChuyen.Size = new System.Drawing.Size(121, 29);
+            this.btnChuyen.TabIndex = 5;
+            this.btnChuyen.Text = "Chuyển CN";
             // 
-            // simpleButton4
+            // btnReload
             // 
-            this.simpleButton4.ImageOptions.ImageToTextAlignment = DevExpress.XtraEditors.ImageAlignToText.LeftCenter;
-            this.simpleButton4.ImageOptions.SvgImage = global::QLVT_DH.Properties.Resources.undo_arrow;
-            this.simpleButton4.ImageOptions.SvgImageSize = new System.Drawing.Size(15, 15);
-            this.simpleButton4.Location = new System.Drawing.Point(306, 4);
-            this.simpleButton4.Name = "simpleButton4";
-            this.simpleButton4.Size = new System.Drawing.Size(94, 29);
-            this.simpleButton4.TabIndex = 3;
-            this.simpleButton4.Text = "Undo";
+            this.btnReload.ImageOptions.ImageToTextAlignment = DevExpress.XtraEditors.ImageAlignToText.LeftCenter;
+            this.btnReload.ImageOptions.SvgImage = global::QLVT_DH.Properties.Resources.refresh;
+            this.btnReload.ImageOptions.SvgImageSize = new System.Drawing.Size(15, 15);
+            this.btnReload.Location = new System.Drawing.Point(406, 4);
+            this.btnReload.Name = "btnReload";
+            this.btnReload.Size = new System.Drawing.Size(94, 29);
+            this.btnReload.TabIndex = 4;
+            this.btnReload.Text = "Làm mới";
             // 
-            // simpleButton3
+            // btnUndo
             // 
-            this.simpleButton3.ImageOptions.ImageToTextAlignment = DevExpress.XtraEditors.ImageAlignToText.LeftCenter;
-            this.simpleButton3.ImageOptions.SvgImage = global::QLVT_DH.Properties.Resources.save;
-            this.simpleButton3.ImageOptions.SvgImageSize = new System.Drawing.Size(15, 15);
-            this.simpleButton3.Location = new System.Drawing.Point(206, 4);
-            this.simpleButton3.Name = "simpleButton3";
-            this.simpleButton3.Size = new System.Drawing.Size(94, 29);
-            this.simpleButton3.TabIndex = 2;
-            this.simpleButton3.Text = "Ghi";
+            this.btnUndo.ImageOptions.ImageToTextAlignment = DevExpress.XtraEditors.ImageAlignToText.LeftCenter;
+            this.btnUndo.ImageOptions.SvgImage = global::QLVT_DH.Properties.Resources.undo_arrow;
+            this.btnUndo.ImageOptions.SvgImageSize = new System.Drawing.Size(15, 15);
+            this.btnUndo.Location = new System.Drawing.Point(306, 4);
+            this.btnUndo.Name = "btnUndo";
+            this.btnUndo.Size = new System.Drawing.Size(94, 29);
+            this.btnUndo.TabIndex = 3;
+            this.btnUndo.Text = "Phục hồi";
             // 
-            // simpleButton2
+            // btnGhi
             // 
-            this.simpleButton2.ImageOptions.ImageToTextAlignment = DevExpress.XtraEditors.ImageAlignToText.LeftCenter;
-            this.simpleButton2.ImageOptions.SvgImage = global::QLVT_DH.Properties.Resources.remove;
-            this.simpleButton2.ImageOptions.SvgImageSize = new System.Drawing.Size(15, 15);
-            this.simpleButton2.Location = new System.Drawing.Point(106, 4);
-            this.simpleButton2.Name = "simpleButton2";
-            this.simpleButton2.Size = new System.Drawing.Size(94, 29);
-            this.simpleButton2.TabIndex = 1;
-            this.simpleButton2.Text = "Xoá";
+            this.btnGhi.ImageOptions.ImageToTextAlignment = DevExpress.XtraEditors.ImageAlignToText.LeftCenter;
+            this.btnGhi.ImageOptions.SvgImage = global::QLVT_DH.Properties.Resources.save;
+            this.btnGhi.ImageOptions.SvgImageSize = new System.Drawing.Size(15, 15);
+            this.btnGhi.Location = new System.Drawing.Point(206, 4);
+            this.btnGhi.Name = "btnGhi";
+            this.btnGhi.Size = new System.Drawing.Size(94, 29);
+            this.btnGhi.TabIndex = 2;
+            this.btnGhi.Text = "Ghi";
             // 
-            // simpleButton1
+            // btnXoa
             // 
-            this.simpleButton1.ImageOptions.ImageToTextAlignment = DevExpress.XtraEditors.ImageAlignToText.LeftCenter;
-            this.simpleButton1.ImageOptions.SvgImage = global::QLVT_DH.Properties.Resources.add;
-            this.simpleButton1.ImageOptions.SvgImageSize = new System.Drawing.Size(15, 15);
-            this.simpleButton1.Location = new System.Drawing.Point(6, 4);
-            this.simpleButton1.Name = "simpleButton1";
-            this.simpleButton1.Size = new System.Drawing.Size(94, 29);
-            this.simpleButton1.TabIndex = 0;
-            this.simpleButton1.Text = "Thêm";
+            this.btnXoa.ImageOptions.ImageToTextAlignment = DevExpress.XtraEditors.ImageAlignToText.LeftCenter;
+            this.btnXoa.ImageOptions.SvgImage = global::QLVT_DH.Properties.Resources.remove;
+            this.btnXoa.ImageOptions.SvgImageSize = new System.Drawing.Size(15, 15);
+            this.btnXoa.Location = new System.Drawing.Point(106, 4);
+            this.btnXoa.Name = "btnXoa";
+            this.btnXoa.Size = new System.Drawing.Size(94, 29);
+            this.btnXoa.TabIndex = 1;
+            this.btnXoa.Text = "Xoá";
+            // 
+            // btnThem
+            // 
+            this.btnThem.ImageOptions.ImageToTextAlignment = DevExpress.XtraEditors.ImageAlignToText.LeftCenter;
+            this.btnThem.ImageOptions.SvgImage = global::QLVT_DH.Properties.Resources.add;
+            this.btnThem.ImageOptions.SvgImageSize = new System.Drawing.Size(15, 15);
+            this.btnThem.Location = new System.Drawing.Point(6, 4);
+            this.btnThem.Name = "btnThem";
+            this.btnThem.Size = new System.Drawing.Size(94, 29);
+            this.btnThem.TabIndex = 0;
+            this.btnThem.Text = "Thêm";
             // 
             // DS
             // 
@@ -298,7 +311,7 @@ namespace QLVT_DH
             this.nhanVienGridControl.Location = new System.Drawing.Point(12, 72);
             this.nhanVienGridControl.MainView = this.gridView1;
             this.nhanVienGridControl.Name = "nhanVienGridControl";
-            this.nhanVienGridControl.Size = new System.Drawing.Size(1513, 359);
+            this.nhanVienGridControl.Size = new System.Drawing.Size(1513, 352);
             this.nhanVienGridControl.TabIndex = 3;
             this.nhanVienGridControl.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gridView1});
@@ -320,6 +333,14 @@ namespace QLVT_DH
             // 
             // colMANV
             // 
+            this.colMANV.AppearanceHeader.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.colMANV.AppearanceHeader.Font = new System.Drawing.Font("Times New Roman", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.colMANV.AppearanceHeader.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(90)))), ((int)(((byte)(158)))));
+            this.colMANV.AppearanceHeader.Options.UseBorderColor = true;
+            this.colMANV.AppearanceHeader.Options.UseFont = true;
+            this.colMANV.AppearanceHeader.Options.UseForeColor = true;
+            this.colMANV.AppearanceHeader.Options.UseTextOptions = true;
+            this.colMANV.AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
             this.colMANV.Caption = "Mã NV";
             this.colMANV.FieldName = "MANV";
             this.colMANV.MinWidth = 25;
@@ -330,6 +351,14 @@ namespace QLVT_DH
             // 
             // colHO
             // 
+            this.colHO.AppearanceHeader.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.colHO.AppearanceHeader.Font = new System.Drawing.Font("Times New Roman", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.colHO.AppearanceHeader.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(90)))), ((int)(((byte)(158)))));
+            this.colHO.AppearanceHeader.Options.UseBorderColor = true;
+            this.colHO.AppearanceHeader.Options.UseFont = true;
+            this.colHO.AppearanceHeader.Options.UseForeColor = true;
+            this.colHO.AppearanceHeader.Options.UseTextOptions = true;
+            this.colHO.AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
             this.colHO.Caption = "Họ";
             this.colHO.FieldName = "HO";
             this.colHO.MinWidth = 25;
@@ -340,6 +369,14 @@ namespace QLVT_DH
             // 
             // colTEN
             // 
+            this.colTEN.AppearanceHeader.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.colTEN.AppearanceHeader.Font = new System.Drawing.Font("Times New Roman", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.colTEN.AppearanceHeader.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(90)))), ((int)(((byte)(158)))));
+            this.colTEN.AppearanceHeader.Options.UseBorderColor = true;
+            this.colTEN.AppearanceHeader.Options.UseFont = true;
+            this.colTEN.AppearanceHeader.Options.UseForeColor = true;
+            this.colTEN.AppearanceHeader.Options.UseTextOptions = true;
+            this.colTEN.AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
             this.colTEN.Caption = "Tên";
             this.colTEN.FieldName = "TEN";
             this.colTEN.MinWidth = 25;
@@ -350,6 +387,14 @@ namespace QLVT_DH
             // 
             // colDIACHI
             // 
+            this.colDIACHI.AppearanceHeader.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.colDIACHI.AppearanceHeader.Font = new System.Drawing.Font("Times New Roman", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.colDIACHI.AppearanceHeader.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(90)))), ((int)(((byte)(158)))));
+            this.colDIACHI.AppearanceHeader.Options.UseBorderColor = true;
+            this.colDIACHI.AppearanceHeader.Options.UseFont = true;
+            this.colDIACHI.AppearanceHeader.Options.UseForeColor = true;
+            this.colDIACHI.AppearanceHeader.Options.UseTextOptions = true;
+            this.colDIACHI.AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
             this.colDIACHI.Caption = "Địa chỉ";
             this.colDIACHI.FieldName = "DIACHI";
             this.colDIACHI.MinWidth = 25;
@@ -360,6 +405,14 @@ namespace QLVT_DH
             // 
             // colNGAYSINH
             // 
+            this.colNGAYSINH.AppearanceHeader.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.colNGAYSINH.AppearanceHeader.Font = new System.Drawing.Font("Times New Roman", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.colNGAYSINH.AppearanceHeader.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(90)))), ((int)(((byte)(158)))));
+            this.colNGAYSINH.AppearanceHeader.Options.UseBorderColor = true;
+            this.colNGAYSINH.AppearanceHeader.Options.UseFont = true;
+            this.colNGAYSINH.AppearanceHeader.Options.UseForeColor = true;
+            this.colNGAYSINH.AppearanceHeader.Options.UseTextOptions = true;
+            this.colNGAYSINH.AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
             this.colNGAYSINH.Caption = "Ngày sinh";
             this.colNGAYSINH.FieldName = "NGAYSINH";
             this.colNGAYSINH.MinWidth = 25;
@@ -370,6 +423,14 @@ namespace QLVT_DH
             // 
             // colLUONG
             // 
+            this.colLUONG.AppearanceHeader.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.colLUONG.AppearanceHeader.Font = new System.Drawing.Font("Times New Roman", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.colLUONG.AppearanceHeader.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(90)))), ((int)(((byte)(158)))));
+            this.colLUONG.AppearanceHeader.Options.UseBorderColor = true;
+            this.colLUONG.AppearanceHeader.Options.UseFont = true;
+            this.colLUONG.AppearanceHeader.Options.UseForeColor = true;
+            this.colLUONG.AppearanceHeader.Options.UseTextOptions = true;
+            this.colLUONG.AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
             this.colLUONG.Caption = "Lương";
             this.colLUONG.DisplayFormat.FormatString = "n0";
             this.colLUONG.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
@@ -382,6 +443,14 @@ namespace QLVT_DH
             // 
             // colMACN
             // 
+            this.colMACN.AppearanceHeader.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.colMACN.AppearanceHeader.Font = new System.Drawing.Font("Times New Roman", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.colMACN.AppearanceHeader.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(90)))), ((int)(((byte)(158)))));
+            this.colMACN.AppearanceHeader.Options.UseBorderColor = true;
+            this.colMACN.AppearanceHeader.Options.UseFont = true;
+            this.colMACN.AppearanceHeader.Options.UseForeColor = true;
+            this.colMACN.AppearanceHeader.Options.UseTextOptions = true;
+            this.colMACN.AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
             this.colMACN.Caption = "Mã CN";
             this.colMACN.FieldName = "MACN";
             this.colMACN.MinWidth = 25;
@@ -392,6 +461,14 @@ namespace QLVT_DH
             // 
             // colTrangThaiXoa
             // 
+            this.colTrangThaiXoa.AppearanceHeader.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.colTrangThaiXoa.AppearanceHeader.Font = new System.Drawing.Font("Times New Roman", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.colTrangThaiXoa.AppearanceHeader.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(90)))), ((int)(((byte)(158)))));
+            this.colTrangThaiXoa.AppearanceHeader.Options.UseBorderColor = true;
+            this.colTrangThaiXoa.AppearanceHeader.Options.UseFont = true;
+            this.colTrangThaiXoa.AppearanceHeader.Options.UseForeColor = true;
+            this.colTrangThaiXoa.AppearanceHeader.Options.UseTextOptions = true;
+            this.colTrangThaiXoa.AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
             this.colTrangThaiXoa.Caption = "Trạng thái xoá";
             this.colTrangThaiXoa.FieldName = "TrangThaiXoa";
             this.colTrangThaiXoa.MinWidth = 25;
@@ -424,7 +501,7 @@ namespace QLVT_DH
             this.groupControl1.Name = "groupControl1";
             this.groupControl1.Size = new System.Drawing.Size(1537, 213);
             this.groupControl1.TabIndex = 3;
-            this.groupControl1.Text = "groupControl1";
+            this.groupControl1.Text = "Thông tin nhân viên";
             // 
             // dIACHITextEdit
             // 
@@ -538,6 +615,8 @@ namespace QLVT_DH
             // 
             // cbChiNhanh
             // 
+            this.cbChiNhanh.BackColor = System.Drawing.Color.White;
+            this.cbChiNhanh.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbChiNhanh.FormattingEnabled = true;
             this.cbChiNhanh.Location = new System.Drawing.Point(87, 5);
             this.cbChiNhanh.Name = "cbChiNhanh";
@@ -601,12 +680,12 @@ namespace QLVT_DH
         #endregion
 
         private DevExpress.XtraEditors.PanelControl panelControl1;
-        private DevExpress.XtraEditors.SimpleButton simpleButton5;
-        private DevExpress.XtraEditors.SimpleButton simpleButton4;
-        private DevExpress.XtraEditors.SimpleButton simpleButton3;
-        private DevExpress.XtraEditors.SimpleButton simpleButton2;
-        private DevExpress.XtraEditors.SimpleButton simpleButton1;
-        private DevExpress.XtraEditors.SimpleButton simpleButton6;
+        private DevExpress.XtraEditors.SimpleButton btnReload;
+        private DevExpress.XtraEditors.SimpleButton btnUndo;
+        private DevExpress.XtraEditors.SimpleButton btnGhi;
+        private DevExpress.XtraEditors.SimpleButton btnXoa;
+        private DevExpress.XtraEditors.SimpleButton btnThem;
+        private DevExpress.XtraEditors.SimpleButton btnChuyen;
         private DS DS;
         private System.Windows.Forms.BindingSource dbsNV;
         private DSTableAdapters.NhanVienTableAdapter nhanVienTableAdapter;
@@ -639,5 +718,6 @@ namespace QLVT_DH
         private DevExpress.XtraEditors.PanelControl panelControl2;
         private System.Windows.Forms.ComboBox cbChiNhanh;
         private DevExpress.XtraEditors.LabelControl labelControl1;
+        private DevExpress.XtraEditors.SimpleButton btnThoat;
     }
 }
