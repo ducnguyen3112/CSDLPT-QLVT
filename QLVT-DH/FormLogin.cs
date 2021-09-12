@@ -66,7 +66,7 @@ namespace QLVT_DH
         {
             try
             {
-                Program.servername = cbChiNhanh.SelectedValue.ToString();
+                Program.serverName = cbChiNhanh.SelectedValue.ToString();
             }
             catch (Exception)
             {
@@ -94,7 +94,7 @@ namespace QLVT_DH
             }
             Program.mLogin = txtUserName.Text;
             Program.passwd = txtPasswd.Text;
-            Program.servername = cbChiNhanh.SelectedValue.ToString();
+            Program.serverName = cbChiNhanh.SelectedValue.ToString();
             if (Program.KetNoi()==0)
             {
                 return;

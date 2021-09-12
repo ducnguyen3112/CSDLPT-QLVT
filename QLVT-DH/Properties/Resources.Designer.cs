@@ -133,6 +133,16 @@ namespace QLVT_DH.Properties {
         /// <summary>
         ///   Looks up a localized resource of type DevExpress.Utils.Svg.SvgImage.
         /// </summary>
+        internal static DevExpress.Utils.Svg.SvgImage exit_door {
+            get {
+                object obj = ResourceManager.GetObject("exit-door", resourceCulture);
+                return ((DevExpress.Utils.Svg.SvgImage)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type DevExpress.Utils.Svg.SvgImage.
+        /// </summary>
         internal static DevExpress.Utils.Svg.SvgImage kyc {
             get {
                 object obj = ResourceManager.GetObject("kyc", resourceCulture);
@@ -226,6 +236,16 @@ namespace QLVT_DH.Properties {
         internal static DevExpress.Utils.Svg.SvgImage user {
             get {
                 object obj = ResourceManager.GetObject("user", resourceCulture);
+                return ((DevExpress.Utils.Svg.SvgImage)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type DevExpress.Utils.Svg.SvgImage.
+        /// </summary>
+        internal static DevExpress.Utils.Svg.SvgImage user_mng {
+            get {
+                object obj = ResourceManager.GetObject("user-mng", resourceCulture);
                 return ((DevExpress.Utils.Svg.SvgImage)(obj));
             }
         }
