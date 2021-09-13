@@ -28,6 +28,9 @@ namespace QLVT_DH
         private void FormMain_Load(object sender, EventArgs e)
         {
             lbUserinfo.Text= "Mã NV:" + Program.userName + " | Họ tên:" + Program.mHoTen + " | Nhóm:" + Program.mGroup;
+            FormNV fNV = new FormNV();
+            fNV.MdiParent = this;
+            fNV.Show();
         }
 
         private void barButtonItem3_ItemClick(object sender, ItemClickEventArgs e)
@@ -48,6 +51,11 @@ namespace QLVT_DH
                 fNV.MdiParent = this;
                 fNV.Show();
             }
+
+        }
+
+        private void barButtonItem6_ItemClick(object sender, ItemClickEventArgs e)
+        {
 
         }
     }

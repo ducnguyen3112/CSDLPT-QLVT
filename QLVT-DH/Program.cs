@@ -17,7 +17,7 @@ namespace QLVT_DH
         public static SqlConnection con = new SqlConnection();
         public static SqlDataAdapter da;
         public static SqlDataReader myReader;
-        public static String servername = "";
+        public static String serverName = "";
         public static String servername1 = "STARSCREAM\\STARCREAMSERVER1";
         public static String servername2 = "STARSCREAM\\STARCREAMSERVER2";
         public static String constr;
@@ -42,7 +42,7 @@ namespace QLVT_DH
             if (Program.con != null && Program.con.State == ConnectionState.Open) Program.con.Close();
             try
             {
-                Program.constr = "Data Source=" + Program.servername + ";Initial Catalog=" + Program.database + ";User ID=" +
+                Program.constr = "Data Source=" + Program.serverName + ";Initial Catalog=" + Program.database + ";User ID=" +
                       Program.mLogin + ";password=" + Program.passwd;
                 Program.con.ConnectionString = Program.constr;
                 Program.con.Open();
