@@ -56,6 +56,7 @@ namespace QLVT_DH
 
         private void barButtonItem6_ItemClick(object sender, ItemClickEventArgs e)
         {
+            this.Close();
 
         }
     }

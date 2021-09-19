@@ -335,6 +335,7 @@ namespace QLVT_DH
             this.colTrangThaiXoa});
             this.gridView1.GridControl = this.gcNV;
             this.gridView1.Name = "gridView1";
+            this.gridView1.OptionsBehavior.Editable = false;
             this.gridView1.OptionsView.ShowGroupPanel = false;
             // 
             // colMANV
