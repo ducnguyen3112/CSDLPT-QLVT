@@ -59,6 +59,12 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>DS.xsd</DependentUpon>
     </Compile>
+    <Compile Include="FormChuyenCN.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="FormChuyenCN.Designer.cs">
+      <DependentUpon>FormChuyenCN.cs</DependentUpon>
+    </Compile>
     <Compile Include="FormNV.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -79,6 +85,9 @@
     <Compile Include="FormLogin.Designer.cs">
       <DependentUpon>FormLogin.cs</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="FormChuyenCN.resx">
+      <DependentUpon>FormChuyenCN.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="FormNV.resx">
       <DependentUpon>FormNV.cs</DependentUpon>
     </EmbeddedResource>

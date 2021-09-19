@@ -242,6 +242,7 @@ namespace QLVT_DH
             this.btnUndo.Size = new System.Drawing.Size(121, 29);
             this.btnUndo.TabIndex = 3;
             this.btnUndo.Text = "Phục hồi";
+            this.btnUndo.Click += new System.EventHandler(this.btnUndo_Click);
             // 
             // btnGhi
             // 
