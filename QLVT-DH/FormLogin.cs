@@ -81,7 +81,7 @@ namespace QLVT_DH
             {
                 return;
             }
-            layDSPM("select TENCN,TENSERVER from Get_Subscribes where TENSERVER!='STARSCREAM\\STARCREAMSERVER3'");
+            layDSPM("select TENCN,TENSERVER from Get_Subscribes where TENSERVER!='DESKTOP-8M2NJ75\\HOANGLONG4'");
            
         }
 

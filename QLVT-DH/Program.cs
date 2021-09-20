@@ -21,11 +21,11 @@ namespace QLVT_DH
         public static String servername1 = "STARSCREAM\\STARCREAMSERVER1";
         public static String servername2 = "STARSCREAM\\STARCREAMSERVER2";
         public static String constr;
-        public static String constrPublisher = "Data Source=STARSCREAM\\STARCREAMSERVER;Initial Catalog=QLVT;Integrated Security=True";
+        public static String constrPublisher = "Data Source=DESKTOP-8M2NJ75\\HOANGLONG1;Initial Catalog=QLVT_DATHANG;Integrated Security=True";
         public static String userName = "";
         public static String mLogin = "";
         public static String passwd = "";
-        public static String database = "QLVT";
+        public static String database = "QLVT_DATHANG";
         public static String remoteLogin = "HTKN";
         public static String remotePasswd = "123";
         public static String mloginDN = "";
