@@ -18,8 +18,6 @@ namespace QLVT_DH
         public static SqlDataAdapter da;
         public static SqlDataReader myReader;
         public static String serverName = "";
-        public static String servername1 = "STARSCREAM\\STARCREAMSERVER1";
-        public static String servername2 = "STARSCREAM\\STARCREAMSERVER2";
         public static String constr;
         public static String constrPublisher = "Data Source=STARSCREAM\\STARCREAMSERVER;Initial Catalog=QLVT;Integrated Security=True";
         public static String userName = "";
@@ -51,7 +49,7 @@ namespace QLVT_DH
 
             catch (Exception e)
             {
-                MessageBox.Show("Lỗi kết nối cơ sở dữ liệu!\nUsername hoặc mật khẩu không đúng.\n\n" + e.Message+"\n"+Program.constr, "Lỗi", MessageBoxButtons.OK,MessageBoxIcon.Error);
+                MessageBox.Show("Lỗi kết nối cơ sở dữ liệu!\nUsername hoặc mật khẩu không đúng.\n\n" + e.Message + "\n" + Program.constr, "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return 0;
             }
         }
@@ -66,7 +64,7 @@ namespace QLVT_DH
             if (Program.con.State == ConnectionState.Closed) Program.con.Open();
             try
             {
-                myreader = sqlcmd.ExecuteReader(); 
+                myreader = sqlcmd.ExecuteReader();
                 return myreader;
             }
             catch (SqlException ex)

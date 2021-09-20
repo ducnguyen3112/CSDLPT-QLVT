@@ -625,6 +625,7 @@ namespace QLVT_DH
             // 
             this.cbChiNhanh.BackColor = System.Drawing.Color.White;
             this.cbChiNhanh.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cbChiNhanh.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.cbChiNhanh.FormattingEnabled = true;
             this.cbChiNhanh.Location = new System.Drawing.Point(87, 5);
             this.cbChiNhanh.Name = "cbChiNhanh";

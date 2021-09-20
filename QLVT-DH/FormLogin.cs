@@ -19,7 +19,7 @@ namespace QLVT_DH
         private void layDSPM(String cmd)
         {
             DataTable dt = new DataTable();
-            if (conPublisher.State==ConnectionState.Closed)
+            if (conPublisher.State == ConnectionState.Closed)
             {
                 conPublisher.Open();
             }
@@ -36,7 +36,7 @@ namespace QLVT_DH
         {
             if (conPublisher != null && conPublisher.State == ConnectionState.Open)
             {
-                
+
                 conPublisher.Close();
             }
             try
@@ -48,17 +48,17 @@ namespace QLVT_DH
 
             catch (Exception e)
             {
-                MessageBox.Show("Lỗi kết nối cơ sở dữ liệu!\n\n" + e.Message, "Lỗi", MessageBoxButtons.OK,MessageBoxIcon.Error);
+                MessageBox.Show("Lỗi kết nối cơ sở dữ liệu!\n\n" + e.Message, "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return 0;
             }
         }
 
-       
+
 
 
         public FormLogin()
         {
-            
+
             InitializeComponent();
         }
 
@@ -81,13 +81,13 @@ namespace QLVT_DH
             {
                 return;
             }
-            layDSPM("select TENCN,TENSERVER from Get_Subscribes where TENSERVER!='STARSCREAM\\STARCREAMSERVER3'");
-           
+            layDSPM("select TENCN,TENSERVER from Get_Subscribes ");
+
         }
 
         private void btnLogin_Click(object sender, EventArgs e)
         {
-            if (txtUserName.Text.Trim()==""||txtPasswd.Text.Trim()=="")
+            if (txtUserName.Text.Trim() == "" || txtPasswd.Text.Trim() == "")
             {
                 MessageBox.Show("Username và mật khật không được trống!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
@@ -95,7 +95,7 @@ namespace QLVT_DH
             Program.mLogin = txtUserName.Text;
             Program.passwd = txtPasswd.Text;
             Program.serverName = cbChiNhanh.SelectedValue.ToString();
-            if (Program.KetNoi()==0)
+            if (Program.KetNoi() == 0)
             {
                 return;
             }
@@ -105,7 +105,7 @@ namespace QLVT_DH
             string spStr = "EXEC SP_LayThongTinNVTuLogin '" + Program.mLogin + "'";
 
             Program.myReader = Program.ExecSqlDataReader(spStr);
-            if (Program.myReader==null)
+            if (Program.myReader == null)
             {
                 return;
             }
@@ -135,7 +135,7 @@ namespace QLVT_DH
             {
                 e.Cancel = true;
             }
-           
+
         }
     }
 }

@@ -216,9 +216,8 @@ namespace QLVT_DH
             int trangThaiXoa = int.Parse(((DataRowView)bdsNV[bdsNV.Position])["TrangThaiXoa"].ToString());
             if (trangThaiXoa == 0)
             {
-                /* FormChuyenCN pickCN = new FormChuyenCN();
-                 pickCN.mydata = new FormChuyenCN.GETDATA(GETVALUE);
-                 pickCN.ShowDialog();*/
+                FormChuyenCN chuyenCN = new FormChuyenCN();
+                chuyenCN.ShowDialog();
             }
             else
             {
@@ -269,14 +268,6 @@ namespace QLVT_DH
             {
                 txtMaNV.Text = txtMaNV.Text.Trim();
                 String maNV = txtMaNV.Text;
-                int indexMaNV = bdsNV.Find("MANV", txtMaNV.Text);
-                if (indexMaNV != -1)
-                {
-                    MessageBox.Show("Mã nhân viên đã tồn tại!", "Thông báo",
-                        MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                    return;
-                }
-                // == Query tìm MANV ==
                 String query_MANV = "DECLARE @return_value int  EXEC @return_value = [dbo].[SP_KTTrungNV] @MaNV "
                    + "SELECT 'Return Value' = @return_value";
                 SqlCommand sqlCommand = new SqlCommand(query_MANV, Program.con);
@@ -349,7 +340,7 @@ namespace QLVT_DH
                     }
                     groupControl1.Enabled = false;
                     btnThem.Enabled = btnXoa.Enabled = btnReload.Enabled = btnThoat.Enabled = true;
-                    btnGhi.Enabled =false;
+                    btnGhi.Enabled = false;
 
                 }
                 if (statement.Equals("DELETE"))
@@ -391,7 +382,7 @@ namespace QLVT_DH
 
 
                     if (Program.KetNoi() == 0)
-                        MessageBox.Show("Lỗi kết nối về chi nhánh mới", "", MessageBoxButtons.OK);
+                        MessageBox.Show("Lỗi kết nối", "", MessageBoxButtons.OK);
                     String maNV = info_CN[0].ToString();
                     String maCN = "";
                     if (info_CN[1].ToString().Contains("2")) maCN = "CN1";
@@ -406,7 +397,7 @@ namespace QLVT_DH
                     try
                     {
                         myReader = cmd.ExecuteReader();
-                        MessageBox.Show("Chuyển nhân viên trở về thành công", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        MessageBox.Show("Chuyển nhân viên trở về thành công!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
                         this.nhanVienTableAdapter.Fill(this.DS.NhanVien);
                     }
                     catch (Exception ex)
@@ -421,7 +412,7 @@ namespace QLVT_DH
                             Program.mLogin = Program.mloginDN;
                             Program.passwd = Program.passwdDN;
                             if (Program.KetNoi() == 0)
-                                MessageBox.Show("Lỗi kết nối về chi nhánh mới", "", MessageBoxButtons.OK);
+                                MessageBox.Show("Lỗi kết nối", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                         }
 
                     }
