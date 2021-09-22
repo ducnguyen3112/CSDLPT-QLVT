@@ -210,18 +210,54 @@ namespace QLVT_DH
                 this.phieuNhapTableAdapter.Fill(this.DS.PhieuNhap);
             }
         }
+        String CNchuyen;
+        public void getServer(String index)
+        {
+            CNchuyen = index;
+            if (CNchuyen != Program.serverName)
+            {
+                String maCN = "";
+                if (CNchuyen.Contains("2")) maCN = "CN2";
+                else if (CNchuyen.Contains("1")) maCN = "CN1";
 
+                String maNV = ((DataRowView)bdsNV[bdsNV.Position])["MANV"].ToString();
+                Console.WriteLine(maNV);
+                Program.con = new SqlConnection(Program.constr);
+                Program.con.Open();
+                SqlCommand cmd = new SqlCommand("SP_ChuyenCN", Program.con);
+                cmd.CommandType = CommandType.StoredProcedure;
+                cmd.Parameters.Add(new SqlParameter("@MANV", maNV));
+                cmd.Parameters.Add(new SqlParameter("@MACN", maCN));
+                SqlDataReader myReader = null;
+                try
+                {
+                    myReader = cmd.ExecuteReader();
+                    MessageBox.Show("Chuyển nhân viên thành công!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    stack.Push(maNV + "#" + CNchuyen);
+                    stack.Push("CHUYENCN");
+                    this.nhanVienTableAdapter.Fill(this.DS.NhanVien);
+                    btnUndo.Enabled = true;
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show(ex.Message);
+                }
+            }
+            else MessageBox.Show("Vui lòng chọn CN khác chi nhánh hiện tại", "Cảnh báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+        }
         private void btnChuyen_Click(object sender, EventArgs e)
         {
             int trangThaiXoa = int.Parse(((DataRowView)bdsNV[bdsNV.Position])["TrangThaiXoa"].ToString());
             if (trangThaiXoa == 0)
             {
                 FormChuyenCN chuyenCN = new FormChuyenCN();
+                chuyenCN.server = new FormChuyenCN.getCN(getServer);
                 chuyenCN.ShowDialog();
+              
             }
             else
             {
-                MessageBox.Show("Nhân viên hiện không có ở chi nhánh này", "Cảnh báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                MessageBox.Show("Nhân viên hiện không có ở chi nhánh này!", "Cảnh báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;
             }
         }

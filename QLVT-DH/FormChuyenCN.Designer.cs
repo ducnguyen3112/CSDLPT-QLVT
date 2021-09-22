@@ -65,6 +65,7 @@ namespace QLVT_DH
             this.btnChuyen.Size = new System.Drawing.Size(276, 47);
             this.btnChuyen.TabIndex = 4;
             this.btnChuyen.Text = "CHUYỂN";
+            this.btnChuyen.Click += new System.EventHandler(this.btnChuyen_Click);
             // 
             // cbChuyenCN
             // 
