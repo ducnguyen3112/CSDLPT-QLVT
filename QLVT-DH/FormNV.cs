@@ -91,14 +91,14 @@ namespace QLVT_DH
             txtNgaySinh.EditValue = "";
             cbXoa.Checked = false;
             btnThem.Enabled = btnXoa.Enabled = btnReload.Enabled = btnThoat.Enabled = gcNV.Enabled = btnSua.Enabled = false;
-            btnGhi.Enabled = btnUndo.Enabled = true;
+            btnGhi.Enabled = btnUndo.Enabled = txtMaNV.Enabled = txtMaCN.Enabled = true;
             txtMaNV.Focus();
         }
 
         private void btnXoa_Click(object sender, EventArgs e)
         {
             string maNV = "";
-            if (Program.userName== ((DataRowView)bdsNV[bdsNV.Position])["MANV"].ToString())
+            if (Program.userName == ((DataRowView)bdsNV[bdsNV.Position])["MANV"].ToString())
             {
                 MessageBox.Show("Không thể xoá nhân viên đang đăng nhập", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
@@ -534,9 +534,6 @@ namespace QLVT_DH
             txtMaNV.Focus();
         }
 
-        private void btnUndo_Click(object sender, EventArgs e)
-        {
 
-        }
     }
 }
