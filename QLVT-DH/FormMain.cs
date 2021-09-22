@@ -31,6 +31,7 @@ namespace QLVT_DH
             FormNV fNV = new FormNV();
             fNV.MdiParent = this;
             fNV.Show();
+            Cursor = Cursors.Default;
         }
 
         private void barButtonItem3_ItemClick(object sender, ItemClickEventArgs e)

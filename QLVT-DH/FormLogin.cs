@@ -64,6 +64,7 @@ namespace QLVT_DH
 
         private void cbChiNhanh_SelectedIndexChanged(object sender, EventArgs e)
         {
+            txtUserName.Text = txtPasswd.Text = "";
             try
             {
                 Program.serverName = cbChiNhanh.SelectedValue.ToString();
@@ -103,7 +104,7 @@ namespace QLVT_DH
             Program.mloginDN = Program.mLogin;
             Program.passwdDN = Program.passwd;
             string spStr = "EXEC SP_LayThongTinNVTuLogin '" + Program.mLogin + "'";
-
+            Cursor = Cursors.WaitCursor;
             Program.myReader = Program.ExecSqlDataReader(spStr);
             if (Program.myReader == null)
             {

@@ -293,6 +293,16 @@ namespace QLVT_DH.Properties {
         /// <summary>
         ///   Looks up a localized resource of type DevExpress.Utils.Svg.SvgImage.
         /// </summary>
+        internal static DevExpress.Utils.Svg.SvgImage writing {
+            get {
+                object obj = ResourceManager.GetObject("writing", resourceCulture);
+                return ((DevExpress.Utils.Svg.SvgImage)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type DevExpress.Utils.Svg.SvgImage.
+        /// </summary>
         internal static DevExpress.Utils.Svg.SvgImage x_mark {
             get {
                 object obj = ResourceManager.GetObject("x-mark", resourceCulture);
