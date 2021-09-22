@@ -36,7 +36,17 @@ namespace QLVT_DH
 
         private void barButtonItem3_ItemClick(object sender, ItemClickEventArgs e)
         {
-            
+            Form frm = this.CheckExists(typeof(FormKho));
+            if (frm != null)
+            {
+                frm.Activate();
+            }
+            else
+            {
+                FormKho fKho = new FormKho();
+                fKho.MdiParent = this;
+                fKho.Show();
+            }
         }
 
         private void barButtonItem1_ItemClick(object sender, ItemClickEventArgs e)

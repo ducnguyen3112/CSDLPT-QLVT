@@ -533,5 +533,10 @@ namespace QLVT_DH
             btnGhi.Enabled = btnUndo.Enabled = true;
             txtMaNV.Focus();
         }
+
+        private void btnUndo_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
