@@ -27,7 +27,7 @@ namespace QLVT_DH
 
         private void FormMain_Load(object sender, EventArgs e)
         {
-            lbUserinfo.Text= "Mã NV:" + Program.userName + " | Họ tên:" + Program.mHoTen + " | Nhóm:" + Program.mGroup;
+            lbUserinfo.Text = "Mã NV:" + Program.userName + " | Họ tên:" + Program.mHoTen + " | Nhóm:" + Program.mGroup;
             FormNV fNV = new FormNV();
             fNV.MdiParent = this;
             fNV.Show();
@@ -52,7 +52,7 @@ namespace QLVT_DH
         private void barButtonItem1_ItemClick(object sender, ItemClickEventArgs e)
         {
             Form frm = this.CheckExists(typeof(FormNV));
-            if (frm!=null)
+            if (frm != null)
             {
                 frm.Activate();
             }
@@ -67,8 +67,21 @@ namespace QLVT_DH
 
         private void barButtonItem6_ItemClick(object sender, ItemClickEventArgs e)
         {
+
             this.Close();
 
+
+        }
+
+        private void barButtonItem5_ItemClick(object sender, ItemClickEventArgs e)
+        {
+            if (Program.mGroup.Equals("USER"))
+            {
+                MessageBox.Show("Bạn không có quyền tạo login.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                return;
+            }
+            FormTaoLogin fTaoLogin = new FormTaoLogin();
+            fTaoLogin.ShowDialog();
         }
     }
 }

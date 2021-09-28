@@ -53,9 +53,9 @@ namespace QLVT_DH
             this.tableAdapterManager = new QLVT_DH.DSTableAdapters.TableAdapterManager();
             this.gcNV = new DevExpress.XtraGrid.GridControl();
             this.gridView1 = new DevExpress.XtraGrid.Views.Grid.GridView();
-            this.colMANV = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colHO = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colTEN = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.colMANV = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colDIACHI = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colNGAYSINH = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colLUONG = new DevExpress.XtraGrid.Columns.GridColumn();
@@ -329,10 +329,10 @@ namespace QLVT_DH
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.gcNV.DataSource = this.bdsNV;
-            this.gcNV.Location = new System.Drawing.Point(0, 72);
+            this.gcNV.Location = new System.Drawing.Point(12, 72);
             this.gcNV.MainView = this.gridView1;
             this.gcNV.Name = "gcNV";
-            this.gcNV.Size = new System.Drawing.Size(1524, 352);
+            this.gcNV.Size = new System.Drawing.Size(1513, 352);
             this.gcNV.TabIndex = 3;
             this.gcNV.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gridView1});
@@ -352,24 +352,6 @@ namespace QLVT_DH
             this.gridView1.Name = "gridView1";
             this.gridView1.OptionsBehavior.Editable = false;
             this.gridView1.OptionsView.ShowGroupPanel = false;
-            // 
-            // colMANV
-            // 
-            this.colMANV.AppearanceHeader.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.colMANV.AppearanceHeader.Font = new System.Drawing.Font("Times New Roman", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.colMANV.AppearanceHeader.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(90)))), ((int)(((byte)(158)))));
-            this.colMANV.AppearanceHeader.Options.UseBorderColor = true;
-            this.colMANV.AppearanceHeader.Options.UseFont = true;
-            this.colMANV.AppearanceHeader.Options.UseForeColor = true;
-            this.colMANV.AppearanceHeader.Options.UseTextOptions = true;
-            this.colMANV.AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
-            this.colMANV.Caption = "Mã NV";
-            this.colMANV.FieldName = "MANV";
-            this.colMANV.MinWidth = 25;
-            this.colMANV.Name = "colMANV";
-            this.colMANV.Visible = true;
-            this.colMANV.VisibleIndex = 0;
-            this.colMANV.Width = 94;
             // 
             // colHO
             // 
@@ -406,6 +388,24 @@ namespace QLVT_DH
             this.colTEN.Visible = true;
             this.colTEN.VisibleIndex = 2;
             this.colTEN.Width = 94;
+            // 
+            // colMANV
+            // 
+            this.colMANV.AppearanceHeader.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.colMANV.AppearanceHeader.Font = new System.Drawing.Font("Times New Roman", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.colMANV.AppearanceHeader.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(90)))), ((int)(((byte)(158)))));
+            this.colMANV.AppearanceHeader.Options.UseBorderColor = true;
+            this.colMANV.AppearanceHeader.Options.UseFont = true;
+            this.colMANV.AppearanceHeader.Options.UseForeColor = true;
+            this.colMANV.AppearanceHeader.Options.UseTextOptions = true;
+            this.colMANV.AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
+            this.colMANV.Caption = "Mã NV";
+            this.colMANV.FieldName = "MANV";
+            this.colMANV.MinWidth = 25;
+            this.colMANV.Name = "colMANV";
+            this.colMANV.Visible = true;
+            this.colMANV.VisibleIndex = 0;
+            this.colMANV.Width = 94;
             // 
             // colDIACHI
             // 
@@ -603,9 +603,9 @@ namespace QLVT_DH
             | System.Windows.Forms.AnchorStyles.Right)));
             this.panelControl2.Controls.Add(this.cbChiNhanh);
             this.panelControl2.Controls.Add(this.labelControl1);
-            this.panelControl2.Location = new System.Drawing.Point(0, 30);
+            this.panelControl2.Location = new System.Drawing.Point(0, 39);
             this.panelControl2.Name = "panelControl2";
-            this.panelControl2.Size = new System.Drawing.Size(1537, 42);
+            this.panelControl2.Size = new System.Drawing.Size(1537, 34);
             this.panelControl2.TabIndex = 2;
             // 
             // cbChiNhanh

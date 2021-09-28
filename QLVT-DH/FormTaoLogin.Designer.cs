@@ -29,20 +29,33 @@ namespace QLVT_DH
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.labelControl1 = new DevExpress.XtraEditors.LabelControl();
             this.cbNhom = new System.Windows.Forms.ComboBox();
             this.txtLogin = new DevExpress.XtraEditors.TextEdit();
             this.txtPasswd = new DevExpress.XtraEditors.TextEdit();
-            this.cbNV = new System.Windows.Forms.ComboBox();
-            this.cbChiNhanh = new System.Windows.Forms.ComboBox();
+            this.bdsTENNV = new System.Windows.Forms.BindingSource(this.components);
+            this.DS = new QLVT_DH.DS();
+            this.cbCN = new System.Windows.Forms.ComboBox();
+            this.get_SubscribesBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.DSPM = new QLVT_DH.DSPM();
             this.btnTao = new DevExpress.XtraEditors.SimpleButton();
             this.labelControl2 = new DevExpress.XtraEditors.LabelControl();
             this.labelControl3 = new DevExpress.XtraEditors.LabelControl();
             this.labelControl4 = new DevExpress.XtraEditors.LabelControl();
             this.labelControl5 = new DevExpress.XtraEditors.LabelControl();
             this.labelControl6 = new DevExpress.XtraEditors.LabelControl();
+            this.TENNVTableAdapter = new QLVT_DH.DSTableAdapters.V_DS_TENNVTableAdapter();
+            this.tableAdapterManager = new QLVT_DH.DSTableAdapters.TableAdapterManager();
+            this.get_SubscribesTableAdapter = new QLVT_DH.DSPMTableAdapters.Get_SubscribesTableAdapter();
+            this.tableAdapterManager1 = new QLVT_DH.DSPMTableAdapters.TableAdapterManager();
+            this.cbTENNV = new System.Windows.Forms.ComboBox();
             ((System.ComponentModel.ISupportInitialize)(this.txtLogin.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtPasswd.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.bdsTENNV)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.DS)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.get_SubscribesBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.DSPM)).BeginInit();
             this.SuspendLayout();
             // 
             // labelControl1
@@ -56,8 +69,14 @@ namespace QLVT_DH
             // 
             // cbNhom
             // 
+            this.cbNhom.Cursor = System.Windows.Forms.Cursors.Arrow;
+            this.cbNhom.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbNhom.Font = new System.Drawing.Font("Roboto Mono", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cbNhom.FormattingEnabled = true;
+            this.cbNhom.Items.AddRange(new object[] {
+            "CONGTY",
+            "CHINHANH",
+            "USER"});
             this.cbNhom.Location = new System.Drawing.Point(72, 261);
             this.cbNhom.Name = "cbNhom";
             this.cbNhom.Size = new System.Drawing.Size(271, 34);
@@ -81,23 +100,37 @@ namespace QLVT_DH
             this.txtPasswd.Size = new System.Drawing.Size(271, 32);
             this.txtPasswd.TabIndex = 3;
             // 
-            // cbNV
+            // bdsTENNV
             // 
-            this.cbNV.Font = new System.Drawing.Font("Roboto Mono", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cbNV.FormattingEnabled = true;
-            this.cbNV.Location = new System.Drawing.Point(72, 301);
-            this.cbNV.Name = "cbNV";
-            this.cbNV.Size = new System.Drawing.Size(271, 34);
-            this.cbNV.TabIndex = 4;
+            this.bdsTENNV.DataMember = "V_DS_TENNV";
+            this.bdsTENNV.DataSource = this.DS;
             // 
-            // cbChiNhanh
+            // DS
             // 
-            this.cbChiNhanh.Font = new System.Drawing.Font("Roboto Mono", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cbChiNhanh.FormattingEnabled = true;
-            this.cbChiNhanh.Location = new System.Drawing.Point(72, 186);
-            this.cbChiNhanh.Name = "cbChiNhanh";
-            this.cbChiNhanh.Size = new System.Drawing.Size(271, 34);
-            this.cbChiNhanh.TabIndex = 5;
+            this.DS.DataSetName = "DS";
+            this.DS.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
+            // cbCN
+            // 
+            this.cbCN.BackColor = System.Drawing.Color.White;
+            this.cbCN.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cbCN.Font = new System.Drawing.Font("Roboto Mono", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cbCN.FormattingEnabled = true;
+            this.cbCN.Location = new System.Drawing.Point(72, 186);
+            this.cbCN.Name = "cbCN";
+            this.cbCN.Size = new System.Drawing.Size(271, 34);
+            this.cbCN.TabIndex = 5;
+            this.cbCN.SelectedIndexChanged += new System.EventHandler(this.cbCN_SelectedIndexChanged);
+            // 
+            // get_SubscribesBindingSource
+            // 
+            this.get_SubscribesBindingSource.DataMember = "Get_Subscribes";
+            this.get_SubscribesBindingSource.DataSource = this.DSPM;
+            // 
+            // DSPM
+            // 
+            this.DSPM.DataSetName = "DSPM";
+            this.DSPM.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
             // 
             // btnTao
             // 
@@ -110,6 +143,7 @@ namespace QLVT_DH
             this.btnTao.Size = new System.Drawing.Size(271, 63);
             this.btnTao.TabIndex = 6;
             this.btnTao.Text = "TẠO TÀI KHOẢN";
+            this.btnTao.Click += new System.EventHandler(this.btnTao_Click);
             // 
             // labelControl2
             // 
@@ -156,28 +190,76 @@ namespace QLVT_DH
             this.labelControl6.Size = new System.Drawing.Size(25, 25);
             this.labelControl6.TabIndex = 11;
             // 
+            // TENNVTableAdapter
+            // 
+            this.TENNVTableAdapter.ClearBeforeFill = true;
+            // 
+            // tableAdapterManager
+            // 
+            this.tableAdapterManager.BackupDataSetBeforeUpdate = false;
+            this.tableAdapterManager.ChiNhanhTableAdapter = null;
+            this.tableAdapterManager.Connection = null;
+            this.tableAdapterManager.CTDDHTableAdapter = null;
+            this.tableAdapterManager.CTPNTableAdapter = null;
+            this.tableAdapterManager.CTPXTableAdapter = null;
+            this.tableAdapterManager.DatHangTableAdapter = null;
+            this.tableAdapterManager.KhoTableAdapter = null;
+            this.tableAdapterManager.NhanVienTableAdapter = null;
+            this.tableAdapterManager.PhieuNhapTableAdapter = null;
+            this.tableAdapterManager.PhieuXuatTableAdapter = null;
+            this.tableAdapterManager.UpdateOrder = QLVT_DH.DSTableAdapters.TableAdapterManager.UpdateOrderOption.InsertUpdateDelete;
+            this.tableAdapterManager.VattuTableAdapter = null;
+            // 
+            // get_SubscribesTableAdapter
+            // 
+            this.get_SubscribesTableAdapter.ClearBeforeFill = true;
+            // 
+            // tableAdapterManager1
+            // 
+            this.tableAdapterManager1.BackupDataSetBeforeUpdate = false;
+            this.tableAdapterManager1.Connection = null;
+            this.tableAdapterManager1.UpdateOrder = QLVT_DH.DSPMTableAdapters.TableAdapterManager.UpdateOrderOption.InsertUpdateDelete;
+            // 
+            // cbTENNV
+            // 
+            this.cbTENNV.DataSource = this.bdsTENNV;
+            this.cbTENNV.DisplayMember = "HOTEN";
+            this.cbTENNV.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cbTENNV.Font = new System.Drawing.Font("Roboto Mono", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cbTENNV.FormattingEnabled = true;
+            this.cbTENNV.Location = new System.Drawing.Point(72, 301);
+            this.cbTENNV.Name = "cbTENNV";
+            this.cbTENNV.Size = new System.Drawing.Size(271, 34);
+            this.cbTENNV.TabIndex = 12;
+            this.cbTENNV.ValueMember = "MANV";
+            // 
             // FormTaoLogin
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(419, 545);
+            this.ClientSize = new System.Drawing.Size(429, 545);
+            this.Controls.Add(this.cbTENNV);
             this.Controls.Add(this.labelControl6);
             this.Controls.Add(this.labelControl5);
             this.Controls.Add(this.labelControl4);
             this.Controls.Add(this.labelControl3);
             this.Controls.Add(this.labelControl2);
             this.Controls.Add(this.btnTao);
-            this.Controls.Add(this.cbChiNhanh);
-            this.Controls.Add(this.cbNV);
+            this.Controls.Add(this.cbCN);
             this.Controls.Add(this.txtPasswd);
             this.Controls.Add(this.txtLogin);
             this.Controls.Add(this.cbNhom);
             this.Controls.Add(this.labelControl1);
             this.Name = "FormTaoLogin";
-            this.Text = "FormTaoLogin";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
+            this.Text = "Tạo tài khoản đăng nhập";
             this.Load += new System.EventHandler(this.FormTaoLogin_Load);
             ((System.ComponentModel.ISupportInitialize)(this.txtLogin.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtPasswd.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.bdsTENNV)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.DS)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.get_SubscribesBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.DSPM)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -189,13 +271,21 @@ namespace QLVT_DH
         private System.Windows.Forms.ComboBox cbNhom;
         private DevExpress.XtraEditors.TextEdit txtLogin;
         private DevExpress.XtraEditors.TextEdit txtPasswd;
-        private System.Windows.Forms.ComboBox cbNV;
-        private System.Windows.Forms.ComboBox cbChiNhanh;
+        private System.Windows.Forms.ComboBox cbCN;
         private DevExpress.XtraEditors.SimpleButton btnTao;
         private DevExpress.XtraEditors.LabelControl labelControl2;
         private DevExpress.XtraEditors.LabelControl labelControl3;
         private DevExpress.XtraEditors.LabelControl labelControl4;
         private DevExpress.XtraEditors.LabelControl labelControl5;
         private DevExpress.XtraEditors.LabelControl labelControl6;
+        private DS DS;
+        private System.Windows.Forms.BindingSource bdsTENNV;
+        private DSTableAdapters.V_DS_TENNVTableAdapter TENNVTableAdapter;
+        private DSTableAdapters.TableAdapterManager tableAdapterManager;
+        private DSPM DSPM;
+        private System.Windows.Forms.BindingSource get_SubscribesBindingSource;
+        private DSPMTableAdapters.Get_SubscribesTableAdapter get_SubscribesTableAdapter;
+        private DSPMTableAdapters.TableAdapterManager tableAdapterManager1;
+        private System.Windows.Forms.ComboBox cbTENNV;
     }
 }
