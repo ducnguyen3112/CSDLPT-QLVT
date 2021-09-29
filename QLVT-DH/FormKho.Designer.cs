@@ -35,6 +35,7 @@ namespace QLVT_DH
             System.Windows.Forms.Label tENKHOLabel;
             System.Windows.Forms.Label dIACHILabel;
             this.panelControl1 = new DevExpress.XtraEditors.PanelControl();
+            this.btnSua = new DevExpress.XtraEditors.SimpleButton();
             this.btnThoat = new DevExpress.XtraEditors.SimpleButton();
             this.btnReload = new DevExpress.XtraEditors.SimpleButton();
             this.btnUndo = new DevExpress.XtraEditors.SimpleButton();
@@ -126,6 +127,7 @@ namespace QLVT_DH
             // 
             this.panelControl1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
+            this.panelControl1.Controls.Add(this.btnSua);
             this.panelControl1.Controls.Add(this.btnThoat);
             this.panelControl1.Controls.Add(this.btnReload);
             this.panelControl1.Controls.Add(this.btnUndo);
@@ -137,12 +139,24 @@ namespace QLVT_DH
             this.panelControl1.Size = new System.Drawing.Size(1537, 36);
             this.panelControl1.TabIndex = 0;
             // 
+            // btnSua
+            // 
+            this.btnSua.ImageOptions.ImageToTextAlignment = DevExpress.XtraEditors.ImageAlignToText.LeftCenter;
+            this.btnSua.ImageOptions.SvgImage = global::QLVT_DH.Properties.Resources.writing;
+            this.btnSua.ImageOptions.SvgImageSize = new System.Drawing.Size(15, 15);
+            this.btnSua.Location = new System.Drawing.Point(133, 4);
+            this.btnSua.Name = "btnSua";
+            this.btnSua.Size = new System.Drawing.Size(121, 29);
+            this.btnSua.TabIndex = 6;
+            this.btnSua.Text = "Sửa";
+            this.btnSua.Click += new System.EventHandler(this.btnSua_Click);
+            // 
             // btnThoat
             // 
             this.btnThoat.ImageOptions.ImageToTextAlignment = DevExpress.XtraEditors.ImageAlignToText.LeftCenter;
             this.btnThoat.ImageOptions.SvgImage = global::QLVT_DH.Properties.Resources.logout;
             this.btnThoat.ImageOptions.SvgImageSize = new System.Drawing.Size(15, 15);
-            this.btnThoat.Location = new System.Drawing.Point(641, 4);
+            this.btnThoat.Location = new System.Drawing.Point(768, 4);
             this.btnThoat.Name = "btnThoat";
             this.btnThoat.Size = new System.Drawing.Size(121, 29);
             this.btnThoat.TabIndex = 5;
@@ -154,7 +168,7 @@ namespace QLVT_DH
             this.btnReload.ImageOptions.ImageToTextAlignment = DevExpress.XtraEditors.ImageAlignToText.LeftCenter;
             this.btnReload.ImageOptions.SvgImage = global::QLVT_DH.Properties.Resources.refresh;
             this.btnReload.ImageOptions.SvgImageSize = new System.Drawing.Size(15, 15);
-            this.btnReload.Location = new System.Drawing.Point(514, 4);
+            this.btnReload.Location = new System.Drawing.Point(641, 4);
             this.btnReload.Name = "btnReload";
             this.btnReload.Size = new System.Drawing.Size(121, 29);
             this.btnReload.TabIndex = 4;
@@ -166,7 +180,7 @@ namespace QLVT_DH
             this.btnUndo.ImageOptions.ImageToTextAlignment = DevExpress.XtraEditors.ImageAlignToText.LeftCenter;
             this.btnUndo.ImageOptions.SvgImage = global::QLVT_DH.Properties.Resources.undo_arrow;
             this.btnUndo.ImageOptions.SvgImageSize = new System.Drawing.Size(15, 15);
-            this.btnUndo.Location = new System.Drawing.Point(387, 4);
+            this.btnUndo.Location = new System.Drawing.Point(514, 4);
             this.btnUndo.Name = "btnUndo";
             this.btnUndo.Size = new System.Drawing.Size(121, 29);
             this.btnUndo.TabIndex = 3;
@@ -178,7 +192,7 @@ namespace QLVT_DH
             this.btnGhi.ImageOptions.ImageToTextAlignment = DevExpress.XtraEditors.ImageAlignToText.LeftCenter;
             this.btnGhi.ImageOptions.SvgImage = global::QLVT_DH.Properties.Resources.save;
             this.btnGhi.ImageOptions.SvgImageSize = new System.Drawing.Size(15, 15);
-            this.btnGhi.Location = new System.Drawing.Point(260, 4);
+            this.btnGhi.Location = new System.Drawing.Point(387, 4);
             this.btnGhi.Name = "btnGhi";
             this.btnGhi.Size = new System.Drawing.Size(121, 29);
             this.btnGhi.TabIndex = 2;
@@ -190,7 +204,7 @@ namespace QLVT_DH
             this.btnXoa.ImageOptions.ImageToTextAlignment = DevExpress.XtraEditors.ImageAlignToText.LeftCenter;
             this.btnXoa.ImageOptions.SvgImage = global::QLVT_DH.Properties.Resources.remove;
             this.btnXoa.ImageOptions.SvgImageSize = new System.Drawing.Size(15, 15);
-            this.btnXoa.Location = new System.Drawing.Point(133, 4);
+            this.btnXoa.Location = new System.Drawing.Point(260, 4);
             this.btnXoa.Name = "btnXoa";
             this.btnXoa.Size = new System.Drawing.Size(121, 29);
             this.btnXoa.TabIndex = 1;
@@ -270,10 +284,10 @@ namespace QLVT_DH
             // gcKho
             // 
             this.gcKho.DataSource = this.bdsKho;
-            this.gcKho.Location = new System.Drawing.Point(0, 72);
+            this.gcKho.Location = new System.Drawing.Point(0, 69);
             this.gcKho.MainView = this.gridView1;
             this.gcKho.Name = "gcKho";
-            this.gcKho.Size = new System.Drawing.Size(1537, 352);
+            this.gcKho.Size = new System.Drawing.Size(1537, 355);
             this.gcKho.TabIndex = 3;
             this.gcKho.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gridView1});
@@ -477,5 +491,6 @@ namespace QLVT_DH
         private DSTableAdapters.PhieuNhapTableAdapter phieuNhapTableAdapter;
         private System.Windows.Forms.BindingSource bdsDH;
         private DSTableAdapters.DatHangTableAdapter datHangTableAdapter;
+        private DevExpress.XtraEditors.SimpleButton btnSua;
     }
 }
