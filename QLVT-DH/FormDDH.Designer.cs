@@ -64,10 +64,10 @@ namespace QLVT_DH
             this.colSOLUONG = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colDONGIA = new DevExpress.XtraGrid.Columns.GridColumn();
             this.gbInfoDDH = new System.Windows.Forms.GroupBox();
-            this.cTDDHTableAdapter = new QLVT_DH.DSTableAdapters.CTDDHTableAdapter();
-            this.masoDDHComboBox = new System.Windows.Forms.ComboBox();
-            this.nhaCCTextEdit = new DevExpress.XtraEditors.TextEdit();
             this.mAKHOTextEdit = new DevExpress.XtraEditors.TextEdit();
+            this.nhaCCTextEdit = new DevExpress.XtraEditors.TextEdit();
+            this.masoDDHComboBox = new System.Windows.Forms.ComboBox();
+            this.cTDDHTableAdapter = new QLVT_DH.DSTableAdapters.CTDDHTableAdapter();
             masoDDHLabel = new System.Windows.Forms.Label();
             nhaCCLabel = new System.Windows.Forms.Label();
             mAKHOLabel = new System.Windows.Forms.Label();
@@ -85,9 +85,36 @@ namespace QLVT_DH
             ((System.ComponentModel.ISupportInitialize)(this.bdsCTDDH)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridView2)).BeginInit();
             this.gbInfoDDH.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.nhaCCTextEdit.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.mAKHOTextEdit.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.nhaCCTextEdit.Properties)).BeginInit();
             this.SuspendLayout();
+            // 
+            // masoDDHLabel
+            // 
+            masoDDHLabel.AutoSize = true;
+            masoDDHLabel.Location = new System.Drawing.Point(104, 28);
+            masoDDHLabel.Name = "masoDDHLabel";
+            masoDDHLabel.Size = new System.Drawing.Size(63, 17);
+            masoDDHLabel.TabIndex = 0;
+            masoDDHLabel.Text = "Mã DDH:";
+            // 
+            // nhaCCLabel
+            // 
+            nhaCCLabel.AutoSize = true;
+            nhaCCLabel.Location = new System.Drawing.Point(104, 85);
+            nhaCCLabel.Name = "nhaCCLabel";
+            nhaCCLabel.Size = new System.Drawing.Size(98, 17);
+            nhaCCLabel.TabIndex = 2;
+            nhaCCLabel.Text = "Nhà cung cấp:";
+            // 
+            // mAKHOLabel
+            // 
+            mAKHOLabel.AutoSize = true;
+            mAKHOLabel.Location = new System.Drawing.Point(104, 142);
+            mAKHOLabel.Name = "mAKHOLabel";
+            mAKHOLabel.Size = new System.Drawing.Size(58, 17);
+            mAKHOLabel.TabIndex = 4;
+            mAKHOLabel.Text = "MAKHO:";
             // 
             // panelControl1
             // 
@@ -329,10 +356,10 @@ namespace QLVT_DH
             // gridCTDDH
             // 
             this.gridCTDDH.DataSource = this.bdsCTDDH;
-            this.gridCTDDH.Location = new System.Drawing.Point(711, 28);
+            this.gridCTDDH.Location = new System.Drawing.Point(641, 31);
             this.gridCTDDH.MainView = this.gridView2;
             this.gridCTDDH.Name = "gridCTDDH";
-            this.gridCTDDH.Size = new System.Drawing.Size(826, 223);
+            this.gridCTDDH.Size = new System.Drawing.Size(896, 220);
             this.gridCTDDH.TabIndex = 1;
             this.gridCTDDH.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gridView2});
@@ -406,66 +433,39 @@ namespace QLVT_DH
             this.gbInfoDDH.Dock = System.Windows.Forms.DockStyle.Left;
             this.gbInfoDDH.Location = new System.Drawing.Point(2, 28);
             this.gbInfoDDH.Name = "gbInfoDDH";
-            this.gbInfoDDH.Size = new System.Drawing.Size(710, 223);
+            this.gbInfoDDH.Size = new System.Drawing.Size(633, 223);
             this.gbInfoDDH.TabIndex = 0;
             this.gbInfoDDH.TabStop = false;
             this.gbInfoDDH.Text = "Thông Tin";
             // 
-            // cTDDHTableAdapter
+            // mAKHOTextEdit
             // 
-            this.cTDDHTableAdapter.ClearBeforeFill = true;
+            this.mAKHOTextEdit.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.bdsDH, "MAKHO", true));
+            this.mAKHOTextEdit.Location = new System.Drawing.Point(107, 162);
+            this.mAKHOTextEdit.Name = "mAKHOTextEdit";
+            this.mAKHOTextEdit.Size = new System.Drawing.Size(399, 22);
+            this.mAKHOTextEdit.TabIndex = 5;
             // 
-            // masoDDHLabel
+            // nhaCCTextEdit
             // 
-            masoDDHLabel.AutoSize = true;
-            masoDDHLabel.Location = new System.Drawing.Point(121, 42);
-            masoDDHLabel.Name = "masoDDHLabel";
-            masoDDHLabel.Size = new System.Drawing.Size(77, 17);
-            masoDDHLabel.TabIndex = 0;
-            masoDDHLabel.Text = "Maso DDH:";
+            this.nhaCCTextEdit.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.bdsDH, "NhaCC", true));
+            this.nhaCCTextEdit.Location = new System.Drawing.Point(107, 105);
+            this.nhaCCTextEdit.Name = "nhaCCTextEdit";
+            this.nhaCCTextEdit.Size = new System.Drawing.Size(399, 22);
+            this.nhaCCTextEdit.TabIndex = 3;
             // 
             // masoDDHComboBox
             // 
             this.masoDDHComboBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.bdsDH, "MasoDDH", true));
             this.masoDDHComboBox.FormattingEnabled = true;
-            this.masoDDHComboBox.Location = new System.Drawing.Point(204, 39);
+            this.masoDDHComboBox.Location = new System.Drawing.Point(107, 48);
             this.masoDDHComboBox.Name = "masoDDHComboBox";
-            this.masoDDHComboBox.Size = new System.Drawing.Size(121, 24);
+            this.masoDDHComboBox.Size = new System.Drawing.Size(399, 24);
             this.masoDDHComboBox.TabIndex = 1;
             // 
-            // nhaCCLabel
+            // cTDDHTableAdapter
             // 
-            nhaCCLabel.AutoSize = true;
-            nhaCCLabel.Location = new System.Drawing.Point(133, 93);
-            nhaCCLabel.Name = "nhaCCLabel";
-            nhaCCLabel.Size = new System.Drawing.Size(59, 17);
-            nhaCCLabel.TabIndex = 2;
-            nhaCCLabel.Text = "Nha CC:";
-            // 
-            // nhaCCTextEdit
-            // 
-            this.nhaCCTextEdit.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.bdsDH, "NhaCC", true));
-            this.nhaCCTextEdit.Location = new System.Drawing.Point(198, 90);
-            this.nhaCCTextEdit.Name = "nhaCCTextEdit";
-            this.nhaCCTextEdit.Size = new System.Drawing.Size(125, 22);
-            this.nhaCCTextEdit.TabIndex = 3;
-            // 
-            // mAKHOLabel
-            // 
-            mAKHOLabel.AutoSize = true;
-            mAKHOLabel.Location = new System.Drawing.Point(134, 150);
-            mAKHOLabel.Name = "mAKHOLabel";
-            mAKHOLabel.Size = new System.Drawing.Size(58, 17);
-            mAKHOLabel.TabIndex = 4;
-            mAKHOLabel.Text = "MAKHO:";
-            // 
-            // mAKHOTextEdit
-            // 
-            this.mAKHOTextEdit.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.bdsDH, "MAKHO", true));
-            this.mAKHOTextEdit.Location = new System.Drawing.Point(198, 147);
-            this.mAKHOTextEdit.Name = "mAKHOTextEdit";
-            this.mAKHOTextEdit.Size = new System.Drawing.Size(125, 22);
-            this.mAKHOTextEdit.TabIndex = 5;
+            this.cTDDHTableAdapter.ClearBeforeFill = true;
             // 
             // FormDDH
             // 
@@ -500,8 +500,8 @@ namespace QLVT_DH
             ((System.ComponentModel.ISupportInitialize)(this.gridView2)).EndInit();
             this.gbInfoDDH.ResumeLayout(false);
             this.gbInfoDDH.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.nhaCCTextEdit.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.mAKHOTextEdit.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.nhaCCTextEdit.Properties)).EndInit();
             this.ResumeLayout(false);
 
         }

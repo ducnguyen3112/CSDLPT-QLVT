@@ -27,7 +27,7 @@ namespace QLVT_DH
 
         private void FormMain_Load(object sender, EventArgs e)
         {
-            lbUserinfo.Text= "Mã NV:" + Program.userName + " | Họ tên:" + Program.mHoTen + " | Nhóm:" + Program.mGroup;
+            lbUserinfo.Text = "Mã NV:" + Program.userName + " | Họ tên:" + Program.mHoTen + " | Nhóm:" + Program.mGroup;
             FormNV fNV = new FormNV();
             fNV.MdiParent = this;
             fNV.Show();
@@ -52,7 +52,7 @@ namespace QLVT_DH
         private void barButtonItem1_ItemClick(object sender, ItemClickEventArgs e)
         {
             Form frm = this.CheckExists(typeof(FormNV));
-            if (frm!=null)
+            if (frm != null)
             {
                 frm.Activate();
             }
@@ -71,7 +71,8 @@ namespace QLVT_DH
 
         }
 
-        private void barButtonItem4_ItemClick(object sender, ItemClickEventArgs e)
+
+        private void btnDDH_ItemClick(object sender, ItemClickEventArgs e)
         {
             Form form = this.CheckExists(typeof(FormDDH));
             if (form != null) form.Activate();
@@ -83,7 +84,7 @@ namespace QLVT_DH
             }
         }
 
-        private void barButtonItem8_ItemClick(object sender, ItemClickEventArgs e)
+        private void btnPN_ItemClick(object sender, ItemClickEventArgs e)
         {
             Form form = this.CheckExists(typeof(FormPhieuNhap));
             if (form != null) form.Activate();
@@ -95,7 +96,7 @@ namespace QLVT_DH
             }
         }
 
-        private void barButtonItem10_ItemClick(object sender, ItemClickEventArgs e)
+        private void btnPX_ItemClick(object sender, ItemClickEventArgs e)
         {
             Form form = this.CheckExists(typeof(FormPhieuXuat));
             if (form != null) form.Activate();

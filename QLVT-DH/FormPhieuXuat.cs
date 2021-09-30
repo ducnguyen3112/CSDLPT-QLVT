@@ -28,10 +28,14 @@ namespace QLVT_DH
 
         private void FormPhieuXuat_Load(object sender, EventArgs e)
         {
+            dS.EnforceConstraints = false;
+            this.phieuXuatTableAdapter.Connection.ConnectionString = Program.constr;
+            this.phieuXuatTableAdapter.Fill(this.dS.PhieuXuat);
             // TODO: This line of code loads data into the 'dS.CTPX' table. You can move, or remove it, as needed.
+            this.cTPXTableAdapter.Connection.ConnectionString = Program.constr;
             this.cTPXTableAdapter.Fill(this.dS.CTPX);
             // TODO: This line of code loads data into the 'dS.PhieuXuat' table. You can move, or remove it, as needed.
-            this.phieuXuatTableAdapter.Fill(this.dS.PhieuXuat);
+
 
         }
     }
