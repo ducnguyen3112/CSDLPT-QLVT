@@ -67,8 +67,21 @@ namespace QLVT_DH
 
         private void barButtonItem6_ItemClick(object sender, ItemClickEventArgs e)
         {
+
             this.Close();
 
+
+        }
+
+        private void barButtonItem5_ItemClick(object sender, ItemClickEventArgs e)
+        {
+            if (Program.mGroup.Equals("USER"))
+            {
+                MessageBox.Show("Bạn không có quyền tạo login.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                return;
+            }
+            FormTaoLogin fTaoLogin = new FormTaoLogin();
+            fTaoLogin.ShowDialog();
         }
 
 

@@ -329,10 +329,10 @@ namespace QLVT_DH
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.gcNV.DataSource = this.bdsNV;
-            this.gcNV.Location = new System.Drawing.Point(0, 72);
+            this.gcNV.Location = new System.Drawing.Point(12, 72);
             this.gcNV.MainView = this.gridView1;
             this.gcNV.Name = "gcNV";
-            this.gcNV.Size = new System.Drawing.Size(1524, 352);
+            this.gcNV.Size = new System.Drawing.Size(1513, 352);
             this.gcNV.TabIndex = 3;
             this.gcNV.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gridView1});
@@ -603,9 +603,9 @@ namespace QLVT_DH
             | System.Windows.Forms.AnchorStyles.Right)));
             this.panelControl2.Controls.Add(this.cbChiNhanh);
             this.panelControl2.Controls.Add(this.labelControl1);
-            this.panelControl2.Location = new System.Drawing.Point(0, 30);
+            this.panelControl2.Location = new System.Drawing.Point(0, 39);
             this.panelControl2.Name = "panelControl2";
-            this.panelControl2.Size = new System.Drawing.Size(1537, 42);
+            this.panelControl2.Size = new System.Drawing.Size(1537, 34);
             this.panelControl2.TabIndex = 2;
             // 
             // cbChiNhanh
