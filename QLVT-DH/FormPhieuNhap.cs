@@ -29,6 +29,7 @@ namespace QLVT_DH
         private void FormPhieuNhap_Load(object sender, EventArgs e)
         {
             // TODO: This line of code loads data into the 'dS.CTPN' table. You can move, or remove it, as needed.
+
             this.cTPNTableAdapter.Fill(this.dS.CTPN);
             // TODO: This line of code loads data into the 'dS.PhieuNhap' table. You can move, or remove it, as needed.
             this.phieuNhapTableAdapter.Fill(this.dS.PhieuNhap);
