@@ -209,7 +209,7 @@ namespace QLVT_DH
                 Program.passwd = Program.passwdDN;
             }
             if (Program.KetNoi() == 0)
-                MessageBox.Show("Lỗi kết nối về chi nhánh mới", "", MessageBoxButtons.OK);
+                MessageBox.Show("Lỗi kết nối", "", MessageBoxButtons.OK);
             else
             {
                 this.nhanVienTableAdapter.Connection.ConnectionString = Program.constr;
