@@ -24,6 +24,9 @@ namespace QLVT_DH
         String THEM_BTN = "_&them"; // Click btn thêm
         String XOA_BTN = "_&xoa"; // Click btn xóa
         String GHI_BTN = "_&ghi"; // Click btn ghi
+
+
+
         public FormKho()
         {
             InitializeComponent();
@@ -56,31 +59,27 @@ namespace QLVT_DH
             // this.phieuNhapTableAdapter.Fill(this.DS.PhieuNhap);
             // TODO: This line of code loads data into the 'dS.DatHang' table. You can move, or remove it, as needed.
             //  this.datHangTableAdapter.Fill(this.DS.DatHang);
-           
 
-            this.cbChiNhanh.DataSource = Program.bds_dspm; // DataSource của comboBox_ChiNhanh tham chiếu đến bindingSource ở LoginForm
-            cbChiNhanh.DisplayMember = "TENCN";
-            cbChiNhanh.ValueMember = "TENSERVER";
-            cbChiNhanh.SelectedIndex = Program.mChiNhanh;
             if (Program.mGroup == "CONGTY")
             {
                 btnThem.Enabled = btnXoa.Enabled = btnGhi.Enabled = btnUndo.Enabled = false;
-                txtMaCN.Enabled =txtTenKho.Enabled = txtMaKho.Enabled = txtDiaChi.Enabled = false;
+                txtTenKho.Enabled = txtMaKho.Enabled = txtDiaChi.Enabled = false;
             }
             else if (Program.mGroup == "CHINHANH" || Program.mGroup == "USER")
             {
                 cbChiNhanh.Enabled = txtMaKho.Enabled = false;
             }
-            if (Program.mChiNhanh == 0)
-            {
-                maCN = "CN1";
-            }
-            else
-            {
-                maCN = "CN2";
-            }
+
+            maCN = (((DataRowView)bdsKho[0])["MACN"].ToString()); // lúc đúng lúc sai
+
+            this.cbChiNhanh.DataSource = Program.bds_dspm; // DataSource của comboBox_ChiNhanh tham chiếu đến bindingSource ở LoginForm
+            cbChiNhanh.DisplayMember = "TENCN";
+            cbChiNhanh.ValueMember = "TENSERVER";
+            cbChiNhanh.SelectedIndex = Program.mChiNhanh;
+
             //Mặc định vừa vào groupbox không dx hiện để tránh lỗi sửa các dòng cũ chưa lưu đi qua dòng khác
             btnUndo.Enabled = false;
+            //Program.flagCloseFormKho = true; //Khi load bật cho phép có thể đóng form
 
             history_kho = new Stack<string>();
         }
@@ -378,6 +377,11 @@ namespace QLVT_DH
             }
 
             if (bdsKho.Count == 0) btnXoa.Enabled = false;
+        }
+
+        private void btnSua_Click(object sender, EventArgs e)
+        {
+           
         }
     }
 }

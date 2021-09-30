@@ -70,5 +70,41 @@ namespace QLVT_DH
             this.Close();
 
         }
+
+        private void barButtonItem4_ItemClick(object sender, ItemClickEventArgs e)
+        {
+            Form form = this.CheckExists(typeof(FormDDH));
+            if (form != null) form.Activate();
+            else
+            {
+                FormDDH frmDDH = new FormDDH();
+                frmDDH.MdiParent = this;
+                frmDDH.Show();
+            }
+        }
+
+        private void barButtonItem8_ItemClick(object sender, ItemClickEventArgs e)
+        {
+            Form form = this.CheckExists(typeof(FormPhieuNhap));
+            if (form != null) form.Activate();
+            else
+            {
+                FormPhieuNhap frmPN = new FormPhieuNhap();
+                frmPN.MdiParent = this;
+                frmPN.Show();
+            }
+        }
+
+        private void barButtonItem10_ItemClick(object sender, ItemClickEventArgs e)
+        {
+            Form form = this.CheckExists(typeof(FormPhieuXuat));
+            if (form != null) form.Activate();
+            else
+            {
+                FormPhieuXuat frmPX = new FormPhieuXuat();
+                frmPX.MdiParent = this;
+                frmPX.Show();
+            }
+        }
     }
 }
