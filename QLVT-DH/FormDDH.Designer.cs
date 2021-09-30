@@ -44,7 +44,7 @@ namespace QLVT_DH
             this.panelControl2 = new DevExpress.XtraEditors.PanelControl();
             this.cbChiNhanh = new System.Windows.Forms.ComboBox();
             this.labelControl1 = new DevExpress.XtraEditors.LabelControl();
-            this.dS = new QLVT_DH.DS();
+            this.DS = new QLVT_DH.DS();
             this.bdsDH = new System.Windows.Forms.BindingSource(this.components);
             this.datHangTableAdapter = new QLVT_DH.DSTableAdapters.DatHangTableAdapter();
             this.tableAdapterManager = new QLVT_DH.DSTableAdapters.TableAdapterManager();
@@ -67,7 +67,7 @@ namespace QLVT_DH
             this.mAKHOTextEdit = new DevExpress.XtraEditors.TextEdit();
             this.nhaCCTextEdit = new DevExpress.XtraEditors.TextEdit();
             this.masoDDHComboBox = new System.Windows.Forms.ComboBox();
-            this.cTDDHTableAdapter = new QLVT_DH.DSTableAdapters.CTDDHTableAdapter();
+            this.CTDDHTableAdapter = new QLVT_DH.DSTableAdapters.CTDDHTableAdapter();
             masoDDHLabel = new System.Windows.Forms.Label();
             nhaCCLabel = new System.Windows.Forms.Label();
             mAKHOLabel = new System.Windows.Forms.Label();
@@ -75,7 +75,7 @@ namespace QLVT_DH
             this.panelControl1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.panelControl2)).BeginInit();
             this.panelControl2.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dS)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.DS)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.bdsDH)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridDonDatHang)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridView1)).BeginInit();
@@ -92,7 +92,7 @@ namespace QLVT_DH
             // masoDDHLabel
             // 
             masoDDHLabel.AutoSize = true;
-            masoDDHLabel.Location = new System.Drawing.Point(104, 28);
+            masoDDHLabel.Location = new System.Drawing.Point(10, 35);
             masoDDHLabel.Name = "masoDDHLabel";
             masoDDHLabel.Size = new System.Drawing.Size(63, 17);
             masoDDHLabel.TabIndex = 0;
@@ -101,7 +101,7 @@ namespace QLVT_DH
             // nhaCCLabel
             // 
             nhaCCLabel.AutoSize = true;
-            nhaCCLabel.Location = new System.Drawing.Point(104, 85);
+            nhaCCLabel.Location = new System.Drawing.Point(128, 35);
             nhaCCLabel.Name = "nhaCCLabel";
             nhaCCLabel.Size = new System.Drawing.Size(98, 17);
             nhaCCLabel.TabIndex = 2;
@@ -110,7 +110,7 @@ namespace QLVT_DH
             // mAKHOLabel
             // 
             mAKHOLabel.AutoSize = true;
-            mAKHOLabel.Location = new System.Drawing.Point(104, 142);
+            mAKHOLabel.Location = new System.Drawing.Point(382, 35);
             mAKHOLabel.Name = "mAKHOLabel";
             mAKHOLabel.Size = new System.Drawing.Size(58, 17);
             mAKHOLabel.TabIndex = 4;
@@ -239,15 +239,15 @@ namespace QLVT_DH
             this.labelControl1.TabIndex = 0;
             this.labelControl1.Text = "Chi Nhánh:";
             // 
-            // dS
+            // DS
             // 
-            this.dS.DataSetName = "DS";
-            this.dS.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            this.DS.DataSetName = "DS";
+            this.DS.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
             // 
             // bdsDH
             // 
             this.bdsDH.DataMember = "DatHang";
-            this.bdsDH.DataSource = this.dS;
+            this.bdsDH.DataSource = this.DS;
             // 
             // datHangTableAdapter
             // 
@@ -335,7 +335,7 @@ namespace QLVT_DH
             // 
             // colMAKHO
             // 
-            this.colMAKHO.Caption = "Mã NV";
+            this.colMAKHO.Caption = "Mã kho";
             this.colMAKHO.FieldName = "MAKHO";
             this.colMAKHO.MinWidth = 25;
             this.colMAKHO.Name = "colMAKHO";
@@ -441,31 +441,31 @@ namespace QLVT_DH
             // mAKHOTextEdit
             // 
             this.mAKHOTextEdit.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.bdsDH, "MAKHO", true));
-            this.mAKHOTextEdit.Location = new System.Drawing.Point(107, 162);
+            this.mAKHOTextEdit.Location = new System.Drawing.Point(385, 57);
             this.mAKHOTextEdit.Name = "mAKHOTextEdit";
-            this.mAKHOTextEdit.Size = new System.Drawing.Size(399, 22);
+            this.mAKHOTextEdit.Size = new System.Drawing.Size(209, 22);
             this.mAKHOTextEdit.TabIndex = 5;
             // 
             // nhaCCTextEdit
             // 
             this.nhaCCTextEdit.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.bdsDH, "NhaCC", true));
-            this.nhaCCTextEdit.Location = new System.Drawing.Point(107, 105);
+            this.nhaCCTextEdit.Location = new System.Drawing.Point(131, 57);
             this.nhaCCTextEdit.Name = "nhaCCTextEdit";
-            this.nhaCCTextEdit.Size = new System.Drawing.Size(399, 22);
+            this.nhaCCTextEdit.Size = new System.Drawing.Size(201, 22);
             this.nhaCCTextEdit.TabIndex = 3;
             // 
             // masoDDHComboBox
             // 
             this.masoDDHComboBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.bdsDH, "MasoDDH", true));
             this.masoDDHComboBox.FormattingEnabled = true;
-            this.masoDDHComboBox.Location = new System.Drawing.Point(107, 48);
+            this.masoDDHComboBox.Location = new System.Drawing.Point(13, 55);
             this.masoDDHComboBox.Name = "masoDDHComboBox";
-            this.masoDDHComboBox.Size = new System.Drawing.Size(399, 24);
+            this.masoDDHComboBox.Size = new System.Drawing.Size(84, 24);
             this.masoDDHComboBox.TabIndex = 1;
             // 
-            // cTDDHTableAdapter
+            // CTDDHTableAdapter
             // 
-            this.cTDDHTableAdapter.ClearBeforeFill = true;
+            this.CTDDHTableAdapter.ClearBeforeFill = true;
             // 
             // FormDDH
             // 
@@ -489,7 +489,7 @@ namespace QLVT_DH
             ((System.ComponentModel.ISupportInitialize)(this.panelControl2)).EndInit();
             this.panelControl2.ResumeLayout(false);
             this.panelControl2.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dS)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.DS)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.bdsDH)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridDonDatHang)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridView1)).EndInit();
@@ -519,7 +519,7 @@ namespace QLVT_DH
         private DevExpress.XtraEditors.PanelControl panelControl2;
         private DevExpress.XtraEditors.LabelControl labelControl1;
         private System.Windows.Forms.ComboBox cbChiNhanh;
-        private DS dS;
+        private DS DS;
         private System.Windows.Forms.BindingSource bdsDH;
         private DSTableAdapters.DatHangTableAdapter datHangTableAdapter;
         private DSTableAdapters.TableAdapterManager tableAdapterManager;
@@ -533,7 +533,7 @@ namespace QLVT_DH
         private DevExpress.XtraEditors.GroupControl groupControl1;
         private System.Windows.Forms.GroupBox gbInfoDDH;
         private System.Windows.Forms.BindingSource bdsCTDDH;
-        private DSTableAdapters.CTDDHTableAdapter cTDDHTableAdapter;
+        private DSTableAdapters.CTDDHTableAdapter CTDDHTableAdapter;
         private DevExpress.XtraGrid.GridControl gridCTDDH;
         private DevExpress.XtraGrid.Views.Grid.GridView gridView2;
         private DevExpress.XtraGrid.Columns.GridColumn colMasoDDH1;

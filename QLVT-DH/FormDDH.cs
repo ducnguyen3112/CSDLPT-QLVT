@@ -22,18 +22,18 @@ namespace QLVT_DH
         {
             this.Validate();
             this.bdsDH.EndEdit();
-            this.tableAdapterManager.UpdateAll(this.dS);
+            this.tableAdapterManager.UpdateAll(this.DS);
 
         }
 
         private void FormDDH_Load(object sender, EventArgs e)
         {
-            dS.EnforceConstraints = false;
+            DS.EnforceConstraints = false;
             this.datHangTableAdapter.Connection.ConnectionString = Program.constr;
-            this.datHangTableAdapter.Fill(this.dS.DatHang);
+            this.datHangTableAdapter.Fill(this.DS.DatHang);
 
-            this.cTDDHTableAdapter.Connection.ConnectionString = Program.constr;
-            this.cTDDHTableAdapter.Fill(this.dS.CTDDH);
+            this.CTDDHTableAdapter.Connection.ConnectionString = Program.constr;
+            this.CTDDHTableAdapter.Fill(this.DS.CTDDH);
  
 
            
@@ -66,10 +66,10 @@ namespace QLVT_DH
                 MessageBox.Show("Lỗi kết nối về chi nhánh mới", "", MessageBoxButtons.OK);
             else
             {
-                this.cTDDHTableAdapter.Connection.ConnectionString = Program.constr;
-                this.cTDDHTableAdapter.Fill(this.dS.CTDDH);
+                this.CTDDHTableAdapter.Connection.ConnectionString = Program.constr;
+                this.CTDDHTableAdapter.Fill(this.DS.CTDDH);
                 this.datHangTableAdapter.Connection.ConnectionString = Program.constr;
-                this.datHangTableAdapter.Fill(this.dS.DatHang);
+                this.datHangTableAdapter.Fill(this.DS.DatHang);
               
                 //maCN = ((DataRowView)bdsDH[0])["MACN"].ToString();
             }
