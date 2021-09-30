@@ -329,10 +329,10 @@ namespace QLVT_DH
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.gcNV.DataSource = this.bdsNV;
-            this.gcNV.Location = new System.Drawing.Point(12, 72);
+            this.gcNV.Location = new System.Drawing.Point(12, 86);
             this.gcNV.MainView = this.gridView1;
             this.gcNV.Name = "gcNV";
-            this.gcNV.Size = new System.Drawing.Size(1513, 352);
+            this.gcNV.Size = new System.Drawing.Size(1513, 338);
             this.gcNV.TabIndex = 3;
             this.gcNV.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gridView1});
@@ -605,28 +605,29 @@ namespace QLVT_DH
             this.panelControl2.Controls.Add(this.labelControl1);
             this.panelControl2.Location = new System.Drawing.Point(0, 39);
             this.panelControl2.Name = "panelControl2";
-            this.panelControl2.Size = new System.Drawing.Size(1537, 34);
+            this.panelControl2.Size = new System.Drawing.Size(1537, 41);
             this.panelControl2.TabIndex = 2;
             // 
             // cbChiNhanh
             // 
-            this.cbChiNhanh.BackColor = System.Drawing.Color.White;
+            this.cbChiNhanh.BackColor = System.Drawing.SystemColors.Window;
             this.cbChiNhanh.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbChiNhanh.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.cbChiNhanh.Font = new System.Drawing.Font("Tahoma", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cbChiNhanh.FormattingEnabled = true;
-            this.cbChiNhanh.Location = new System.Drawing.Point(87, 5);
+            this.cbChiNhanh.Location = new System.Drawing.Point(104, 6);
             this.cbChiNhanh.Name = "cbChiNhanh";
-            this.cbChiNhanh.Size = new System.Drawing.Size(197, 24);
+            this.cbChiNhanh.Size = new System.Drawing.Size(197, 30);
             this.cbChiNhanh.TabIndex = 6;
             this.cbChiNhanh.SelectedIndexChanged += new System.EventHandler(this.cbChiNhanh_SelectedIndexChanged);
             // 
             // labelControl1
             // 
-            this.labelControl1.Appearance.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelControl1.Appearance.Font = new System.Drawing.Font("Tahoma", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelControl1.Appearance.Options.UseFont = true;
             this.labelControl1.Location = new System.Drawing.Point(12, 9);
             this.labelControl1.Name = "labelControl1";
-            this.labelControl1.Size = new System.Drawing.Size(69, 18);
+            this.labelControl1.Size = new System.Drawing.Size(86, 22);
             this.labelControl1.TabIndex = 5;
             this.labelControl1.Text = "Chi nhánh:";
             // 

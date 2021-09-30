@@ -34,9 +34,24 @@ namespace QLVT_DH
 
             this.CTDDHTableAdapter.Connection.ConnectionString = Program.constr;
             this.CTDDHTableAdapter.Fill(this.DS.CTDDH);
- 
+            cbChiNhanh.DataSource = Program.bds_dspm;  // sao chép bds_dspm đã load ở form đăng nhập  qua
+            cbChiNhanh.DisplayMember = "TENCN";
+            cbChiNhanh.ValueMember = "TENSERVER";
+            cbChiNhanh.SelectedIndex = Program.mChiNhanh;
+            /*if (Program.mGroup == "CONGTY")
+            {
+                cbChiNhanh.Enabled = true;
+                btnThem.Enabled = btnXoa.Enabled = false;
+            }
+            else
+            {
+                cbChiNhanh.Enabled = false;
+                btnThem.Enabled = btnXoa.Enabled = true;
+            }
+            btnUndo.Enabled = btnGhi.Enabled = false;
+            groupControl1.Enabled = false;
+*/
 
-           
 
         }
 
@@ -70,11 +85,11 @@ namespace QLVT_DH
                 this.CTDDHTableAdapter.Fill(this.DS.CTDDH);
                 this.datHangTableAdapter.Connection.ConnectionString = Program.constr;
                 this.datHangTableAdapter.Fill(this.DS.DatHang);
-              
+
                 //maCN = ((DataRowView)bdsDH[0])["MACN"].ToString();
             }
         }
-            private void bindingNavigatorDeleteItem_Click(object sender, EventArgs e)
+        private void bindingNavigatorDeleteItem_Click(object sender, EventArgs e)
         {
 
         }
