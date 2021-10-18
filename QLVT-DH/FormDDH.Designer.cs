@@ -32,9 +32,9 @@ namespace QLVT_DH
             this.components = new System.ComponentModel.Container();
             System.Windows.Forms.Label masoDDHLabel;
             System.Windows.Forms.Label nhaCCLabel;
-            System.Windows.Forms.Label mAKHOLabel;
             System.Windows.Forms.Label nGAYLabel;
             System.Windows.Forms.Label mANVLabel;
+            System.Windows.Forms.Label mAKHOLabel1;
             this.panelControl1 = new DevExpress.XtraEditors.PanelControl();
             this.btnThoat = new DevExpress.XtraEditors.SimpleButton();
             this.btnReload = new DevExpress.XtraEditors.SimpleButton();
@@ -66,18 +66,19 @@ namespace QLVT_DH
             this.colSOLUONG = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colDONGIA = new DevExpress.XtraGrid.Columns.GridColumn();
             this.gbInfoDDH = new System.Windows.Forms.GroupBox();
+            this.cbKho = new System.Windows.Forms.ComboBox();
             this.masoDDHTextEdit = new DevExpress.XtraEditors.TextEdit();
             this.mANVTextEdit = new DevExpress.XtraEditors.TextEdit();
             this.nGAYDateEdit = new DevExpress.XtraEditors.DateEdit();
-            this.mAKHOTextEdit = new DevExpress.XtraEditors.TextEdit();
             this.nhaCCTextEdit = new DevExpress.XtraEditors.TextEdit();
+            this.khoBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.CTDDHTableAdapter = new QLVT_DH.DSTableAdapters.CTDDHTableAdapter();
-            this.simpleButton1 = new DevExpress.XtraEditors.SimpleButton();
+            this.khoTableAdapter = new QLVT_DH.DSTableAdapters.KhoTableAdapter();
             masoDDHLabel = new System.Windows.Forms.Label();
             nhaCCLabel = new System.Windows.Forms.Label();
-            mAKHOLabel = new System.Windows.Forms.Label();
             nGAYLabel = new System.Windows.Forms.Label();
             mANVLabel = new System.Windows.Forms.Label();
+            mAKHOLabel1 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.panelControl1)).BeginInit();
             this.panelControl1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.panelControl2)).BeginInit();
@@ -96,8 +97,8 @@ namespace QLVT_DH
             ((System.ComponentModel.ISupportInitialize)(this.mANVTextEdit.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.nGAYDateEdit.Properties.CalendarTimeProperties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.nGAYDateEdit.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.mAKHOTextEdit.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.nhaCCTextEdit.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.khoBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // masoDDHLabel
@@ -118,15 +119,6 @@ namespace QLVT_DH
             nhaCCLabel.TabIndex = 2;
             nhaCCLabel.Text = "Nhà cung cấp:";
             // 
-            // mAKHOLabel
-            // 
-            mAKHOLabel.AutoSize = true;
-            mAKHOLabel.Location = new System.Drawing.Point(428, 35);
-            mAKHOLabel.Name = "mAKHOLabel";
-            mAKHOLabel.Size = new System.Drawing.Size(58, 17);
-            mAKHOLabel.TabIndex = 4;
-            mAKHOLabel.Text = "MAKHO:";
-            // 
             // nGAYLabel
             // 
             nGAYLabel.AutoSize = true;
@@ -139,11 +131,20 @@ namespace QLVT_DH
             // mANVLabel
             // 
             mANVLabel.AutoSize = true;
-            mANVLabel.Location = new System.Drawing.Point(336, 124);
+            mANVLabel.Location = new System.Drawing.Point(255, 124);
             mANVLabel.Name = "mANVLabel";
             mANVLabel.Size = new System.Drawing.Size(51, 17);
             mANVLabel.TabIndex = 8;
             mANVLabel.Text = "Mã NV:";
+            // 
+            // mAKHOLabel1
+            // 
+            mAKHOLabel1.AutoSize = true;
+            mAKHOLabel1.Location = new System.Drawing.Point(428, 35);
+            mAKHOLabel1.Name = "mAKHOLabel1";
+            mAKHOLabel1.Size = new System.Drawing.Size(57, 17);
+            mAKHOLabel1.TabIndex = 10;
+            mAKHOLabel1.Text = "Mã kho:";
             // 
             // panelControl1
             // 
@@ -158,7 +159,7 @@ namespace QLVT_DH
             this.panelControl1.Controls.Add(this.btnThem);
             this.panelControl1.Location = new System.Drawing.Point(0, 0);
             this.panelControl1.Name = "panelControl1";
-            this.panelControl1.Size = new System.Drawing.Size(1537, 36);
+            this.panelControl1.Size = new System.Drawing.Size(1543, 36);
             this.panelControl1.TabIndex = 0;
             // 
             // btnThoat
@@ -215,6 +216,7 @@ namespace QLVT_DH
             this.btnXoa.Size = new System.Drawing.Size(121, 29);
             this.btnXoa.TabIndex = 2;
             this.btnXoa.Text = "Xóa";
+            this.btnXoa.Click += new System.EventHandler(this.btnXoa_Click);
             // 
             // btnSua
             // 
@@ -247,7 +249,7 @@ namespace QLVT_DH
             this.panelControl2.Controls.Add(this.labelControl1);
             this.panelControl2.Location = new System.Drawing.Point(0, 34);
             this.panelControl2.Name = "panelControl2";
-            this.panelControl2.Size = new System.Drawing.Size(1537, 38);
+            this.panelControl2.Size = new System.Drawing.Size(1543, 38);
             this.panelControl2.TabIndex = 1;
             // 
             // cbChiNhanh
@@ -381,9 +383,9 @@ namespace QLVT_DH
             // 
             this.groupControl1.Controls.Add(this.gridCTDDH);
             this.groupControl1.Controls.Add(this.gbInfoDDH);
-            this.groupControl1.Location = new System.Drawing.Point(0, 362);
+            this.groupControl1.Location = new System.Drawing.Point(0, 372);
             this.groupControl1.Name = "groupControl1";
-            this.groupControl1.Size = new System.Drawing.Size(1537, 236);
+            this.groupControl1.Size = new System.Drawing.Size(1537, 226);
             this.groupControl1.TabIndex = 4;
             this.groupControl1.Text = "Đặt Hàng";
             // 
@@ -393,10 +395,11 @@ namespace QLVT_DH
             this.gridCTDDH.Location = new System.Drawing.Point(641, 31);
             this.gridCTDDH.MainView = this.gridView2;
             this.gridCTDDH.Name = "gridCTDDH";
-            this.gridCTDDH.Size = new System.Drawing.Size(891, 203);
+            this.gridCTDDH.Size = new System.Drawing.Size(891, 195);
             this.gridCTDDH.TabIndex = 1;
             this.gridCTDDH.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gridView2});
+            this.gridCTDDH.DoubleClick += new System.EventHandler(this.gridCTDDH_DoubleClick);
             // 
             // bdsCTDDH
             // 
@@ -458,23 +461,32 @@ namespace QLVT_DH
             // 
             // gbInfoDDH
             // 
+            this.gbInfoDDH.Controls.Add(mAKHOLabel1);
+            this.gbInfoDDH.Controls.Add(this.cbKho);
             this.gbInfoDDH.Controls.Add(this.masoDDHTextEdit);
             this.gbInfoDDH.Controls.Add(mANVLabel);
             this.gbInfoDDH.Controls.Add(this.mANVTextEdit);
             this.gbInfoDDH.Controls.Add(nGAYLabel);
             this.gbInfoDDH.Controls.Add(this.nGAYDateEdit);
-            this.gbInfoDDH.Controls.Add(mAKHOLabel);
-            this.gbInfoDDH.Controls.Add(this.mAKHOTextEdit);
             this.gbInfoDDH.Controls.Add(nhaCCLabel);
             this.gbInfoDDH.Controls.Add(this.nhaCCTextEdit);
             this.gbInfoDDH.Controls.Add(masoDDHLabel);
             this.gbInfoDDH.Dock = System.Windows.Forms.DockStyle.Left;
             this.gbInfoDDH.Location = new System.Drawing.Point(2, 28);
             this.gbInfoDDH.Name = "gbInfoDDH";
-            this.gbInfoDDH.Size = new System.Drawing.Size(633, 206);
+            this.gbInfoDDH.Size = new System.Drawing.Size(633, 196);
             this.gbInfoDDH.TabIndex = 0;
             this.gbInfoDDH.TabStop = false;
             this.gbInfoDDH.Text = "Thông Tin";
+            // 
+            // cbKho
+            // 
+            this.cbKho.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.bdsDH, "MAKHO", true));
+            this.cbKho.FormattingEnabled = true;
+            this.cbKho.Location = new System.Drawing.Point(431, 55);
+            this.cbKho.Name = "cbKho";
+            this.cbKho.Size = new System.Drawing.Size(121, 24);
+            this.cbKho.TabIndex = 11;
             // 
             // masoDDHTextEdit
             // 
@@ -487,7 +499,7 @@ namespace QLVT_DH
             // mANVTextEdit
             // 
             this.mANVTextEdit.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.bdsDH, "MANV", true));
-            this.mANVTextEdit.Location = new System.Drawing.Point(339, 144);
+            this.mANVTextEdit.Location = new System.Drawing.Point(258, 144);
             this.mANVTextEdit.Name = "mANVTextEdit";
             this.mANVTextEdit.Size = new System.Drawing.Size(125, 22);
             this.mANVTextEdit.TabIndex = 9;
@@ -498,20 +510,14 @@ namespace QLVT_DH
             this.nGAYDateEdit.EditValue = null;
             this.nGAYDateEdit.Location = new System.Drawing.Point(13, 144);
             this.nGAYDateEdit.Name = "nGAYDateEdit";
+            this.nGAYDateEdit.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.nGAYDateEdit.Properties.Appearance.Options.UseFont = true;
             this.nGAYDateEdit.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
             this.nGAYDateEdit.Properties.CalendarTimeProperties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.nGAYDateEdit.Size = new System.Drawing.Size(202, 22);
+            this.nGAYDateEdit.Size = new System.Drawing.Size(202, 24);
             this.nGAYDateEdit.TabIndex = 7;
-            // 
-            // mAKHOTextEdit
-            // 
-            this.mAKHOTextEdit.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.bdsDH, "MAKHO", true));
-            this.mAKHOTextEdit.Location = new System.Drawing.Point(431, 57);
-            this.mAKHOTextEdit.Name = "mAKHOTextEdit";
-            this.mAKHOTextEdit.Size = new System.Drawing.Size(159, 22);
-            this.mAKHOTextEdit.TabIndex = 5;
             // 
             // nhaCCTextEdit
             // 
@@ -521,28 +527,25 @@ namespace QLVT_DH
             this.nhaCCTextEdit.Size = new System.Drawing.Size(201, 22);
             this.nhaCCTextEdit.TabIndex = 3;
             // 
+            // khoBindingSource
+            // 
+            this.khoBindingSource.DataMember = "Kho";
+            this.khoBindingSource.DataSource = this.DS;
+            // 
             // CTDDHTableAdapter
             // 
             this.CTDDHTableAdapter.ClearBeforeFill = true;
             // 
-            // simpleButton1
+            // khoTableAdapter
             // 
-            this.simpleButton1.ImageOptions.ImageToTextAlignment = DevExpress.XtraEditors.ImageAlignToText.LeftCenter;
-            this.simpleButton1.ImageOptions.SvgImage = global::QLVT_DH.Properties.Resources.add;
-            this.simpleButton1.ImageOptions.SvgImageSize = new System.Drawing.Size(15, 15);
-            this.simpleButton1.Location = new System.Drawing.Point(1402, 604);
-            this.simpleButton1.Name = "simpleButton1";
-            this.simpleButton1.Size = new System.Drawing.Size(121, 30);
-            this.simpleButton1.TabIndex = 7;
-            this.simpleButton1.Text = "Thêm vật tư";
+            this.khoTableAdapter.ClearBeforeFill = true;
             // 
             // FormDDH
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1535, 640);
+            this.ClientSize = new System.Drawing.Size(1541, 609);
             this.ControlBox = false;
-            this.Controls.Add(this.simpleButton1);
             this.Controls.Add(this.groupControl1);
             this.Controls.Add(this.gridDonDatHang);
             this.Controls.Add(this.panelControl2);
@@ -574,8 +577,8 @@ namespace QLVT_DH
             ((System.ComponentModel.ISupportInitialize)(this.mANVTextEdit.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.nGAYDateEdit.Properties.CalendarTimeProperties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.nGAYDateEdit.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.mAKHOTextEdit.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.nhaCCTextEdit.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.khoBindingSource)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -614,11 +617,12 @@ namespace QLVT_DH
         private DevExpress.XtraGrid.Columns.GridColumn colMAVT;
         private DevExpress.XtraGrid.Columns.GridColumn colSOLUONG;
         private DevExpress.XtraGrid.Columns.GridColumn colDONGIA;
-        private DevExpress.XtraEditors.TextEdit mAKHOTextEdit;
         private DevExpress.XtraEditors.TextEdit nhaCCTextEdit;
         private DevExpress.XtraEditors.DateEdit nGAYDateEdit;
         private DevExpress.XtraEditors.TextEdit mANVTextEdit;
         private DevExpress.XtraEditors.TextEdit masoDDHTextEdit;
-        private DevExpress.XtraEditors.SimpleButton simpleButton1;
+        private System.Windows.Forms.BindingSource khoBindingSource;
+        private DSTableAdapters.KhoTableAdapter khoTableAdapter;
+        private System.Windows.Forms.ComboBox cbKho;
     }
 }
