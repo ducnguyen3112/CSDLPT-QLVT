@@ -66,12 +66,13 @@ namespace QLVT_DH
             this.colSOLUONG = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colDONGIA = new DevExpress.XtraGrid.Columns.GridColumn();
             this.gbInfoDDH = new System.Windows.Forms.GroupBox();
+            this.masoDDHTextEdit = new DevExpress.XtraEditors.TextEdit();
             this.mANVTextEdit = new DevExpress.XtraEditors.TextEdit();
             this.nGAYDateEdit = new DevExpress.XtraEditors.DateEdit();
             this.mAKHOTextEdit = new DevExpress.XtraEditors.TextEdit();
             this.nhaCCTextEdit = new DevExpress.XtraEditors.TextEdit();
             this.CTDDHTableAdapter = new QLVT_DH.DSTableAdapters.CTDDHTableAdapter();
-            this.masoDDHTextEdit = new DevExpress.XtraEditors.TextEdit();
+            this.simpleButton1 = new DevExpress.XtraEditors.SimpleButton();
             masoDDHLabel = new System.Windows.Forms.Label();
             nhaCCLabel = new System.Windows.Forms.Label();
             mAKHOLabel = new System.Windows.Forms.Label();
@@ -91,12 +92,12 @@ namespace QLVT_DH
             ((System.ComponentModel.ISupportInitialize)(this.bdsCTDDH)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridView2)).BeginInit();
             this.gbInfoDDH.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.masoDDHTextEdit.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.mANVTextEdit.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.nGAYDateEdit.Properties.CalendarTimeProperties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.nGAYDateEdit.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.mAKHOTextEdit.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.nhaCCTextEdit.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.masoDDHTextEdit.Properties)).BeginInit();
             this.SuspendLayout();
             // 
             // masoDDHLabel
@@ -321,6 +322,7 @@ namespace QLVT_DH
             this.colMAKHO});
             this.gridView1.GridControl = this.gridDonDatHang;
             this.gridView1.Name = "gridView1";
+            this.gridView1.OptionsBehavior.ReadOnly = true;
             this.gridView1.OptionsView.ShowGroupPanel = false;
             this.gridView1.OptionsView.ShowViewCaption = true;
             this.gridView1.ViewCaption = "Đơn Đặt Hàng";
@@ -381,7 +383,7 @@ namespace QLVT_DH
             this.groupControl1.Controls.Add(this.gbInfoDDH);
             this.groupControl1.Location = new System.Drawing.Point(0, 362);
             this.groupControl1.Name = "groupControl1";
-            this.groupControl1.Size = new System.Drawing.Size(1537, 253);
+            this.groupControl1.Size = new System.Drawing.Size(1537, 236);
             this.groupControl1.TabIndex = 4;
             this.groupControl1.Text = "Đặt Hàng";
             // 
@@ -391,7 +393,7 @@ namespace QLVT_DH
             this.gridCTDDH.Location = new System.Drawing.Point(641, 31);
             this.gridCTDDH.MainView = this.gridView2;
             this.gridCTDDH.Name = "gridCTDDH";
-            this.gridCTDDH.Size = new System.Drawing.Size(896, 220);
+            this.gridCTDDH.Size = new System.Drawing.Size(891, 203);
             this.gridCTDDH.TabIndex = 1;
             this.gridCTDDH.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gridView2});
@@ -469,10 +471,18 @@ namespace QLVT_DH
             this.gbInfoDDH.Dock = System.Windows.Forms.DockStyle.Left;
             this.gbInfoDDH.Location = new System.Drawing.Point(2, 28);
             this.gbInfoDDH.Name = "gbInfoDDH";
-            this.gbInfoDDH.Size = new System.Drawing.Size(633, 223);
+            this.gbInfoDDH.Size = new System.Drawing.Size(633, 206);
             this.gbInfoDDH.TabIndex = 0;
             this.gbInfoDDH.TabStop = false;
             this.gbInfoDDH.Text = "Thông Tin";
+            // 
+            // masoDDHTextEdit
+            // 
+            this.masoDDHTextEdit.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.bdsCTDDH, "MasoDDH", true));
+            this.masoDDHTextEdit.Location = new System.Drawing.Point(13, 57);
+            this.masoDDHTextEdit.Name = "masoDDHTextEdit";
+            this.masoDDHTextEdit.Size = new System.Drawing.Size(125, 22);
+            this.masoDDHTextEdit.TabIndex = 10;
             // 
             // mANVTextEdit
             // 
@@ -515,20 +525,24 @@ namespace QLVT_DH
             // 
             this.CTDDHTableAdapter.ClearBeforeFill = true;
             // 
-            // masoDDHTextEdit
+            // simpleButton1
             // 
-            this.masoDDHTextEdit.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.bdsCTDDH, "MasoDDH", true));
-            this.masoDDHTextEdit.Location = new System.Drawing.Point(13, 57);
-            this.masoDDHTextEdit.Name = "masoDDHTextEdit";
-            this.masoDDHTextEdit.Size = new System.Drawing.Size(125, 22);
-            this.masoDDHTextEdit.TabIndex = 10;
+            this.simpleButton1.ImageOptions.ImageToTextAlignment = DevExpress.XtraEditors.ImageAlignToText.LeftCenter;
+            this.simpleButton1.ImageOptions.SvgImage = global::QLVT_DH.Properties.Resources.add;
+            this.simpleButton1.ImageOptions.SvgImageSize = new System.Drawing.Size(15, 15);
+            this.simpleButton1.Location = new System.Drawing.Point(1402, 604);
+            this.simpleButton1.Name = "simpleButton1";
+            this.simpleButton1.Size = new System.Drawing.Size(121, 30);
+            this.simpleButton1.TabIndex = 7;
+            this.simpleButton1.Text = "Thêm vật tư";
             // 
             // FormDDH
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1535, 610);
+            this.ClientSize = new System.Drawing.Size(1535, 640);
             this.ControlBox = false;
+            this.Controls.Add(this.simpleButton1);
             this.Controls.Add(this.groupControl1);
             this.Controls.Add(this.gridDonDatHang);
             this.Controls.Add(this.panelControl2);
@@ -556,12 +570,12 @@ namespace QLVT_DH
             ((System.ComponentModel.ISupportInitialize)(this.gridView2)).EndInit();
             this.gbInfoDDH.ResumeLayout(false);
             this.gbInfoDDH.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.masoDDHTextEdit.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.mANVTextEdit.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.nGAYDateEdit.Properties.CalendarTimeProperties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.nGAYDateEdit.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.mAKHOTextEdit.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.nhaCCTextEdit.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.masoDDHTextEdit.Properties)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -605,5 +619,6 @@ namespace QLVT_DH
         private DevExpress.XtraEditors.DateEdit nGAYDateEdit;
         private DevExpress.XtraEditors.TextEdit mANVTextEdit;
         private DevExpress.XtraEditors.TextEdit masoDDHTextEdit;
+        private DevExpress.XtraEditors.SimpleButton simpleButton1;
     }
 }
