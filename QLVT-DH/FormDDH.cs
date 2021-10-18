@@ -1,5 +1,6 @@
 ﻿using DevExpress.XtraEditors;
 using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -13,6 +14,9 @@ namespace QLVT_DH
 {
     public partial class FormDDH : DevExpress.XtraEditors.XtraForm
     {
+        Stack stack = new Stack();
+        String action = "";
+        int vitri = 0;
         public FormDDH()
         {
             InitializeComponent();
@@ -28,7 +32,11 @@ namespace QLVT_DH
 
         private void FormDDH_Load(object sender, EventArgs e)
         {
+            // TODO: This line of code loads data into the 'DS.Kho' table. You can move, or remove it, as needed.
+
             DS.EnforceConstraints = false;
+            this.khoTableAdapter.Connection.ConnectionString = Program.constr;
+            this.khoTableAdapter.Fill(this.DS.Kho);
             this.datHangTableAdapter.Connection.ConnectionString = Program.constr;
             this.datHangTableAdapter.Fill(this.DS.DatHang);
 
@@ -38,6 +46,9 @@ namespace QLVT_DH
             cbChiNhanh.DisplayMember = "TENCN";
             cbChiNhanh.ValueMember = "TENSERVER";
             cbChiNhanh.SelectedIndex = Program.mChiNhanh;
+            cbKho.DataSource = khoTableAdapter.GetData();
+            cbKho.DisplayMember = "MAKHO";
+            cbKho.ValueMember = "MAKHO";
             /*if (Program.mGroup == "CONGTY")
             {
                 cbChiNhanh.Enabled = true;
@@ -96,7 +107,26 @@ namespace QLVT_DH
 
         private void btnThem_Click(object sender, EventArgs e)
         {
+            vitri = bdsDH.Position;
+            groupControl1.Enabled = true;
+            bdsDH.AddNew();
 
         }
+
+        private void btnXoa_Click(object sender, EventArgs e)
+        {
+
+        }
+        public BindingSource getbdsCTDDH()
+        {
+            return this.bdsCTDDH;
+        }
+        private void gridCTDDH_DoubleClick(object sender, EventArgs e)
+        {
+            FormCTDH fctdh = new FormCTDH();
+            fctdh.ShowDialog();
+        }
+
     }
+
 }

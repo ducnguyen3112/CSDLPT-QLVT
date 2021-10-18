@@ -91,9 +91,9 @@ namespace QLVT_DH
             if (form != null) form.Activate();
             else
             {
-                FormDDH frmDDH = new FormDDH();
-                frmDDH.MdiParent = this;
-                frmDDH.Show();
+                Program.ddhForm = new FormDDH();
+                Program.ddhForm.MdiParent = this;
+                Program.ddhForm.Show();
             }
         }
 

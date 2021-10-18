@@ -32,8 +32,10 @@ namespace QLVT_DH
         public static String mHoTen = "";
         public static int mChiNhanh = 0;
         public static BindingSource bds_dspm = new BindingSource();
+
         public static FormLogin loginForm;
         public static FormMain mainForm;
+        public static FormDDH ddhForm;
 
         public static int KetNoi()
         {
