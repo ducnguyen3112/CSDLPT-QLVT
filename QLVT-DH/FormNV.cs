@@ -320,8 +320,8 @@ namespace QLVT_DH
             {
                 if (action == "actThem")
                 {
-                    txtMaNV.Text = txtMaNV.Text.Trim();
-                    maNV = txtMaNV.Text;
+                    //  txtMaNV.Text = txtMaNV.Text.Trim();
+                    maNV = txtMaNV.Text.Trim();
                     String query_MANV = "DECLARE @return_value int  EXEC @return_value = [dbo].[SP_KTTrungNV] @MaNV "
                        + "SELECT 'Return Value' = @return_value";
                     SqlCommand sqlCommand = new SqlCommand(query_MANV, Program.con);

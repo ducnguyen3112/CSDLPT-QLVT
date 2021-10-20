@@ -339,6 +339,8 @@ namespace QLVT_DH
             // 
             // gridView1
             // 
+            this.gridView1.Appearance.HeaderPanel.Font = new System.Drawing.Font("Times New Roman", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.gridView1.Appearance.HeaderPanel.Options.UseFont = true;
             this.gridView1.Columns.AddRange(new DevExpress.XtraGrid.Columns.GridColumn[] {
             this.colHO,
             this.colTEN,
@@ -547,6 +549,8 @@ namespace QLVT_DH
             this.txtLuong.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.bdsNV, "LUONG", true));
             this.txtLuong.Location = new System.Drawing.Point(445, 105);
             this.txtLuong.Name = "txtLuong";
+            this.txtLuong.Properties.DisplayFormat.FormatString = "n0";
+            this.txtLuong.Properties.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
             this.txtLuong.Size = new System.Drawing.Size(182, 22);
             this.txtLuong.TabIndex = 5;
             // 

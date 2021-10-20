@@ -36,6 +36,7 @@ namespace QLVT_DH
         public static FormLogin loginForm;
         public static FormMain mainForm;
         public static FormDDH ddhForm;
+        public static FormCTDH ctdhForm;
 
         public static int KetNoi()
         {
