@@ -98,11 +98,10 @@ namespace QLVT_DH
                 MessageBox.Show("Lỗi kết nối về chi nhánh mới", "", MessageBoxButtons.OK);
             else
             {
-                this.CTDDHTableAdapter.Connection.ConnectionString = Program.constr;
-                this.CTDDHTableAdapter.Fill(this.DS.CTDDH);
                 this.datHangTableAdapter.Connection.ConnectionString = Program.constr;
                 this.datHangTableAdapter.Fill(this.DS.DatHang);
-
+                this.CTDDHTableAdapter.Connection.ConnectionString = Program.constr;
+                this.CTDDHTableAdapter.Fill(this.DS.CTDDH);
                 //maCN = ((DataRowView)bdsDH[0])["MACN"].ToString();
             }
         }
@@ -174,12 +173,18 @@ namespace QLVT_DH
                 Program.ctdhForm = new FormCTDH();
                 Program.ctdhForm.ShowDialog();
             }
+            else
+            {
+                MessageBox.Show("Bạn không có quyền chỉnh sửa đơn đặt hàng này.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+            }
 
         }
         public BindingSource getbdsCTDDH()
         {
             return this.bdsCTDDH;
         }
+
         public DS getDataset()
         {
             return this.DS;

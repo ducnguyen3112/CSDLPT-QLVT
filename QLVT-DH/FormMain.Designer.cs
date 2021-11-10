@@ -42,6 +42,7 @@ namespace QLVT_DH
             this.btnPX = new DevExpress.XtraBars.BarButtonItem();
             this.barButtonItem5 = new DevExpress.XtraBars.BarButtonItem();
             this.barButtonItem6 = new DevExpress.XtraBars.BarButtonItem();
+            this.barButtonItem7 = new DevExpress.XtraBars.BarButtonItem();
             this.ribbonPage1 = new DevExpress.XtraBars.Ribbon.RibbonPage();
             this.ribbonPageGroup1 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.ribbonPageGroup5 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
@@ -69,9 +70,10 @@ namespace QLVT_DH
             this.barButtonItem6,
             this.btnDDH,
             this.btnPN,
-            this.btnPX});
+            this.btnPX,
+            this.barButtonItem7});
             this.ribbon.Location = new System.Drawing.Point(0, 0);
-            this.ribbon.MaxItemId = 20;
+            this.ribbon.MaxItemId = 21;
             this.ribbon.Name = "ribbon";
             this.ribbon.Pages.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPage[] {
             this.ribbonPage1,
@@ -178,6 +180,13 @@ namespace QLVT_DH
             this.barButtonItem6.Name = "barButtonItem6";
             this.barButtonItem6.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barButtonItem6_ItemClick);
             // 
+            // barButtonItem7
+            // 
+            this.barButtonItem7.Caption = "DANH SÁCH NHÂN VIÊN";
+            this.barButtonItem7.Id = 20;
+            this.barButtonItem7.Name = "barButtonItem7";
+            this.barButtonItem7.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barButtonItem7_ItemClick);
+            // 
             // ribbonPage1
             // 
             this.ribbonPage1.Groups.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPageGroup[] {
@@ -216,6 +225,7 @@ namespace QLVT_DH
             // 
             // ribbonPageGroup2
             // 
+            this.ribbonPageGroup2.ItemLinks.Add(this.barButtonItem7);
             this.ribbonPageGroup2.Name = "ribbonPageGroup2";
             this.ribbonPageGroup2.Text = "ribbonPageGroup2";
             // 
@@ -276,5 +286,6 @@ namespace QLVT_DH
         private DevExpress.XtraBars.BarButtonItem btnDDH;
         private DevExpress.XtraBars.BarButtonItem btnPN;
         private DevExpress.XtraBars.BarButtonItem btnPX;
+        private DevExpress.XtraBars.BarButtonItem barButtonItem7;
     }
 }
