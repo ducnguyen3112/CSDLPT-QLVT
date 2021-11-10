@@ -60,6 +60,12 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>DS.xsd</DependentUpon>
     </Compile>
+    <Compile Include="FormCTPX.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormCTPX.Designer.cs">
+      <DependentUpon>FormCTPX.cs</DependentUpon>
+    </Compile>
     <Compile Include="FormCTDH.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -127,6 +133,9 @@
     <Compile Include="FormLogin.Designer.cs">
       <DependentUpon>FormLogin.cs</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="FormCTPX.resx">
+      <DependentUpon>FormCTPX.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="FormCTDH.resx">
       <DependentUpon>FormCTDH.cs</DependentUpon>
     </EmbeddedResource>

@@ -49,6 +49,7 @@ namespace QLVT_DH
             this.ribbonPageGroup2 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.repositoryItemTextEdit1 = new DevExpress.XtraEditors.Repository.RepositoryItemTextEdit();
             this.lbUserinfo = new System.Windows.Forms.Label();
+            this.barButtonItem7 = new DevExpress.XtraBars.BarButtonItem();
             ((System.ComponentModel.ISupportInitialize)(this.ribbon)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.popupMenu1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.repositoryItemTextEdit1)).BeginInit();
@@ -69,9 +70,10 @@ namespace QLVT_DH
             this.barButtonItem6,
             this.btnDDH,
             this.btnPN,
-            this.btnPX});
+            this.btnPX,
+            this.barButtonItem7});
             this.ribbon.Location = new System.Drawing.Point(0, 0);
-            this.ribbon.MaxItemId = 20;
+            this.ribbon.MaxItemId = 21;
             this.ribbon.Name = "ribbon";
             this.ribbon.Pages.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPage[] {
             this.ribbonPage1,
@@ -215,6 +217,7 @@ namespace QLVT_DH
             // 
             // ribbonPageGroup2
             // 
+            this.ribbonPageGroup2.ItemLinks.Add(this.barButtonItem7);
             this.ribbonPageGroup2.Name = "ribbonPageGroup2";
             this.ribbonPageGroup2.Text = "ribbonPageGroup2";
             // 
@@ -234,6 +237,12 @@ namespace QLVT_DH
             this.lbUserinfo.TabIndex = 6;
             this.lbUserinfo.Text = "label1";
             this.lbUserinfo.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            // 
+            // barButtonItem7
+            // 
+            this.barButtonItem7.Caption = "DANH SÁCH NHÂN VIÊN";
+            this.barButtonItem7.Id = 20;
+            this.barButtonItem7.Name = "barButtonItem7";
             // 
             // FormMain
             // 
@@ -275,5 +284,6 @@ namespace QLVT_DH
         private DevExpress.XtraBars.BarButtonItem btnDDH;
         private DevExpress.XtraBars.BarButtonItem btnPN;
         private DevExpress.XtraBars.BarButtonItem btnPX;
+        private DevExpress.XtraBars.BarButtonItem barButtonItem7;
     }
 }

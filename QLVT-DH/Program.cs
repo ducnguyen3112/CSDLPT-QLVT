@@ -37,6 +37,9 @@ namespace QLVT_DH
         public static FormMain mainForm;
         public static FormDDH ddhForm;
         public static FormCTDH ctdhForm;
+        public static FormPhieuXuat pxForm;
+        public static FormCTPX ctpxForm;
+
 
         public static int KetNoi()
         {

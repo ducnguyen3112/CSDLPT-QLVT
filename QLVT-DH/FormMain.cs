@@ -115,9 +115,9 @@ namespace QLVT_DH
             if (form != null) form.Activate();
             else
             {
-                FormPhieuXuat frmPX = new FormPhieuXuat();
-                frmPX.MdiParent = this;
-                frmPX.Show();
+                Program.pxForm = new FormPhieuXuat();
+                Program.pxForm.MdiParent = this;
+                Program.pxForm.Show();
             }
         }
     }

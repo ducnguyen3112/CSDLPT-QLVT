@@ -10,74 +10,78 @@ using System.Windows.Forms;
 
 namespace QLVT_DH
 {
-    public partial class FormCTDH : Form
+    public partial class FormCTPX : Form
     {
         private int vitri = 0;
         string action = "";
-        public FormCTDH()
+        public FormCTPX()
         {
             InitializeComponent();
         }
 
-        private void cTDDHBindingNavigatorSaveItem_Click(object sender, EventArgs e)
+        private void cTPNBindingNavigatorSaveItem_Click(object sender, EventArgs e)
         {
             this.Validate();
-            this.bdsCTDDH.EndEdit();
+            this.bdsCTPX.EndEdit();
             this.tableAdapterManager.UpdateAll(this.DS);
 
         }
 
-        private void FormCTDH_Load(object sender, EventArgs e)
+        private void FormCTPX_Load(object sender, EventArgs e)
         {
+            // TODO: This line of code loads data into the 'DS.CTPX' table. You can move, or remove it, as needed.
 
             DS.EnforceConstraints = false;
             this.vattuTableAdapter.Connection.ConnectionString = Program.constr;
             this.vattuTableAdapter.Fill(this.DS.Vattu);
-            this.CTDDHTableAdapter.Connection.ConnectionString = Program.constr;
-            this.CTDDHTableAdapter.Fill(this.DS.CTDDH);
-            this.bdsCTDDH.DataSource = Program.ddhForm.getbdsCTDDH();
-
+            this.CTPXTableAdapter.Connection.ConnectionString = Program.constr;
+            this.CTPXTableAdapter.Fill(this.DS.CTPX);
+            this.bdsCTPX.DataSource = Program.pxForm.getbdsCTPX();
+            txtMavtPX.Visible = true;
+            txtMaVT.Visible = false;
 
         }
 
         private void btnThem_Click(object sender, EventArgs e)
         {
             action = "actThem";
-            txtMavtDDH.Visible = false;
+            txtMavtPX.Visible = false;
             txtMaVT.Visible = true;
 
-            bdsCTDDH.AddNew();
+            bdsCTPX.AddNew();
 
-            vitri = bdsCTDDH.Position;
+            vitri = bdsCTPX.Position;
             groupControl1.Enabled = true;
             btnGhi.Enabled = true;
-            txtMavtDDH.Focus();
+            txtMavtPX.Focus();
         }
 
         private void btnGhi_Click(object sender, EventArgs e)
         {
             if (action.Equals("actThem"))
             {
-                txtMavtDDH.Text = txtMaVT.Text;
+                txtMavtPX.Text = txtMaVT.Text;
 
             }
-            txtMavtDDH.Visible = true;
+            txtMavtPX.Visible = true;
             txtMaVT.Visible = false;
             if (ValidateChildren(ValidationConstraints.Enabled))
             {
                 try
                 {
-                    this.bdsCTDDH.EndEdit();
-                    this.CTDDHTableAdapter.Update(Program.ddhForm.getDataset().CTDDH);
+                    this.bdsCTPX.EndEdit();
+                    this.CTPXTableAdapter.Update(Program.
+                        pxForm.getDataset().CTPX);
                     groupControl1.Enabled = false;
                 }
                 catch (Exception ex)
                 {
                     if (action.Equals("actThem"))
                     {
-                        bdsCTDDH.RemoveCurrent();
+                        bdsCTPX.RemoveCurrent();
                     }
                     MessageBox.Show("LỖI!!\n" + ex.Message, "Message", MessageBoxButtons.OK, MessageBoxIcon.Error);
+
 
 
                 }
@@ -88,9 +92,8 @@ namespace QLVT_DH
 
         private void btnXoa_Click(object sender, EventArgs e)
         {
-            bdsCTDDH.RemoveCurrent();
-            this.CTDDHTableAdapter.Update(Program.ddhForm.getDataset().CTDDH);
-
+            bdsCTPX.RemoveCurrent();
+            this.CTPXTableAdapter.Update(Program.pxForm.getDataset().CTPX);
         }
     }
 }
