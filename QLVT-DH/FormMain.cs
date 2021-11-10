@@ -134,5 +134,17 @@ namespace QLVT_DH
             }
 
         }
+
+        private void barButtonItem2_ItemClick(object sender, ItemClickEventArgs e)
+        {
+            Form form = this.CheckExists(typeof(FormVatTu));
+            if (form != null) form.Activate();
+            else
+            {
+                FormVatTu frmVT = new FormVatTu();
+                frmVT.MdiParent = this;
+                frmVT.Show();
+            }
+        }
     }
 }

@@ -193,9 +193,9 @@ namespace QLVT_DH
             this.panelControl1.Controls.Add(this.btnGhi);
             this.panelControl1.Controls.Add(this.btnXoa);
             this.panelControl1.Controls.Add(this.btnThem);
-            this.panelControl1.Location = new System.Drawing.Point(0, 0);
+            this.panelControl1.Location = new System.Drawing.Point(0, -5);
             this.panelControl1.Name = "panelControl1";
-            this.panelControl1.Size = new System.Drawing.Size(1537, 36);
+            this.panelControl1.Size = new System.Drawing.Size(1537, 41);
             this.panelControl1.TabIndex = 0;
             // 
             // btnSua
