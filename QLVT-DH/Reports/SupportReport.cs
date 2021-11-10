@@ -55,7 +55,7 @@ namespace QLVT_DH.Reports
             }
             catch (IOException ex)
             {
-                MessageBox.Show("Vui lòng đóng file DanhSachNhanVien.pdf",
+                MessageBox.Show("Vui lòng đóng file DanhSachNhanVien.pdf\n" + ex.Message,
                     "Xác nhận", MessageBoxButtons.OKCancel, MessageBoxIcon.Warning);
                 return;
             }

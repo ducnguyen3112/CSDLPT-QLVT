@@ -31,16 +31,16 @@ namespace QLVT_DH.Reports
         {
             this.components = new System.ComponentModel.Container();
             this.cbChiNhanh = new System.Windows.Forms.ComboBox();
+            this.get_SubscribesBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.DSPM = new QLVT_DH.DSPM();
             this.labelControl2 = new DevExpress.XtraEditors.LabelControl();
             this.labelControl1 = new DevExpress.XtraEditors.LabelControl();
             this.btnPreview = new DevExpress.XtraEditors.SimpleButton();
             this.btnIn = new DevExpress.XtraEditors.SimpleButton();
-            this.DSPM = new QLVT_DH.DSPM();
-            this.get_SubscribesBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.get_SubscribesTableAdapter = new QLVT_DH.DSPMTableAdapters.Get_SubscribesTableAdapter();
             this.tableAdapterManager = new QLVT_DH.DSPMTableAdapters.TableAdapterManager();
-            ((System.ComponentModel.ISupportInitialize)(this.DSPM)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.get_SubscribesBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.DSPM)).BeginInit();
             this.SuspendLayout();
             // 
             // cbChiNhanh
@@ -59,6 +59,16 @@ namespace QLVT_DH.Reports
             this.cbChiNhanh.TabIndex = 6;
             this.cbChiNhanh.ValueMember = "TENSERVER";
             this.cbChiNhanh.SelectedIndexChanged += new System.EventHandler(this.cbChiNhanh_SelectedIndexChanged);
+            // 
+            // get_SubscribesBindingSource
+            // 
+            this.get_SubscribesBindingSource.DataMember = "Get_Subscribes";
+            this.get_SubscribesBindingSource.DataSource = this.DSPM;
+            // 
+            // DSPM
+            // 
+            this.DSPM.DataSetName = "DSPM";
+            this.DSPM.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
             // 
             // labelControl2
             // 
@@ -93,7 +103,7 @@ namespace QLVT_DH.Reports
             this.btnPreview.Appearance.Font = new System.Drawing.Font("Consolas", 10.2F, System.Drawing.FontStyle.Bold);
             this.btnPreview.Appearance.Options.UseBackColor = true;
             this.btnPreview.Appearance.Options.UseFont = true;
-            this.btnPreview.Location = new System.Drawing.Point(44, 233);
+            this.btnPreview.Location = new System.Drawing.Point(31, 196);
             this.btnPreview.Name = "btnPreview";
             this.btnPreview.Size = new System.Drawing.Size(148, 52);
             this.btnPreview.TabIndex = 9;
@@ -106,22 +116,12 @@ namespace QLVT_DH.Reports
             this.btnIn.Appearance.Font = new System.Drawing.Font("Consolas", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnIn.Appearance.Options.UseBackColor = true;
             this.btnIn.Appearance.Options.UseFont = true;
-            this.btnIn.Location = new System.Drawing.Point(222, 233);
+            this.btnIn.Location = new System.Drawing.Point(222, 196);
             this.btnIn.Name = "btnIn";
             this.btnIn.Size = new System.Drawing.Size(148, 52);
             this.btnIn.TabIndex = 10;
             this.btnIn.Text = "In";
             this.btnIn.Click += new System.EventHandler(this.btnIn_Click);
-            // 
-            // DSPM
-            // 
-            this.DSPM.DataSetName = "DSPM";
-            this.DSPM.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
-            // 
-            // get_SubscribesBindingSource
-            // 
-            this.get_SubscribesBindingSource.DataMember = "Get_Subscribes";
-            this.get_SubscribesBindingSource.DataSource = this.DSPM;
             // 
             // get_SubscribesTableAdapter
             // 
@@ -137,7 +137,7 @@ namespace QLVT_DH.Reports
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(413, 421);
+            this.ClientSize = new System.Drawing.Size(413, 286);
             this.Controls.Add(this.btnIn);
             this.Controls.Add(this.btnPreview);
             this.Controls.Add(this.labelControl1);
@@ -147,8 +147,8 @@ namespace QLVT_DH.Reports
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "SupportReport";
             this.Load += new System.EventHandler(this.SupportReport_Load);
-            ((System.ComponentModel.ISupportInitialize)(this.DSPM)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.get_SubscribesBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.DSPM)).EndInit();
             this.ResumeLayout(false);
 
         }
