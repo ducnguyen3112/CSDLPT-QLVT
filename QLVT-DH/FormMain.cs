@@ -1,4 +1,6 @@
 ﻿using DevExpress.XtraBars;
+using DevExpress.XtraReports.UI;
+using QLVT_DH.Reports;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -119,6 +121,18 @@ namespace QLVT_DH
                 Program.pxForm.MdiParent = this;
                 Program.pxForm.Show();
             }
+        }
+
+        private void barButtonItem7_ItemClick(object sender, ItemClickEventArgs e)
+        {
+            Form form = this.CheckExists(typeof(SupportReport));
+            if (form != null) form.Activate();
+            else
+            {
+                SupportReport f = new SupportReport();
+                f.ShowDialog();
+            }
+
         }
     }
 }
