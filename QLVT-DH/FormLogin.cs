@@ -82,7 +82,7 @@ namespace QLVT_DH
             {
                 return;
             }
-            layDSPM("select TENCN,TENSERVER from Get_Subscribes ");
+            layDSPM("select TENCN,TENSERVER from Get_Subscribes");
 
         }
 

@@ -15,17 +15,11 @@ namespace QLVT_DH
 {
     public partial class FormKho : DevExpress.XtraEditors.XtraForm
     {
-        int vitri = 0;
-        string maCN = "";
-
-        public Stack<String> history_kho;
-
-        // Undo Type
-        String THEM_BTN = "_&them"; // Click btn thêm
-        String XOA_BTN = "_&xoa"; // Click btn xóa
-        String GHI_BTN = "_&ghi"; // Click btn ghi
-
-
+        private string macn;
+        private int vitri;
+        private Stack<String> stackundo = new Stack<string>(16);
+        String query = "";
+        Boolean them = false;
 
         public FormKho()
         {
@@ -39,84 +33,128 @@ namespace QLVT_DH
             this.tableAdapterManager.UpdateAll(this.DS);
 
         }
+        private void LoadUndo()
+        {
+            if (stackundo.Count != 0)
+            {
+                btnUndo.Enabled = true;
+            }
+            else btnUndo.Enabled = false;
+        }
+        private void LoadTable()
+        {
+            try
+            {
+                DS.EnforceConstraints = false;
 
+                this.khoTableAdapter.Connection.ConnectionString = Program.constr;
+                this.khoTableAdapter.Fill(this.DS.Kho);
+
+                this.chiNhanhTableAdapter.Connection.ConnectionString = Program.constr;
+                this.chiNhanhTableAdapter.Fill(this.DS.ChiNhanh);
+
+                this.datHangTableAdapter.Connection.ConnectionString = Program.constr;
+                this.datHangTableAdapter.Fill(this.DS.DatHang);
+
+                this.phieuNhapTableAdapter.Connection.ConnectionString = Program.constr;
+                this.phieuNhapTableAdapter.Fill(this.DS.PhieuNhap);
+
+                this.phieuXuatTableAdapter.Connection.ConnectionString = Program.constr;
+                this.phieuXuatTableAdapter.Fill(this.DS.PhieuXuat);
+
+
+                macn = ((DataRowView)bdsKho[0])["MACN"].ToString();
+                if (Program.mGroup.Equals("CONGTY"))
+                {
+                    btnThem.Enabled = btnXoa.Enabled = btnSua.Enabled = btnReload.Enabled = false;
+                    btnGhi.Enabled = btnUndo.Enabled = false;
+                    cbChiNhanh.Enabled = true;
+                    gcInfoKho.Enabled = false;
+                }
+                else if (Program.mGroup == "USER")
+                {
+                    btnXoa.Enabled = btnSua.Enabled = btnReload.Enabled = true;
+                    btnThem.Enabled = true;
+                    cbChiNhanh.Enabled = txtMaCN.Enabled = false;
+                    btnGhi.Enabled = btnUndo.Enabled = false;
+                    gcInfoKho.Enabled = false;
+                }
+                else if (Program.mGroup == "CHINHANH")
+                {
+                    btnThem.Enabled = btnXoa.Enabled = btnSua.Enabled = btnReload.Enabled
+                        = true;
+                    btnGhi.Enabled = btnUndo.Enabled = false;
+                    cbChiNhanh.Enabled = false; txtMaCN.Enabled = false;
+                    gcInfoKho.Enabled = false;
+                }
+
+                LoadUndo();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+        }
         private void FormKho_Load(object sender, EventArgs e)
         {
-            DS.EnforceConstraints = false;
-
-            this.khoTableAdapter.Connection.ConnectionString = Program.constr;
-            this.khoTableAdapter.Fill(this.DS.Kho);
-
-            this.datHangTableAdapter.Connection.ConnectionString = Program.constr;
-            this.datHangTableAdapter.Fill(this.DS.DatHang);
-
-            this.phieuNhapTableAdapter.Connection.ConnectionString = Program.constr;
-            this.phieuNhapTableAdapter.Fill(this.DS.PhieuNhap);
-
-            this.phieuXuatTableAdapter.Connection.ConnectionString = Program.constr;
-            this.phieuXuatTableAdapter.Fill(this.DS.PhieuXuat);
-            // TODO: This line of code loads data into the 'dS.PhieuNhap' table. You can move, or remove it, as needed.
-            // this.phieuNhapTableAdapter.Fill(this.DS.PhieuNhap);
-            // TODO: This line of code loads data into the 'dS.DatHang' table. You can move, or remove it, as needed.
-            //  this.datHangTableAdapter.Fill(this.DS.DatHang);
-
-            if (Program.mGroup == "CONGTY")
-            {
-                btnThem.Enabled = btnXoa.Enabled = btnGhi.Enabled = btnUndo.Enabled = false;
-                txtTenKho.Enabled = txtMaKho.Enabled = txtDiaChi.Enabled = false;
-            }
-            else if (Program.mGroup == "CHINHANH" || Program.mGroup == "USER")
-            {
-                cbChiNhanh.Enabled = txtMaKho.Enabled = false;
-            }
-
-            maCN = (((DataRowView)bdsKho[0])["MACN"].ToString()); // lúc đúng lúc sai
-
-            this.cbChiNhanh.DataSource = Program.bds_dspm; // DataSource của comboBox_ChiNhanh tham chiếu đến bindingSource ở LoginForm
+            LoadTable();
+            cbChiNhanh.DataSource = Program.bds_dspm.DataSource;
             cbChiNhanh.DisplayMember = "TENCN";
             cbChiNhanh.ValueMember = "TENSERVER";
             cbChiNhanh.SelectedIndex = Program.mChiNhanh;
 
-            //Mặc định vừa vào groupbox không dx hiện để tránh lỗi sửa các dòng cũ chưa lưu đi qua dòng khác
-            btnUndo.Enabled = false;
-            //Program.flagCloseFormKho = true; //Khi load bật cho phép có thể đóng form
-
-            history_kho = new Stack<string>();
         }
 
         private void btnThem_Click(object sender, EventArgs e)
         {
+            gcInfoKho.Enabled = true;
             vitri = bdsKho.Position;
+            bdsKho.AddNew();
+            txtMaCN.Text = macn;
             txtMaKho.Enabled = true;
-            this.bdsKho.AddNew();
-            txtMaCN.Text = maCN;
-            btnThem.Enabled = btnXoa.Enabled = gcKho.Enabled = btnReload.Enabled = false;
-            btnUndo.Enabled = gcInfoKho.Enabled = btnGhi.Enabled = true;
+            them = true;
 
-            history_kho.Push(THEM_BTN);
+
+            btnThem.Enabled = btnSua.Enabled = btnXoa.Enabled = btnReload.Enabled = false;
+            btnGhi.Enabled = btnThoat.Enabled = true;
+            txtMaCN.Enabled = cbChiNhanh.Enabled = false;
         }
-
+        private void btnSua_Click(object sender, EventArgs e)
+        {
+            vitri = bdsKho.Position;
+            gcInfoKho.Enabled = true;
+            txtMaKho.Enabled = false;
+            them = false;
+            query = String.Format("update Kho set TENKHO=N'{1}', DIACHI=N'{2}',MACN=N'{3}' where MAKHO=N'{0}'", txtMaKho.Text.Trim(), txtTenKho.Text, txtDiaChi.Text, txtMaCN.Text);
+            btnThem.Enabled = btnSua.Enabled = btnXoa.Enabled = btnReload.Enabled = false;
+            btnGhi.Enabled = btnThoat.Enabled = true;
+            txtMaCN.Enabled = cbChiNhanh.Enabled = false;
+        }
         private void btnReload_Click(object sender, EventArgs e)
         {
-            this.khoTableAdapter.Fill(this.DS.Kho);
+            LoadTable();
         }
 
         private void btnThoat_Click(object sender, EventArgs e)
         {
-            this.Close();
+            if (gcInfoKho.Enabled)
+            {
+                if (MessageBox.Show("Dữ liệu chưa được lưu vào data", "", MessageBoxButtons.OKCancel) == DialogResult.OK)
+                {
+                    this.Close();
+                }
+            }
+            else
+            {
+                this.Close();
+            }
         }
 
         private void cbChiNhanh_SelectedIndexChanged(object sender, EventArgs e)
         {
-            // Trường hợp chưa kịp chọn CN, thuộc tính index ở combobox sẽ thay đổi
-            // "System.Data.DataRowView" sẽ xuất hiện và tất nhiên hệ thống sẽ không thể
-            // nhận diện được tên server "System.Data.DataRowView".
-            if (cbChiNhanh.SelectedValue.ToString() == "System.Data.DataRowView") return;
-
-            // Lấy tên server
+            if (cbChiNhanh.SelectedValue.ToString() == "System.Data.DataRowView")
+                return;
             Program.serverName = cbChiNhanh.SelectedValue.ToString();
-
-            // Nếu tên server khác với tên server ngoài đăng nhập, thì ta phải sử dụng HTKN
             if (cbChiNhanh.SelectedIndex != Program.mChiNhanh)
             {
                 Program.mLogin = Program.remoteLogin;
@@ -127,261 +165,168 @@ namespace QLVT_DH
                 Program.mLogin = Program.mloginDN;
                 Program.passwd = Program.passwdDN;
             }
-
             if (Program.KetNoi() == 0)
-                MessageBox.Show("Lỗi kết nối về chi nhánh mới", "", MessageBoxButtons.OK);
+            {
+                MessageBox.Show("Lỗi kết nối về chi nhánh mới");
+            }
             else
             {
-                this.khoTableAdapter.Connection.ConnectionString = Program.constr;
-                this.khoTableAdapter.Fill(this.DS.Kho);
-                maCN = ((DataRowView)bdsKho[0])["MACN"].ToString();
+                LoadTable();
             }
         }
+        private int kiemTraTonTai(String maKho)
+        {
+            int result = 1;
+            String lenh = String.Format("EXEC SP_TIMKHO {0}", maKho);
+            using (SqlConnection connection = new SqlConnection(Program.constr))
+            {
+                connection.Open();
+                SqlCommand sqlcmt = new SqlCommand(lenh, connection);
+                sqlcmt.CommandType = CommandType.Text;
+                try
+                {
+                    sqlcmt.ExecuteNonQuery();
+                }
+                catch
+                {
+                    result = 0;
+                }
 
+            }
+            return result;
+        }
         private void btnGhi_Click(object sender, EventArgs e)
         {
-            if (ValidateChildren(ValidationConstraints.Enabled))
+            // KIEM TRA DAU VAO
+            txtMaKho.Text = txtMaKho.Text.Trim();
+
+            if (txtMaKho.Text.Trim() == String.Empty)
             {
-                // == Query tìm MAKHO ==
-                String query_MAKHO = "DECLARE @return_value int " +
-                                    "EXEC @return_value = [dbo].[SP_CHECKID_TRACUU] " +
-                                    "@p1, @p2 " +
-                                    "SELECT 'Return Value' = @return_value";
-                SqlCommand sqlCommand = new SqlCommand(query_MAKHO, Program.con);
-                sqlCommand.Parameters.AddWithValue("@p1", txtMaKho.Text);
-                sqlCommand.Parameters.AddWithValue("@p2", "MAKHO");
-                SqlDataReader dataReader = null;
+                MessageBox.Show("Mã kho không được để trống", "", MessageBoxButtons.OK);
+                txtMaKho.Focus();
+                return;
+            }
+            if (txtMaKho.Text.Length > 4)
+            {
+                MessageBox.Show("Mã kho không được quá 4 ký tự ", "", MessageBoxButtons.OK);
+                txtMaKho.Focus();
+                return;
 
+            }
+            else if (txtMaKho.Text.Contains(" "))
+            {
+                MessageBox.Show("Mã kho không được chứa khoảng trắng!", "", MessageBoxButtons.OK);
+                txtMaKho.Focus();
+                return;
+            }
+
+            if (txtMaKho.Enabled == true)
+            {
                 try
                 {
-                    dataReader = sqlCommand.ExecuteReader();
-                }
-                catch (Exception ex)
-                {
-                    MessageBox.Show("Thực thi database thất bại!\n" + ex.Message, "Thông báo",
-                        MessageBoxButtons.OK, MessageBoxIcon.Error);
-                    return;
-                }
-                // Đọc và lấy result
-                dataReader.Read();
-                int result_value_MAKHO = int.Parse(dataReader.GetValue(0).ToString());
-                dataReader.Close();
-
-                // == Query tìm TENKHO ==
-                String query_TENKHO = "DECLARE @return_value int " +
-                                       "EXEC @return_value = [dbo].[SP_CHECKID_TRACUU] " +
-                                       "@p1, @p2 " +
-                                       "SELECT 'Return Value' = @return_value";
-                sqlCommand = new SqlCommand(query_TENKHO, Program.con);
-                sqlCommand.Parameters.AddWithValue("@p1", txtTenKho.Text);
-                sqlCommand.Parameters.AddWithValue("@p2", "TENKHO");
-
-                try
-                {
-                    dataReader = sqlCommand.ExecuteReader();
-                }
-                catch (Exception ex)
-                {
-                    MessageBox.Show("Thực thi database thất bại!\n" + ex.Message, "Thông báo",
-                        MessageBoxButtons.OK, MessageBoxIcon.Error);
-                    return;
-                }
-                // Đọc và lấy result
-                dataReader.Read();
-                int result_value_TENKHO = int.Parse(dataReader.GetValue(0).ToString());
-                dataReader.Close();
-
-                // Check ràng buộc MAKHO, TENKHO
-                int indexMaKHO = bdsKho.Find("MAKHO", txtMaKho.Text);
-                int indexTENKHO = bdsKho.Find("TENKHO", txtTenKho.Text);
-                int indexCurrent = bdsKho.Position;
-                if (result_value_MAKHO == 1 && (indexMaKHO != indexCurrent)) // điều kiện sau là nhằm trường hợp sửa thông tin sẽ không xét chính nó
-                {
-                    MessageBox.Show("Mã kho đã tồn tại!", "Thông báo",
-                        MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                }
-                else if (result_value_TENKHO == 1 && (indexTENKHO != indexCurrent))
-                {
-                    MessageBox.Show("Tên kho đã tồn tại!", "Thông báo",
-                        MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                }
-                else
-                {
-                    DialogResult dr = MessageBox.Show("Bạn có chắc muốn ghi dữ liệu vào Database?", "Thông báo",
-                        MessageBoxButtons.OKCancel, MessageBoxIcon.Question);
-                    if (dr == DialogResult.OK)
+                    if (kiemTraTonTai(txtMaKho.EditValue.ToString()) == 1)
                     {
-                        try
-                        {
-                            //Program.flagCloseFormKho = true; //Bật cờ cho phép tắt Form NV
-                            btnThem.Enabled = btnXoa.Enabled = gcKho.Enabled = gcInfoKho.Enabled = true;
-                            btnReload.Enabled = btnGhi.Enabled = true;
-                            btnUndo.Enabled = true;
-                            txtMaKho.Enabled = false;
-                            this.bdsKho.EndEdit();
-                            this.khoTableAdapter.Update(this.DS.Kho);
-                            history_kho.Push(GHI_BTN + "#%" + txtMaKho.Text);
-                            bdsKho.Position = vitri;
-                        }
-                        catch (Exception ex)
-                        {
-                            // Khi Update database lỗi thì xóa record vừa thêm trong bds
-                            bdsKho.RemoveCurrent();
-                            MessageBox.Show("Thất bại. Vui lòng kiểm tra lại!\n" + ex.Message, "Lỗi",
-                                MessageBoxButtons.OK, MessageBoxIcon.Error);
-                        }
+                        MessageBox.Show("Mã kho không được trùng!", "", MessageBoxButtons.OK);
+                        txtMaKho.Focus();
+                        return;
                     }
                 }
+                catch (Exception ex)
+                {
+                    MessageBox.Show(ex.Message);
+                    return;
+                }
             }
-        }
-        // ------ UNDO ------
-        private void unClickThem()
-        {
-            btnThem.Enabled = btnXoa.Enabled = gcKho.Enabled = btnReload.Enabled = gcInfoKho.Enabled = true;
-            btnGhi.Enabled = txtMaKho.Enabled = false;
-            this.bdsKho.CancelEdit();
-            bdsKho.Position = vitri;
-        }
-
-        private void unClickGhi(int index)
-        {
-            string maKho_backup = ((DataRowView)bdsKho[index])[0].ToString().Trim();
-            DialogResult dr = MessageBox.Show("Phiếu '" + maKho_backup + "' đã được ghi vào database.\nBạn có chắc muốn Undo không??", "Xác nhận",
-                    MessageBoxButtons.YesNo, MessageBoxIcon.Question);
-            if (dr == DialogResult.Yes)
+            if (txtTenKho.Text.Trim() == string.Empty)
             {
-                //int deletedPosition = current_bds.Find(type, maPhieu);
-
-                string tenKho_backup = ((DataRowView)bdsKho[index])[1].ToString().Trim();
-                string diaChi_backup = ((DataRowView)bdsKho[index])[2].ToString().Trim();
-                bdsKho.RemoveAt(index);
-                vitri = bdsKho.Position;
-                txtMaKho.Enabled = true;
-                this.bdsKho.AddNew();
-                txtMaCN.Text = maCN;
-                btnThem.Enabled = btnXoa.Enabled = gcKho.Enabled = btnReload.Enabled = false;
-                btnUndo.Enabled = gcInfoKho.Enabled = btnGhi.Enabled = true;
-                this.khoTableAdapter.Update(this.DS.Kho);
-                txtMaKho.Text = maKho_backup;
-                txtTenKho.Text = tenKho_backup;
-                txtDiaChi.Text = maKho_backup;
-
+                MessageBox.Show("Tên kho không được thiếu !", "", MessageBoxButtons.OK);
+                txtTenKho.Focus();
                 return;
             }
+            if (txtDiaChi.Text.Trim() == string.Empty)
+            {
+                MessageBox.Show("Địa chỉ không được thiếu!", "", MessageBoxButtons.OK);
+                txtDiaChi.Focus();
+                return;
+            }
+            // luu
+            try
+            {
+                // luu dataset
+                bdsKho.EndEdit();
+                bdsKho.ResetCurrentItem();
+                // luu csdl
+                this.khoTableAdapter.Connection.ConnectionString = Program.constr;
+                this.khoTableAdapter.Update(this.DS.Kho);
+                if (them)
+                {
+                    query = String.Format("Delete from Kho where MAKHO = N'{0}' ", txtMaKho.Text.Trim());
+                }
 
-            history_kho.Push(GHI_BTN + "#%" + maKho_backup);
-        }
-        private void unClickXoa(string[] data_backup)
-        {
-            bdsKho.AddNew();
-            ((DataRowView)bdsKho[bdsKho.Position])[0] = data_backup[1];
-            // Khi tách dữ liệu ra thì ngày được tách thành: [2] - mm/dd/yyyy [3] - time [4] - AM/PM
-            ((DataRowView)bdsKho[bdsKho.Position])[1] = data_backup[2];
-            ((DataRowView)bdsKho[bdsKho.Position])[2] = data_backup[3];
-            ((DataRowView)bdsKho[bdsKho.Position])[3] = maCN;
-            bdsKho.EndEdit();
-            this.khoTableAdapter.Update(this.DS.Kho);
-        }
-        public int split_index_ghi(string GHIBTN)
-        {
-            char[] separators = new char[] { '#', '%' };
-            string[] temp = GHIBTN.Split(separators, StringSplitOptions.RemoveEmptyEntries);
-            string maPhieu = temp[1];
-            int indexDataRowUpdated = bdsKho.Find("MAKHO", maPhieu);
-
-            return indexDataRowUpdated;
+                stackundo.Push(query);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Lỗi ghi kho." + ex.Message);
+                return;
+            }
+            LoadTable();
         }
 
-        private string[] split_data(string XOABTN)
-        {
-            char[] separators = new char[] { '#', '%' };
-            string[] data = XOABTN.Split(separators, StringSplitOptions.RemoveEmptyEntries);
-            return data;
-        }
-        // TODO: vị trí, non-update
         private void btnUndo_Click(object sender, EventArgs e)
         {
-            String undoHistory = "";
-            undoHistory = history_kho.Pop();
-            if (history_kho.Count == 0) btnUndo.Enabled = false;
-
-            if (undoHistory.Equals(""))
+            String lenh = stackundo.Pop();
+            using (SqlConnection connection = new SqlConnection(Program.constr))
             {
-                btnUndo.Enabled = false;
-                return;
-            }
-
-            if (undoHistory.Equals(THEM_BTN))
-            {
-                unClickThem();
-                return;
-            }
-
-            if (undoHistory.Contains("_&ghi"))
-            {
-                int index = split_index_ghi(undoHistory);
-                unClickGhi(index);
-                return;
-            }
-
-            if (undoHistory.Contains(XOA_BTN))
-            {
-                string[] data_backup_split = split_data(undoHistory);
-                unClickXoa(data_backup_split);
-                return;
+                connection.Open();
+                SqlCommand sqlcmt = new SqlCommand(lenh, connection);
+                sqlcmt.CommandType = CommandType.Text;
+                try
+                {
+                    sqlcmt.ExecuteNonQuery();
+                    LoadTable();
+                }
+                catch
+                {
+                    MessageBox.Show(lenh);
+                }
             }
         }
 
         private void btnXoa_Click(object sender, EventArgs e)
         {
-            string maKho = "";
-            if (bdsDH.Count > 0)
+            String maKho = "";
+            maKho = ((DataRowView)bdsKho[bdsKho.Position])["MAKHO"].ToString();
+            if (bdsPN.Count + bdsPX.Count + bdsDH.Count > 0)
             {
-                MessageBox.Show("Không thể xóa kho vì đã lập đơn đặt hàng", "Cảnh báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                MessageBox.Show("Không thể xóa kho này vì đã lập phiếu", "", MessageBoxButtons.OK);
                 return;
             }
-            if (bdsPN.Count > 0)
-            {
-                MessageBox.Show("Không thể xóa kho vì đã lập phiếu nhập", "Cảnh báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                return;
-            }
-            if (bdsPX.Count > 0)
-            {
-                MessageBox.Show("Không thể xóa kho vì đã lập phiếu xuất", "Cảnh báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                return;
-            }
-            DialogResult dr = MessageBox.Show("Bạn có thực sự muốn xóa kho này không?", "Xác nhận",
-                MessageBoxButtons.OKCancel, MessageBoxIcon.Question);
-
-            if (dr == DialogResult.OK)
+            else if (MessageBox.Show("Bạn có thật sự xoá kho này !", "", MessageBoxButtons.OKCancel) == DialogResult.OK)
             {
                 try
                 {
-                    maKho = ((DataRowView)bdsKho[bdsKho.Position])["MAKHO"].ToString();
-                    string tenKho = ((DataRowView)bdsKho[bdsKho.Position])["TENKHO"].ToString();
-                    string diaChi = ((DataRowView)bdsKho[bdsKho.Position])["DIACHI"].ToString();
-
+                    String tenKho = ((DataRowView)bdsKho[bdsKho.Position])["TENKHO"].ToString();
+                    String diaChi = ((DataRowView)bdsKho[bdsKho.Position])["DIACHI"].ToString();
                     bdsKho.RemoveCurrent();
-                    btnUndo.Enabled = true;
+                    this.khoTableAdapter.Connection.ConnectionString = Program.constr;
                     this.khoTableAdapter.Update(this.DS.Kho);
-                    history_kho.Push(XOA_BTN + "#%" + maKho + "#%" + tenKho + "#%" + diaChi);
+                    query = String.Format("INSERT INTO KHO (MAKHO, TENKHO,DIACHI,MACN) VALUES(N'{0}', N'{1}', N'{2}',N'{3}')", maKho, tenKho, diaChi, macn);
+                    stackundo.Push(query);
+                    LoadTable();
                 }
                 catch (Exception ex)
                 {
-                    MessageBox.Show("Lỗi xảy ra trong quá trình xóa. Vui lòng thử lại!\n" + ex.Message, "Thông báo lỗi",
-                        MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    MessageBox.Show("Lỗi xóa vật tư. Bạn hãy xóa lại \n", ex.Message, MessageBoxButtons.OK);
+                    //Đặt con trỏ về vị trí hiện thời
                     this.khoTableAdapter.Fill(this.DS.Kho);
                     bdsKho.Position = bdsKho.Find("MAKHO", maKho);
                     return;
                 }
             }
-
-            if (bdsKho.Count == 0) btnXoa.Enabled = false;
         }
 
-        private void btnSua_Click(object sender, EventArgs e)
-        {
-           
-        }
-    }
+      
+
+    }      
 }
