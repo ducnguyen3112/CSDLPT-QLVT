@@ -80,6 +80,7 @@ namespace QLVT_DH
             this.phieuNhapTableAdapter = new QLVT_DH.DSTableAdapters.PhieuNhapTableAdapter();
             this.fKPhieuNhapDatHangBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.cTPNTableAdapter = new QLVT_DH.DSTableAdapters.CTPNTableAdapter();
+            this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
             masoDDHLabel = new System.Windows.Forms.Label();
             nhaCCLabel = new System.Windows.Forms.Label();
             nGAYLabel = new System.Windows.Forms.Label();
@@ -330,6 +331,16 @@ namespace QLVT_DH
             // 
             // gridView1
             // 
+            this.gridView1.Appearance.HeaderPanel.Font = new System.Drawing.Font("Tahoma", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.gridView1.Appearance.HeaderPanel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(90)))), ((int)(((byte)(158)))));
+            this.gridView1.Appearance.HeaderPanel.Options.UseFont = true;
+            this.gridView1.Appearance.HeaderPanel.Options.UseForeColor = true;
+            this.gridView1.Appearance.HeaderPanel.Options.UseTextOptions = true;
+            this.gridView1.Appearance.HeaderPanel.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
+            this.gridView1.Appearance.ViewCaption.Font = new System.Drawing.Font("Tahoma", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.gridView1.Appearance.ViewCaption.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(90)))), ((int)(((byte)(158)))));
+            this.gridView1.Appearance.ViewCaption.Options.UseFont = true;
+            this.gridView1.Appearance.ViewCaption.Options.UseForeColor = true;
             this.gridView1.Columns.AddRange(new DevExpress.XtraGrid.Columns.GridColumn[] {
             this.colMasoDDH,
             this.colNGAY,
@@ -341,7 +352,7 @@ namespace QLVT_DH
             this.gridView1.OptionsBehavior.ReadOnly = true;
             this.gridView1.OptionsView.ShowGroupPanel = false;
             this.gridView1.OptionsView.ShowViewCaption = true;
-            this.gridView1.ViewCaption = "Đơn Đặt Hàng";
+            this.gridView1.ViewCaption = "ĐƠN ĐẶT HÀNG";
             // 
             // colMasoDDH
             // 
@@ -395,6 +406,9 @@ namespace QLVT_DH
             // 
             // groupControl1
             // 
+            this.groupControl1.Appearance.Options.UseForeColor = true;
+            this.groupControl1.AppearanceCaption.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(90)))), ((int)(((byte)(158)))));
+            this.groupControl1.AppearanceCaption.Options.UseForeColor = true;
             this.groupControl1.Controls.Add(this.gridCTDDH);
             this.groupControl1.Controls.Add(this.gbDDH);
             this.groupControl1.Location = new System.Drawing.Point(0, 372);
@@ -406,11 +420,12 @@ namespace QLVT_DH
             // gridCTDDH
             // 
             this.gridCTDDH.DataSource = this.bdsCTDDH;
-            this.gridCTDDH.Location = new System.Drawing.Point(641, 31);
+            this.gridCTDDH.Location = new System.Drawing.Point(641, 32);
             this.gridCTDDH.MainView = this.gridView2;
             this.gridCTDDH.Name = "gridCTDDH";
-            this.gridCTDDH.Size = new System.Drawing.Size(902, 195);
+            this.gridCTDDH.Size = new System.Drawing.Size(902, 194);
             this.gridCTDDH.TabIndex = 1;
+            this.toolTip1.SetToolTip(this.gridCTDDH, "Nháy đúp chuột để mở giao diện chỉnh sửa \r\nchi tiết đơn đặt hàng");
             this.gridCTDDH.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gridView2});
             this.gridCTDDH.DoubleClick += new System.EventHandler(this.gridCTDDH_DoubleClick);
@@ -422,6 +437,14 @@ namespace QLVT_DH
             // 
             // gridView2
             // 
+            this.gridView2.Appearance.HeaderPanel.Font = new System.Drawing.Font("Tahoma", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.gridView2.Appearance.HeaderPanel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(90)))), ((int)(((byte)(158)))));
+            this.gridView2.Appearance.HeaderPanel.Options.UseFont = true;
+            this.gridView2.Appearance.HeaderPanel.Options.UseForeColor = true;
+            this.gridView2.Appearance.ViewCaption.Font = new System.Drawing.Font("Tahoma", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.gridView2.Appearance.ViewCaption.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(90)))), ((int)(((byte)(158)))));
+            this.gridView2.Appearance.ViewCaption.Options.UseFont = true;
+            this.gridView2.Appearance.ViewCaption.Options.UseForeColor = true;
             this.gridView2.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.Simple;
             this.gridView2.Columns.AddRange(new DevExpress.XtraGrid.Columns.GridColumn[] {
             this.colMasoDDH1,
@@ -430,9 +453,10 @@ namespace QLVT_DH
             this.colDONGIA});
             this.gridView2.GridControl = this.gridCTDDH;
             this.gridView2.Name = "gridView2";
+            this.gridView2.OptionsDetail.EnableDetailToolTip = true;
             this.gridView2.OptionsView.ShowGroupPanel = false;
             this.gridView2.OptionsView.ShowViewCaption = true;
-            this.gridView2.ViewCaption = "Chi Tiết Đơn Đặt Hàng";
+            this.gridView2.ViewCaption = "CHI TIẾT ĐƠN ĐẶT HÀNG";
             // 
             // colMasoDDH1
             // 
@@ -490,6 +514,8 @@ namespace QLVT_DH
             this.gbDDH.Controls.Add(this.txtNhaCC);
             this.gbDDH.Controls.Add(masoDDHLabel);
             this.gbDDH.Dock = System.Windows.Forms.DockStyle.Left;
+            this.gbDDH.Font = new System.Drawing.Font("Tahoma", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.gbDDH.ForeColor = System.Drawing.Color.Black;
             this.gbDDH.Location = new System.Drawing.Point(2, 28);
             this.gbDDH.Name = "gbDDH";
             this.gbDDH.Size = new System.Drawing.Size(633, 196);
@@ -503,6 +529,8 @@ namespace QLVT_DH
             this.txtMK.Enabled = false;
             this.txtMK.Location = new System.Drawing.Point(502, 170);
             this.txtMK.Name = "txtMK";
+            this.txtMK.Properties.Appearance.BackColor = System.Drawing.Color.White;
+            this.txtMK.Properties.Appearance.Options.UseBackColor = true;
             this.txtMK.Properties.AppearanceDisabled.BorderColor = System.Drawing.Color.White;
             this.txtMK.Properties.AppearanceDisabled.ForeColor = System.Drawing.Color.White;
             this.txtMK.Properties.AppearanceDisabled.Options.UseBorderColor = true;
@@ -603,6 +631,14 @@ namespace QLVT_DH
             // 
             this.cTPNTableAdapter.ClearBeforeFill = true;
             // 
+            // toolTip1
+            // 
+            this.toolTip1.AutoPopDelay = 5000;
+            this.toolTip1.InitialDelay = 100;
+            this.toolTip1.ReshowDelay = 100;
+            this.toolTip1.ToolTipIcon = System.Windows.Forms.ToolTipIcon.Info;
+            this.toolTip1.ToolTipTitle = "Show";
+            // 
             // FormDDH
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 16F);
@@ -678,12 +714,6 @@ namespace QLVT_DH
         private System.Windows.Forms.GroupBox gbDDH;
         private System.Windows.Forms.BindingSource bdsCTDDH;
         private DSTableAdapters.CTDDHTableAdapter CTDDHTableAdapter;
-        private DevExpress.XtraGrid.GridControl gridCTDDH;
-        private DevExpress.XtraGrid.Views.Grid.GridView gridView2;
-        private DevExpress.XtraGrid.Columns.GridColumn colMasoDDH1;
-        private DevExpress.XtraGrid.Columns.GridColumn colMAVT;
-        private DevExpress.XtraGrid.Columns.GridColumn colSOLUONG;
-        private DevExpress.XtraGrid.Columns.GridColumn colDONGIA;
         private DevExpress.XtraEditors.TextEdit txtNhaCC;
         private DevExpress.XtraEditors.DateEdit txtngaylap;
         private DevExpress.XtraEditors.TextEdit txtMaNV;
@@ -697,5 +727,12 @@ namespace QLVT_DH
         private System.Windows.Forms.BindingSource fKPhieuNhapDatHangBindingSource;
         private DSTableAdapters.CTPNTableAdapter cTPNTableAdapter;
         private System.Windows.Forms.BindingSource fKPhieuNhapDatHangBindingSource1;
+        private DevExpress.XtraGrid.GridControl gridCTDDH;
+        private DevExpress.XtraGrid.Views.Grid.GridView gridView2;
+        private DevExpress.XtraGrid.Columns.GridColumn colMasoDDH1;
+        private DevExpress.XtraGrid.Columns.GridColumn colMAVT;
+        private DevExpress.XtraGrid.Columns.GridColumn colSOLUONG;
+        private DevExpress.XtraGrid.Columns.GridColumn colDONGIA;
+        private System.Windows.Forms.ToolTip toolTip1;
     }
 }
