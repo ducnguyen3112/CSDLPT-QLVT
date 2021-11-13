@@ -162,6 +162,12 @@
     <Compile Include="Reports\RP_DSNV.Designer.cs">
       <DependentUpon>RP_DSNV.cs</DependentUpon>
     </Compile>
+    <Compile Include="Reports\RP_DSVT.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Reports\RP_DSVT.Designer.cs">
+      <DependentUpon>RP_DSVT.cs</DependentUpon>
+    </Compile>
     <Compile Include="Reports\SupportReport.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -217,6 +223,9 @@
     </Compile>
     <EmbeddedResource Include="Reports\RP_DSNV.resx">
       <DependentUpon>RP_DSNV.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\RP_DSVT.resx">
+      <DependentUpon>RP_DSVT.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Reports\SupportReport.resx">
       <DependentUpon>SupportReport.cs</DependentUpon>
@@ -346,6 +355,24 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\pin_icon.svg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\rp_users_group_people_icon.svg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\rp_box_icon.svg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\RP_business_icon.svg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\RP_clipboard_medical_virus_icon.svg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\rp_personal_icon.svg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\rp_plan_project_report_icon.svg" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it.

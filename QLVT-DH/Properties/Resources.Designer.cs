@@ -273,6 +273,66 @@ namespace QLVT_DH.Properties {
         /// <summary>
         ///   Looks up a localized resource of type DevExpress.Utils.Svg.SvgImage.
         /// </summary>
+        internal static DevExpress.Utils.Svg.SvgImage rp_box_icon {
+            get {
+                object obj = ResourceManager.GetObject("rp_box_icon", resourceCulture);
+                return ((DevExpress.Utils.Svg.SvgImage)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type DevExpress.Utils.Svg.SvgImage.
+        /// </summary>
+        internal static DevExpress.Utils.Svg.SvgImage RP_business_icon {
+            get {
+                object obj = ResourceManager.GetObject("RP_business_icon", resourceCulture);
+                return ((DevExpress.Utils.Svg.SvgImage)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type DevExpress.Utils.Svg.SvgImage.
+        /// </summary>
+        internal static DevExpress.Utils.Svg.SvgImage RP_clipboard_medical_virus_icon {
+            get {
+                object obj = ResourceManager.GetObject("RP_clipboard_medical_virus_icon", resourceCulture);
+                return ((DevExpress.Utils.Svg.SvgImage)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type DevExpress.Utils.Svg.SvgImage.
+        /// </summary>
+        internal static DevExpress.Utils.Svg.SvgImage rp_personal_icon {
+            get {
+                object obj = ResourceManager.GetObject("rp_personal_icon", resourceCulture);
+                return ((DevExpress.Utils.Svg.SvgImage)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type DevExpress.Utils.Svg.SvgImage.
+        /// </summary>
+        internal static DevExpress.Utils.Svg.SvgImage rp_plan_project_report_icon {
+            get {
+                object obj = ResourceManager.GetObject("rp_plan_project_report_icon", resourceCulture);
+                return ((DevExpress.Utils.Svg.SvgImage)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type DevExpress.Utils.Svg.SvgImage.
+        /// </summary>
+        internal static DevExpress.Utils.Svg.SvgImage rp_users_group_people_icon {
+            get {
+                object obj = ResourceManager.GetObject("rp_users_group_people_icon", resourceCulture);
+                return ((DevExpress.Utils.Svg.SvgImage)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type DevExpress.Utils.Svg.SvgImage.
+        /// </summary>
         internal static DevExpress.Utils.Svg.SvgImage save {
             get {
                 object obj = ResourceManager.GetObject("save", resourceCulture);

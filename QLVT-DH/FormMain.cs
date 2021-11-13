@@ -15,6 +15,7 @@ namespace QLVT_DH
 {
     public partial class FormMain : DevExpress.XtraBars.Ribbon.RibbonForm
     {
+        public static int report = 0;
         public FormMain()
         {
             InitializeComponent();
@@ -144,6 +145,32 @@ namespace QLVT_DH
                 FormVatTu frmVT = new FormVatTu();
                 frmVT.MdiParent = this;
                 frmVT.Show();
+            }
+        }
+
+        private void barButtonItem16_ItemClick(object sender, ItemClickEventArgs e)
+        {
+            report = 1;
+            Form form = this.CheckExists(typeof(SupportReport));
+            if (form != null) form.Activate();
+            else
+            {
+                SupportReport f = new SupportReport();
+                //Program.formMain.Enabled = false;
+                f.ShowDialog();
+            }
+        }
+
+        private void barButtonItem17_ItemClick(object sender, ItemClickEventArgs e)
+        {
+            report = 2;
+            Form form = this.CheckExists(typeof(SupportReport));
+            if (form != null) form.Activate();
+            else
+            {
+                SupportReport f = new SupportReport();
+                //Program.formMain.Enabled = false;
+                f.ShowDialog();
             }
         }
     }

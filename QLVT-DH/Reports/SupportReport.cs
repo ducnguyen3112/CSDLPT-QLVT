@@ -23,39 +23,61 @@ namespace QLVT_DH.Reports
 
         private void btnPreview_Click(object sender, EventArgs e)
         {
-            RP_DSNV report = new RP_DSNV();
-            ReportPrintTool printTool = new ReportPrintTool(report);
-            printTool.ShowPreviewDialog();
+            if (FormMain.report == 1)
+            {
+                RP_DSNV report = new RP_DSNV();
+                ReportPrintTool printTool = new ReportPrintTool(report);
+                printTool.ShowPreviewDialog();
+            }
+            else if (FormMain.report == 2)
+            {
+                RP_DSVT report = new RP_DSVT();
+                ReportPrintTool printTool = new ReportPrintTool(report);
+                printTool.ShowPreviewDialog();
+            }
+
         }
 
         private void btnIn_Click(object sender, EventArgs e)
         {
-            RP_DSNV report = new RP_DSNV();
+            string filename = "";
+            XtraReport report = null;
+            if (FormMain.report == 1)
+            {
+                report = new RP_DSNV();
+                filename = "DanhSachNhanVien.pdf";
+            }
+            else if (FormMain.report == 2)
+            {
+                report = new RP_DSVT();
+                filename = "DanhSachVatTu.pdf";
+            }
+
             try
             {
-                if (File.Exists(@"D:\DanhSachNhanVien.pdf"))
+                if (File.Exists(@"D:\" + filename))
                 {
-                    DialogResult dr = MessageBox.Show("File DanhSachNhanVien.pdf tại ổ D đã có!\nBạn có muốn ghi đè?",
+                    DialogResult dr = MessageBox.Show("File " + filename + " tại ổ D đã có!\nBạn có muốn ghi đè?",
                         "Xác nhận", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
                     if (dr == DialogResult.Yes)
                     {
-                        report.ExportToPdf(@"D:\DanhSachNhanVien.pdf");
-                        MessageBox.Show("File DanhSachNhanVien.pdf đã được ghi thành công tại ổ D",
+                        report.ExportToPdf(@"D:\" + filename);
+                        MessageBox.Show("File " + filename + "đã được ghi thành công tại ổ D",
                 "Xác nhận", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     }
 
                 }
                 else
                 {
-                    report.ExportToPdf(@"D:\DanhSachNhanVien.pdf");
-                    MessageBox.Show("File DanhSachNhanVien.pdf đã được ghi thành công tại ổ D",
-                "Xác nhận", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    report.ExportToPdf(@"D:\" + filename);
+                    MessageBox.Show("File " + filename + "đã được ghi thành công tại ổ D",
+                 "Xác nhận", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
 
             }
             catch (IOException ex)
             {
-                MessageBox.Show("Vui lòng đóng file DanhSachNhanVien.pdf\n" + ex.Message,
+                MessageBox.Show("Vui lòng đóng file " + filename + ex.Message,
                     "Xác nhận", MessageBoxButtons.OKCancel, MessageBoxIcon.Warning);
                 return;
             }
@@ -63,8 +85,29 @@ namespace QLVT_DH.Reports
 
         private void SupportReport_Load(object sender, EventArgs e)
         {
-            // TODO: This line of code loads data into the 'dSPM.Get_Subscribes' table. You can move, or remove it, as needed.
-            this.get_SubscribesTableAdapter.Fill(this.DSPM.Get_Subscribes);
+            if (Program.mGroup == "CONGTY")
+            {
+                cbChiNhanh.Visible = lb.Visible = true;
+                cbChiNhanh.Enabled = true;
+            }
+            else
+            {
+                cbChiNhanh.Visible = lb.Visible = false;
+
+            }
+            if (FormMain.report == 1)
+            {
+                lbtt.Text = "DANH SÁCH NHÂN VIÊN";
+                this.get_SubscribesTableAdapter.Fill(this.DSPM.Get_Subscribes);
+
+            }
+            else if (FormMain.report == 2)
+            {
+                
+                lbtt.Text = "DANH SÁCH VẬT TƯ";
+
+                this.lb.Visible = this.cbChiNhanh.Visible = false;
+            }
 
         }
 
