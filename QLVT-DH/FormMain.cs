@@ -173,5 +173,42 @@ namespace QLVT_DH
                 f.ShowDialog();
             }
         }
+
+        private void barButtonItem19_ItemClick(object sender, ItemClickEventArgs e)
+        {
+            report = 4;
+            Form form = this.CheckExists(typeof(SupportReport));
+            if (form != null) form.Activate();
+            else
+            {
+                SupportReport f = new SupportReport();
+                //Program.formMain.Enabled = false;
+                f.ShowDialog();
+            }
+        }
+
+        private void barButtonItem20_ItemClick(object sender, ItemClickEventArgs e)
+        {
+            Form form = this.CheckExists(typeof(frmInHoatDongNhanVien));
+            if (form != null) form.Activate();
+            else
+            {
+               frmInHoatDongNhanVien f = new frmInHoatDongNhanVien();
+               f.ShowDialog();
+            }
+        }
+
+        private void barButtonItem21_ItemClick(object sender, ItemClickEventArgs e)
+        {
+            report = 5;
+            Form form = this.CheckExists(typeof(frmInTongHopNhapXuat));
+            if (form != null) form.Activate();
+            else
+            {
+                frmInTongHopNhapXuat f = new frmInTongHopNhapXuat();
+                //Program.formMain.Enabled = false;
+                f.ShowDialog();
+            }
+        }
     }
 }

@@ -35,6 +35,13 @@ namespace QLVT_DH.Reports
                 ReportPrintTool printTool = new ReportPrintTool(report);
                 printTool.ShowPreviewDialog();
             }
+            else if(FormMain.report == 4)
+            {  
+                RP_DSDDHCHUACOPN report = new RP_DSDDHCHUACOPN();
+                report.label1.Text = "DANH SÁCH ĐƠN ĐẶT HÀNG CHƯA CÓ PHIẾU NHẬP CỦA " + cbChiNhanh.Text.ToUpper();
+                ReportPrintTool printTool = new ReportPrintTool(report);
+                printTool.ShowPreviewDialog();
+            }    
 
         }
 
@@ -52,25 +59,29 @@ namespace QLVT_DH.Reports
                 report = new RP_DSVT();
                 filename = "DanhSachVatTu.pdf";
             }
-
+            else if(FormMain.report == 4)
+            {
+                report = new RP_DSDDHCHUACOPN();
+                filename = "DanhSachDonDatHangChuaCoPhieuNhap.pdf";
+            }    
             try
             {
-                if (File.Exists(@"D:\" + filename))
+                if (File.Exists(@"E:\" + filename))
                 {
-                    DialogResult dr = MessageBox.Show("File " + filename + " tại ổ D đã có!\nBạn có muốn ghi đè?",
+                    DialogResult dr = MessageBox.Show("File " + filename + " tại ổ E đã có!\nBạn có muốn ghi đè?",
                         "Xác nhận", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
                     if (dr == DialogResult.Yes)
                     {
-                        report.ExportToPdf(@"D:\" + filename);
-                        MessageBox.Show("File " + filename + "đã được ghi thành công tại ổ D",
+                        report.ExportToPdf(@"E:\" + filename);
+                        MessageBox.Show("File " + filename + "đã được ghi thành công tại ổ E",
                 "Xác nhận", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     }
 
                 }
                 else
                 {
-                    report.ExportToPdf(@"D:\" + filename);
-                    MessageBox.Show("File " + filename + "đã được ghi thành công tại ổ D",
+                    report.ExportToPdf(@"E:\" + filename);
+                    MessageBox.Show("File " + filename + "đã được ghi thành công tại ổ E",
                  "Xác nhận", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
 
@@ -108,7 +119,14 @@ namespace QLVT_DH.Reports
 
                 this.lb.Visible = this.cbChiNhanh.Visible = false;
             }
-
+            else if(FormMain.report == 4)
+            {
+                cbChiNhanh.Visible = lb.Visible = true;
+                cbChiNhanh.Enabled = false;
+                lbtt.Text = "DANH SÁCH ĐƠN ĐẶT HÀNG CHƯA CÓ PHIẾU NHẬP";
+                lbTu.Visible = cbThang1.Visible = cbNam1.Visible = lbDen.Visible = cbThang2.Visible = cbNam2.Visible = false;
+                this.get_SubscribesTableAdapter.Fill(this.DSPM.Get_Subscribes);
+            }    
         }
 
         private void cbChiNhanh_SelectedIndexChanged(object sender, EventArgs e)

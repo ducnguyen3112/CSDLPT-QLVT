@@ -275,6 +275,7 @@ namespace QLVT_DH
             this.barButtonItem19.ImageOptions.SvgImage = global::QLVT_DH.Properties.Resources.RP_clipboard_medical_virus_icon;
             this.barButtonItem19.LargeWidth = 100;
             this.barButtonItem19.Name = "barButtonItem19";
+            this.barButtonItem19.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barButtonItem19_ItemClick);
             // 
             // barButtonItem20
             // 
@@ -283,6 +284,7 @@ namespace QLVT_DH
             this.barButtonItem20.ImageOptions.SvgImage = global::QLVT_DH.Properties.Resources.rp_personal_icon;
             this.barButtonItem20.LargeWidth = 100;
             this.barButtonItem20.Name = "barButtonItem20";
+            this.barButtonItem20.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barButtonItem20_ItemClick);
             // 
             // barButtonItem21
             // 
@@ -291,6 +293,7 @@ namespace QLVT_DH
             this.barButtonItem21.ImageOptions.SvgImage = global::QLVT_DH.Properties.Resources.rp_plan_project_report_icon;
             this.barButtonItem21.LargeWidth = 100;
             this.barButtonItem21.Name = "barButtonItem21";
+            this.barButtonItem21.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barButtonItem21_ItemClick);
             // 
             // ribbonPage1
             // 

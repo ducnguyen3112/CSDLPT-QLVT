@@ -60,7 +60,7 @@ namespace QLVT_DH.Reports
             this.cbChiNhanh.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.cbChiNhanh.Font = new System.Drawing.Font("Courier New", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cbChiNhanh.FormattingEnabled = true;
-            this.cbChiNhanh.Location = new System.Drawing.Point(159, 155);
+            this.cbChiNhanh.Location = new System.Drawing.Point(239, 155);
             this.cbChiNhanh.Name = "cbChiNhanh";
             this.cbChiNhanh.Size = new System.Drawing.Size(270, 33);
             this.cbChiNhanh.TabIndex = 6;
@@ -84,7 +84,7 @@ namespace QLVT_DH.Reports
             this.lb.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None;
             this.lb.ImageOptions.SvgImage = global::QLVT_DH.Properties.Resources.pin_icon;
             this.lb.ImageOptions.SvgImageSize = new System.Drawing.Size(25, 25);
-            this.lb.Location = new System.Drawing.Point(112, 155);
+            this.lb.Location = new System.Drawing.Point(162, 155);
             this.lb.Name = "lb";
             this.lb.Size = new System.Drawing.Size(41, 28);
             this.lb.TabIndex = 7;
@@ -101,7 +101,7 @@ namespace QLVT_DH.Reports
             this.labelControl1.Dock = System.Windows.Forms.DockStyle.Top;
             this.labelControl1.Location = new System.Drawing.Point(0, 0);
             this.labelControl1.Name = "labelControl1";
-            this.labelControl1.Size = new System.Drawing.Size(575, 70);
+            this.labelControl1.Size = new System.Drawing.Size(703, 70);
             this.labelControl1.TabIndex = 8;
             this.labelControl1.Text = "BÁO CÁO";
             // 
@@ -111,7 +111,7 @@ namespace QLVT_DH.Reports
             this.btnPreview.Appearance.Font = new System.Drawing.Font("Consolas", 10.2F, System.Drawing.FontStyle.Bold);
             this.btnPreview.Appearance.Options.UseBackColor = true;
             this.btnPreview.Appearance.Options.UseFont = true;
-            this.btnPreview.Location = new System.Drawing.Point(67, 377);
+            this.btnPreview.Location = new System.Drawing.Point(132, 377);
             this.btnPreview.Name = "btnPreview";
             this.btnPreview.Size = new System.Drawing.Size(148, 52);
             this.btnPreview.TabIndex = 9;
@@ -124,7 +124,7 @@ namespace QLVT_DH.Reports
             this.btnIn.Appearance.Font = new System.Drawing.Font("Consolas", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnIn.Appearance.Options.UseBackColor = true;
             this.btnIn.Appearance.Options.UseFont = true;
-            this.btnIn.Location = new System.Drawing.Point(332, 377);
+            this.btnIn.Location = new System.Drawing.Point(454, 377);
             this.btnIn.Name = "btnIn";
             this.btnIn.Size = new System.Drawing.Size(148, 52);
             this.btnIn.TabIndex = 10;
@@ -153,7 +153,7 @@ namespace QLVT_DH.Reports
             this.lbtt.Dock = System.Windows.Forms.DockStyle.Top;
             this.lbtt.Location = new System.Drawing.Point(0, 70);
             this.lbtt.Name = "lbtt";
-            this.lbtt.Size = new System.Drawing.Size(575, 33);
+            this.lbtt.Size = new System.Drawing.Size(703, 33);
             this.lbtt.TabIndex = 11;
             this.lbtt.Text = "text";
             // 
@@ -161,7 +161,7 @@ namespace QLVT_DH.Reports
             // 
             this.lbTu.Appearance.Font = new System.Drawing.Font("Consolas", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbTu.Appearance.Options.UseFont = true;
-            this.lbTu.Location = new System.Drawing.Point(39, 226);
+            this.lbTu.Location = new System.Drawing.Point(80, 226);
             this.lbTu.Name = "lbTu";
             this.lbTu.Size = new System.Drawing.Size(27, 20);
             this.lbTu.TabIndex = 16;
@@ -171,7 +171,7 @@ namespace QLVT_DH.Reports
             // 
             this.lbDen.Appearance.Font = new System.Drawing.Font("Consolas", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbDen.Appearance.Options.UseFont = true;
-            this.lbDen.Location = new System.Drawing.Point(296, 226);
+            this.lbDen.Location = new System.Drawing.Point(332, 226);
             this.lbDen.Name = "lbDen";
             this.lbDen.Size = new System.Drawing.Size(36, 20);
             this.lbDen.TabIndex = 17;
@@ -194,7 +194,7 @@ namespace QLVT_DH.Reports
             "10",
             "11",
             "12"});
-            this.cbThang2.Location = new System.Drawing.Point(339, 223);
+            this.cbThang2.Location = new System.Drawing.Point(387, 223);
             this.cbThang2.Name = "cbThang2";
             this.cbThang2.Size = new System.Drawing.Size(43, 28);
             this.cbThang2.TabIndex = 18;
@@ -324,7 +324,7 @@ namespace QLVT_DH.Reports
             "1953",
             "1952",
             "1951"});
-            this.cbNam2.Location = new System.Drawing.Point(388, 223);
+            this.cbNam2.Location = new System.Drawing.Point(454, 223);
             this.cbNam2.Name = "cbNam2";
             this.cbNam2.Size = new System.Drawing.Size(121, 28);
             this.cbNam2.TabIndex = 19;
@@ -454,7 +454,7 @@ namespace QLVT_DH.Reports
             "1953",
             "1952",
             "1951"});
-            this.cbNam1.Location = new System.Drawing.Point(123, 223);
+            this.cbNam1.Location = new System.Drawing.Point(175, 223);
             this.cbNam1.Name = "cbNam1";
             this.cbNam1.Size = new System.Drawing.Size(121, 28);
             this.cbNam1.TabIndex = 20;
@@ -476,7 +476,7 @@ namespace QLVT_DH.Reports
             "10",
             "11",
             "12"});
-            this.cbThang1.Location = new System.Drawing.Point(74, 223);
+            this.cbThang1.Location = new System.Drawing.Point(113, 223);
             this.cbThang1.Name = "cbThang1";
             this.cbThang1.Size = new System.Drawing.Size(43, 28);
             this.cbThang1.TabIndex = 21;
@@ -485,7 +485,7 @@ namespace QLVT_DH.Reports
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(575, 452);
+            this.ClientSize = new System.Drawing.Size(703, 452);
             this.Controls.Add(this.cbThang1);
             this.Controls.Add(this.cbNam1);
             this.Controls.Add(this.cbNam2);
