@@ -267,6 +267,7 @@ namespace QLVT_DH
             this.barButtonItem18.ImageOptions.SvgImage = global::QLVT_DH.Properties.Resources.RP_business_icon;
             this.barButtonItem18.LargeWidth = 100;
             this.barButtonItem18.Name = "barButtonItem18";
+            this.barButtonItem18.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barButtonItem18_ItemClick);
             // 
             // barButtonItem19
             // 

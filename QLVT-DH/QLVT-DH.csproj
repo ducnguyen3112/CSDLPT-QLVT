@@ -156,6 +156,12 @@
     <Compile Include="FormLogin.Designer.cs">
       <DependentUpon>FormLogin.cs</DependentUpon>
     </Compile>
+    <Compile Include="Reports\RP_CTSLTGHN.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Reports\RP_CTSLTGHN.Designer.cs">
+      <DependentUpon>RP_CTSLTGHN.cs</DependentUpon>
+    </Compile>
     <Compile Include="Reports\RP_DSNV.cs">
       <SubType>Component</SubType>
     </Compile>
@@ -167,6 +173,12 @@
     </Compile>
     <Compile Include="Reports\RP_DSVT.Designer.cs">
       <DependentUpon>RP_DSVT.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Reports\RP_CTSLTGHX.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Reports\RP_CTSLTGHX.Designer.cs">
+      <DependentUpon>RP_CTSLTGHX.cs</DependentUpon>
     </Compile>
     <Compile Include="Reports\SupportReport.cs">
       <SubType>Form</SubType>
@@ -221,11 +233,17 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
+    <EmbeddedResource Include="Reports\RP_CTSLTGHN.resx">
+      <DependentUpon>RP_CTSLTGHN.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Reports\RP_DSNV.resx">
       <DependentUpon>RP_DSNV.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Reports\RP_DSVT.resx">
       <DependentUpon>RP_DSVT.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\RP_CTSLTGHX.resx">
+      <DependentUpon>RP_CTSLTGHX.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Reports\SupportReport.resx">
       <DependentUpon>SupportReport.cs</DependentUpon>

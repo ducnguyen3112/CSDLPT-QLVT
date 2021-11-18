@@ -173,5 +173,18 @@ namespace QLVT_DH
                 f.ShowDialog();
             }
         }
+
+        private void barButtonItem18_ItemClick(object sender, ItemClickEventArgs e)
+        {
+            report = 3;
+            Form form = this.CheckExists(typeof(SupportReport));
+            if (form != null) form.Activate();
+            else
+            {
+                SupportReport f = new SupportReport();
+                //Program.formMain.Enabled = false;
+                f.ShowDialog();
+            }
+        }
     }
 }

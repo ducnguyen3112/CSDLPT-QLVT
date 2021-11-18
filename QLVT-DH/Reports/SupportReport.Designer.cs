@@ -42,12 +42,16 @@ namespace QLVT_DH.Reports
             this.lbtt = new DevExpress.XtraEditors.LabelControl();
             this.lbTu = new DevExpress.XtraEditors.LabelControl();
             this.lbDen = new DevExpress.XtraEditors.LabelControl();
-            this.cbThang2 = new System.Windows.Forms.ComboBox();
-            this.cbNam2 = new System.Windows.Forms.ComboBox();
-            this.cbNam1 = new System.Windows.Forms.ComboBox();
-            this.cbThang1 = new System.Windows.Forms.ComboBox();
+            this.dateEdit1 = new DevExpress.XtraEditors.DateEdit();
+            this.dateEdit2 = new DevExpress.XtraEditors.DateEdit();
+            this.rbtnNhap = new System.Windows.Forms.RadioButton();
+            this.rbtnXuat = new System.Windows.Forms.RadioButton();
             ((System.ComponentModel.ISupportInitialize)(this.get_SubscribesBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.DSPM)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dateEdit1.Properties.CalendarTimeProperties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dateEdit1.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dateEdit2.Properties.CalendarTimeProperties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dateEdit2.Properties)).BeginInit();
             this.SuspendLayout();
             // 
             // cbChiNhanh
@@ -60,7 +64,7 @@ namespace QLVT_DH.Reports
             this.cbChiNhanh.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.cbChiNhanh.Font = new System.Drawing.Font("Courier New", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cbChiNhanh.FormattingEnabled = true;
-            this.cbChiNhanh.Location = new System.Drawing.Point(159, 155);
+            this.cbChiNhanh.Location = new System.Drawing.Point(221, 152);
             this.cbChiNhanh.Name = "cbChiNhanh";
             this.cbChiNhanh.Size = new System.Drawing.Size(270, 33);
             this.cbChiNhanh.TabIndex = 6;
@@ -84,7 +88,7 @@ namespace QLVT_DH.Reports
             this.lb.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None;
             this.lb.ImageOptions.SvgImage = global::QLVT_DH.Properties.Resources.pin_icon;
             this.lb.ImageOptions.SvgImageSize = new System.Drawing.Size(25, 25);
-            this.lb.Location = new System.Drawing.Point(112, 155);
+            this.lb.Location = new System.Drawing.Point(174, 155);
             this.lb.Name = "lb";
             this.lb.Size = new System.Drawing.Size(41, 28);
             this.lb.TabIndex = 7;
@@ -101,7 +105,7 @@ namespace QLVT_DH.Reports
             this.labelControl1.Dock = System.Windows.Forms.DockStyle.Top;
             this.labelControl1.Location = new System.Drawing.Point(0, 0);
             this.labelControl1.Name = "labelControl1";
-            this.labelControl1.Size = new System.Drawing.Size(575, 70);
+            this.labelControl1.Size = new System.Drawing.Size(675, 70);
             this.labelControl1.TabIndex = 8;
             this.labelControl1.Text = "BÁO CÁO";
             // 
@@ -111,7 +115,7 @@ namespace QLVT_DH.Reports
             this.btnPreview.Appearance.Font = new System.Drawing.Font("Consolas", 10.2F, System.Drawing.FontStyle.Bold);
             this.btnPreview.Appearance.Options.UseBackColor = true;
             this.btnPreview.Appearance.Options.UseFont = true;
-            this.btnPreview.Location = new System.Drawing.Point(67, 377);
+            this.btnPreview.Location = new System.Drawing.Point(149, 377);
             this.btnPreview.Name = "btnPreview";
             this.btnPreview.Size = new System.Drawing.Size(148, 52);
             this.btnPreview.TabIndex = 9;
@@ -124,7 +128,7 @@ namespace QLVT_DH.Reports
             this.btnIn.Appearance.Font = new System.Drawing.Font("Consolas", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnIn.Appearance.Options.UseBackColor = true;
             this.btnIn.Appearance.Options.UseFont = true;
-            this.btnIn.Location = new System.Drawing.Point(332, 377);
+            this.btnIn.Location = new System.Drawing.Point(392, 377);
             this.btnIn.Name = "btnIn";
             this.btnIn.Size = new System.Drawing.Size(148, 52);
             this.btnIn.TabIndex = 10;
@@ -149,11 +153,12 @@ namespace QLVT_DH.Reports
             this.lbtt.Appearance.Options.UseForeColor = true;
             this.lbtt.Appearance.Options.UseTextOptions = true;
             this.lbtt.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
+            this.lbtt.Appearance.TextOptions.WordWrap = DevExpress.Utils.WordWrap.Wrap;
             this.lbtt.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None;
             this.lbtt.Dock = System.Windows.Forms.DockStyle.Top;
             this.lbtt.Location = new System.Drawing.Point(0, 70);
             this.lbtt.Name = "lbtt";
-            this.lbtt.Size = new System.Drawing.Size(575, 33);
+            this.lbtt.Size = new System.Drawing.Size(675, 33);
             this.lbtt.TabIndex = 11;
             this.lbtt.Text = "text";
             // 
@@ -161,335 +166,87 @@ namespace QLVT_DH.Reports
             // 
             this.lbTu.Appearance.Font = new System.Drawing.Font("Consolas", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbTu.Appearance.Options.UseFont = true;
-            this.lbTu.Location = new System.Drawing.Point(39, 226);
+            this.lbTu.Location = new System.Drawing.Point(42, 268);
             this.lbTu.Name = "lbTu";
             this.lbTu.Size = new System.Drawing.Size(27, 20);
             this.lbTu.TabIndex = 16;
             this.lbTu.Text = "Từ:";
+            this.lbTu.Visible = false;
             // 
             // lbDen
             // 
             this.lbDen.Appearance.Font = new System.Drawing.Font("Consolas", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbDen.Appearance.Options.UseFont = true;
-            this.lbDen.Location = new System.Drawing.Point(296, 226);
+            this.lbDen.Location = new System.Drawing.Point(372, 266);
             this.lbDen.Name = "lbDen";
             this.lbDen.Size = new System.Drawing.Size(36, 20);
             this.lbDen.TabIndex = 17;
             this.lbDen.Text = "Đến:";
+            this.lbDen.Visible = false;
             // 
-            // cbThang2
+            // dateEdit1
             // 
-            this.cbThang2.Font = new System.Drawing.Font("Consolas", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cbThang2.FormattingEnabled = true;
-            this.cbThang2.Items.AddRange(new object[] {
-            "01",
-            "02",
-            "03",
-            "04",
-            "05",
-            "06",
-            "07",
-            "08",
-            "09",
-            "10",
-            "11",
-            "12"});
-            this.cbThang2.Location = new System.Drawing.Point(339, 223);
-            this.cbThang2.Name = "cbThang2";
-            this.cbThang2.Size = new System.Drawing.Size(43, 28);
-            this.cbThang2.TabIndex = 18;
+            this.dateEdit1.EditValue = null;
+            this.dateEdit1.Location = new System.Drawing.Point(70, 268);
+            this.dateEdit1.Name = "dateEdit1";
+            this.dateEdit1.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dateEdit1.Properties.Appearance.Options.UseFont = true;
+            this.dateEdit1.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.dateEdit1.Properties.CalendarTimeProperties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.dateEdit1.Size = new System.Drawing.Size(182, 24);
+            this.dateEdit1.TabIndex = 18;
+            this.dateEdit1.Visible = false;
             // 
-            // cbNam2
+            // dateEdit2
             // 
-            this.cbNam2.Font = new System.Drawing.Font("Consolas", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cbNam2.FormattingEnabled = true;
-            this.cbNam2.Items.AddRange(new object[] {
-            "2070",
-            "2069",
-            "2068",
-            "2067",
-            "2066",
-            "2065",
-            "2064",
-            "2063",
-            "2062",
-            "2061",
-            "2060",
-            "2059",
-            "2058",
-            "2057",
-            "2056",
-            "2055",
-            "2054",
-            "2053",
-            "2052",
-            "2051",
-            "2050",
-            "2049",
-            "2048",
-            "2047",
-            "2046",
-            "2045",
-            "2044",
-            "2043",
-            "2042",
-            "2041",
-            "2040",
-            "2039",
-            "2038",
-            "2037",
-            "2036",
-            "2035",
-            "2034",
-            "2033",
-            "2032",
-            "2031",
-            "2030",
-            "2029",
-            "2028",
-            "2027",
-            "2026",
-            "2025",
-            "2024",
-            "2023",
-            "2022",
-            "2021",
-            "2020",
-            "2019",
-            "2018",
-            "2017",
-            "2016",
-            "2015",
-            "2014",
-            "2013",
-            "2012",
-            "2011",
-            "2010",
-            "2009",
-            "2008",
-            "2007",
-            "2006",
-            "2005",
-            "2004",
-            "2003",
-            "2002",
-            "2001",
-            "2000",
-            "1999",
-            "1998",
-            "1997",
-            "1996",
-            "1995",
-            "1994",
-            "1993",
-            "1992",
-            "1991",
-            "1990",
-            "1989",
-            "1988",
-            "1987",
-            "1986",
-            "1985",
-            "1984",
-            "1983",
-            "1982",
-            "1981",
-            "1980",
-            "1979",
-            "1978",
-            "1977",
-            "1976",
-            "1975",
-            "1974",
-            "1973",
-            "1972",
-            "1971",
-            "1970",
-            "1969",
-            "1968",
-            "1967",
-            "1966",
-            "1965",
-            "1964",
-            "1963",
-            "1962",
-            "1961",
-            "1960",
-            "1959",
-            "1958",
-            "1957",
-            "1956",
-            "1955",
-            "1954",
-            "1953",
-            "1952",
-            "1951"});
-            this.cbNam2.Location = new System.Drawing.Point(388, 223);
-            this.cbNam2.Name = "cbNam2";
-            this.cbNam2.Size = new System.Drawing.Size(121, 28);
-            this.cbNam2.TabIndex = 19;
+            this.dateEdit2.EditValue = null;
+            this.dateEdit2.Location = new System.Drawing.Point(414, 264);
+            this.dateEdit2.Name = "dateEdit2";
+            this.dateEdit2.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dateEdit2.Properties.Appearance.Options.UseFont = true;
+            this.dateEdit2.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.dateEdit2.Properties.CalendarTimeProperties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.dateEdit2.Size = new System.Drawing.Size(182, 24);
+            this.dateEdit2.TabIndex = 19;
+            this.dateEdit2.Visible = false;
             // 
-            // cbNam1
+            // rbtnNhap
             // 
-            this.cbNam1.Font = new System.Drawing.Font("Consolas", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cbNam1.FormattingEnabled = true;
-            this.cbNam1.Items.AddRange(new object[] {
-            "2070",
-            "2069",
-            "2068",
-            "2067",
-            "2066",
-            "2065",
-            "2064",
-            "2063",
-            "2062",
-            "2061",
-            "2060",
-            "2059",
-            "2058",
-            "2057",
-            "2056",
-            "2055",
-            "2054",
-            "2053",
-            "2052",
-            "2051",
-            "2050",
-            "2049",
-            "2048",
-            "2047",
-            "2046",
-            "2045",
-            "2044",
-            "2043",
-            "2042",
-            "2041",
-            "2040",
-            "2039",
-            "2038",
-            "2037",
-            "2036",
-            "2035",
-            "2034",
-            "2033",
-            "2032",
-            "2031",
-            "2030",
-            "2029",
-            "2028",
-            "2027",
-            "2026",
-            "2025",
-            "2024",
-            "2023",
-            "2022",
-            "2021",
-            "2020",
-            "2019",
-            "2018",
-            "2017",
-            "2016",
-            "2015",
-            "2014",
-            "2013",
-            "2012",
-            "2011",
-            "2010",
-            "2009",
-            "2008",
-            "2007",
-            "2006",
-            "2005",
-            "2004",
-            "2003",
-            "2002",
-            "2001",
-            "2000",
-            "1999",
-            "1998",
-            "1997",
-            "1996",
-            "1995",
-            "1994",
-            "1993",
-            "1992",
-            "1991",
-            "1990",
-            "1989",
-            "1988",
-            "1987",
-            "1986",
-            "1985",
-            "1984",
-            "1983",
-            "1982",
-            "1981",
-            "1980",
-            "1979",
-            "1978",
-            "1977",
-            "1976",
-            "1975",
-            "1974",
-            "1973",
-            "1972",
-            "1971",
-            "1970",
-            "1969",
-            "1968",
-            "1967",
-            "1966",
-            "1965",
-            "1964",
-            "1963",
-            "1962",
-            "1961",
-            "1960",
-            "1959",
-            "1958",
-            "1957",
-            "1956",
-            "1955",
-            "1954",
-            "1953",
-            "1952",
-            "1951"});
-            this.cbNam1.Location = new System.Drawing.Point(123, 223);
-            this.cbNam1.Name = "cbNam1";
-            this.cbNam1.Size = new System.Drawing.Size(121, 28);
-            this.cbNam1.TabIndex = 20;
+            this.rbtnNhap.AutoSize = true;
+            this.rbtnNhap.Location = new System.Drawing.Point(201, 220);
+            this.rbtnNhap.Name = "rbtnNhap";
+            this.rbtnNhap.Size = new System.Drawing.Size(96, 21);
+            this.rbtnNhap.TabIndex = 20;
+            this.rbtnNhap.TabStop = true;
+            this.rbtnNhap.Text = "Hàng nhập";
+            this.rbtnNhap.UseVisualStyleBackColor = true;
+            this.rbtnNhap.Visible = false;
             // 
-            // cbThang1
+            // rbtnXuat
             // 
-            this.cbThang1.Font = new System.Drawing.Font("Consolas", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cbThang1.FormattingEnabled = true;
-            this.cbThang1.Items.AddRange(new object[] {
-            "01",
-            "02",
-            "03",
-            "04",
-            "05",
-            "06",
-            "07",
-            "08",
-            "09",
-            "10",
-            "11",
-            "12"});
-            this.cbThang1.Location = new System.Drawing.Point(74, 223);
-            this.cbThang1.Name = "cbThang1";
-            this.cbThang1.Size = new System.Drawing.Size(43, 28);
-            this.cbThang1.TabIndex = 21;
+            this.rbtnXuat.AutoSize = true;
+            this.rbtnXuat.Location = new System.Drawing.Point(372, 220);
+            this.rbtnXuat.Name = "rbtnXuat";
+            this.rbtnXuat.Size = new System.Drawing.Size(93, 21);
+            this.rbtnXuat.TabIndex = 21;
+            this.rbtnXuat.TabStop = true;
+            this.rbtnXuat.Text = "Hàng xuất";
+            this.rbtnXuat.UseVisualStyleBackColor = true;
+            this.rbtnXuat.Visible = false;
             // 
             // SupportReport
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(575, 452);
-            this.Controls.Add(this.cbThang1);
-            this.Controls.Add(this.cbNam1);
-            this.Controls.Add(this.cbNam2);
-            this.Controls.Add(this.cbThang2);
+            this.ClientSize = new System.Drawing.Size(675, 452);
+            this.Controls.Add(this.rbtnXuat);
+            this.Controls.Add(this.rbtnNhap);
+            this.Controls.Add(this.dateEdit2);
+            this.Controls.Add(this.dateEdit1);
             this.Controls.Add(this.lbDen);
             this.Controls.Add(this.lbTu);
             this.Controls.Add(this.lbtt);
@@ -504,6 +261,10 @@ namespace QLVT_DH.Reports
             this.Load += new System.EventHandler(this.SupportReport_Load);
             ((System.ComponentModel.ISupportInitialize)(this.get_SubscribesBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.DSPM)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dateEdit1.Properties.CalendarTimeProperties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dateEdit1.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dateEdit2.Properties.CalendarTimeProperties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dateEdit2.Properties)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -523,9 +284,9 @@ namespace QLVT_DH.Reports
         private DevExpress.XtraEditors.LabelControl lbtt;
         private DevExpress.XtraEditors.LabelControl lbTu;
         private DevExpress.XtraEditors.LabelControl lbDen;
-        private System.Windows.Forms.ComboBox cbThang2;
-        private System.Windows.Forms.ComboBox cbNam2;
-        private System.Windows.Forms.ComboBox cbNam1;
-        private System.Windows.Forms.ComboBox cbThang1;
+        private DevExpress.XtraEditors.DateEdit dateEdit1;
+        private DevExpress.XtraEditors.DateEdit dateEdit2;
+        private System.Windows.Forms.RadioButton rbtnNhap;
+        private System.Windows.Forms.RadioButton rbtnXuat;
     }
 }
