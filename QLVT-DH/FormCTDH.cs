@@ -59,6 +59,12 @@ namespace QLVT_DH
             if (action.Equals("actThem"))
             {
                 txtMavtDDH.Text = txtMaVT.Text;
+                int indexMaVT = bdsCTDDH.Find("MAVT", txtMavtDDH.Text);
+                if (indexMaVT != -1 )
+                {
+                    MessageBox.Show("Đã tồn tại mã vật tư trong đơn hàng!", "Message", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    return;
+                }
 
             }
             txtMavtDDH.Visible = true;

@@ -23,15 +23,32 @@ namespace QLVT_DH.Reports
 
         private void btnPreview_Click(object sender, EventArgs e)
         {
+            this.Visible = false;
             if (FormMain.report == 1)
             {
                 RP_DSNV report = new RP_DSNV();
                 ReportPrintTool printTool = new ReportPrintTool(report);
                 printTool.ShowPreviewDialog();
+
             }
             else if (FormMain.report == 2)
             {
                 RP_DSVT report = new RP_DSVT();
+                ReportPrintTool printTool = new ReportPrintTool(report);
+                printTool.ShowPreviewDialog();
+            }
+            else if (FormMain.report == 3)
+            {
+                XtraReport report;
+                if (rbtnNhap.Checked)
+                {
+                    report = new RP_CTSLTGHN(dateEdit1.DateTime, dateEdit2.DateTime, Program.mGroup);
+
+                }
+                else
+                {
+                    report = new RP_CTSLTGHX(dateEdit1.DateTime, dateEdit2.DateTime, Program.mGroup);
+                }
                 ReportPrintTool printTool = new ReportPrintTool(report);
                 printTool.ShowPreviewDialog();
             }
@@ -51,6 +68,19 @@ namespace QLVT_DH.Reports
             {
                 report = new RP_DSVT();
                 filename = "DanhSachVatTu.pdf";
+            }
+            else if (FormMain.report == 3)
+            {
+                if (rbtnNhap.Checked)
+                {
+                    report = new RP_CTSLTGHN(dateEdit1.DateTime, dateEdit2.DateTime, Program.mGroup);
+                    filename = "ChiTietSoLuong-TriGiaHangNhap.pdf";
+                }
+                else
+                {
+                    report = new RP_CTSLTGHX(dateEdit1.DateTime, dateEdit2.DateTime, Program.mGroup);
+                    filename = "ChiTietSoLuong-TriGiaHangXuat.pdf";
+                }
             }
 
             try
@@ -103,10 +133,27 @@ namespace QLVT_DH.Reports
             }
             else if (FormMain.report == 2)
             {
-                
+
                 lbtt.Text = "DANH SÁCH VẬT TƯ";
 
                 this.lb.Visible = this.cbChiNhanh.Visible = false;
+            }
+            else if (FormMain.report == 3)
+            {
+                if (rbtnNhap.Checked)
+                {
+                    lbtt.Text = "CHI TIẾT SỐ LƯỢNG – TRỊ GIÁ HÀNG NHẬP";
+
+                }
+                else
+                {
+                    lbtt.Text = "CHI TIẾT SỐ LƯỢNG – TRỊ GIÁ HÀNG XUẤT";
+
+                }
+
+                this.lb.Visible = this.cbChiNhanh.Visible = false;
+                lbTu.Visible = lbDen.Visible = dateEdit1.Visible = dateEdit2.Visible = rbtnNhap.Visible = rbtnXuat.Visible = true;
+
             }
 
         }
