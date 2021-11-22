@@ -156,6 +156,24 @@
     <Compile Include="FormLogin.Designer.cs">
       <DependentUpon>FormLogin.cs</DependentUpon>
     </Compile>
+    <Compile Include="Reports\frmInHoatDongNhanVien.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Reports\frmInHoatDongNhanVien.Designer.cs">
+      <DependentUpon>frmInHoatDongNhanVien.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Reports\frmInTongHopNhapXuat.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Reports\frmInTongHopNhapXuat.Designer.cs">
+      <DependentUpon>frmInTongHopNhapXuat.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Reports\RP_DSDDHCHUACOPN.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Reports\RP_DSDDHCHUACOPN.Designer.cs">
+      <DependentUpon>RP_DSDDHCHUACOPN.cs</DependentUpon>
+    </Compile>
     <Compile Include="Reports\RP_CTSLTGHN.cs">
       <SubType>Component</SubType>
     </Compile>
@@ -173,6 +191,18 @@
     </Compile>
     <Compile Include="Reports\RP_DSVT.Designer.cs">
       <DependentUpon>RP_DSVT.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Reports\RP_HOATDONGNHANVIEN.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Reports\RP_HOATDONGNHANVIEN.Designer.cs">
+      <DependentUpon>RP_HOATDONGNHANVIEN.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Reports\RP_TONGHOPNHAPXUAT.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Reports\RP_TONGHOPNHAPXUAT.Designer.cs">
+      <DependentUpon>RP_TONGHOPNHAPXUAT.cs</DependentUpon>
     </Compile>
     <Compile Include="Reports\RP_CTSLTGHX.cs">
       <SubType>Component</SubType>
@@ -233,6 +263,15 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
+    <EmbeddedResource Include="Reports\frmInHoatDongNhanVien.resx">
+      <DependentUpon>frmInHoatDongNhanVien.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\frmInTongHopNhapXuat.resx">
+      <DependentUpon>frmInTongHopNhapXuat.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\RP_DSDDHCHUACOPN.resx">
+      <DependentUpon>RP_DSDDHCHUACOPN.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Reports\RP_CTSLTGHN.resx">
       <DependentUpon>RP_CTSLTGHN.cs</DependentUpon>
     </EmbeddedResource>
@@ -241,6 +280,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Reports\RP_DSVT.resx">
       <DependentUpon>RP_DSVT.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\RP_HOATDONGNHANVIEN.resx">
+      <DependentUpon>RP_HOATDONGNHANVIEN.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\RP_TONGHOPNHAPXUAT.resx">
+      <DependentUpon>RP_TONGHOPNHAPXUAT.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Reports\RP_CTSLTGHX.resx">
       <DependentUpon>RP_CTSLTGHX.cs</DependentUpon>
