@@ -59,6 +59,8 @@ namespace QLVT_DH
             this.btnXoa = new DevExpress.XtraEditors.SimpleButton();
             this.btnGhi = new DevExpress.XtraEditors.SimpleButton();
             this.btnThem = new DevExpress.XtraEditors.SimpleButton();
+            this.bdsPN = new System.Windows.Forms.BindingSource(this.components);
+            this.phieuNhapTableAdapter = new QLVT_DH.DSTableAdapters.PhieuNhapTableAdapter();
             mAVTLabel = new System.Windows.Forms.Label();
             sOLUONGLabel = new System.Windows.Forms.Label();
             dONGIALabel = new System.Windows.Forms.Label();
@@ -77,6 +79,7 @@ namespace QLVT_DH
             ((System.ComponentModel.ISupportInitialize)(this.txtDonGia.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.panelControl1)).BeginInit();
             this.panelControl1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.bdsPN)).BeginInit();
             this.SuspendLayout();
             // 
             // mAVTLabel
@@ -142,10 +145,10 @@ namespace QLVT_DH
             // 
             this.cTDDHGridControl.DataSource = this.bdsCTDDH;
             this.cTDDHGridControl.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.cTDDHGridControl.Location = new System.Drawing.Point(0, 296);
+            this.cTDDHGridControl.Location = new System.Drawing.Point(0, 303);
             this.cTDDHGridControl.MainView = this.viewCTDDH;
             this.cTDDHGridControl.Name = "cTDDHGridControl";
-            this.cTDDHGridControl.Size = new System.Drawing.Size(919, 215);
+            this.cTDDHGridControl.Size = new System.Drawing.Size(941, 215);
             this.cTDDHGridControl.TabIndex = 1;
             this.cTDDHGridControl.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.viewCTDDH});
@@ -216,10 +219,10 @@ namespace QLVT_DH
             this.vattuGridControl.DataSource = this.bdsVatTu;
             this.vattuGridControl.Dock = System.Windows.Forms.DockStyle.Right;
             this.vattuGridControl.EmbeddedNavigator.Buttons.Edit.Enabled = false;
-            this.vattuGridControl.Location = new System.Drawing.Point(415, 0);
+            this.vattuGridControl.Location = new System.Drawing.Point(437, 0);
             this.vattuGridControl.MainView = this.viewVT;
             this.vattuGridControl.Name = "vattuGridControl";
-            this.vattuGridControl.Size = new System.Drawing.Size(504, 296);
+            this.vattuGridControl.Size = new System.Drawing.Size(504, 303);
             this.vattuGridControl.TabIndex = 1;
             this.vattuGridControl.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.viewVT});
@@ -301,7 +304,7 @@ namespace QLVT_DH
             this.groupControl1.Enabled = false;
             this.groupControl1.Location = new System.Drawing.Point(0, 0);
             this.groupControl1.Name = "groupControl1";
-            this.groupControl1.Size = new System.Drawing.Size(409, 239);
+            this.groupControl1.Size = new System.Drawing.Size(437, 250);
             this.groupControl1.TabIndex = 2;
             this.groupControl1.Text = "Thông tin chi tiết đơn đặt hàng";
             // 
@@ -372,9 +375,9 @@ namespace QLVT_DH
             this.panelControl1.Controls.Add(this.btnGhi);
             this.panelControl1.Controls.Add(this.btnThem);
             this.panelControl1.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.panelControl1.Location = new System.Drawing.Point(0, 243);
+            this.panelControl1.Location = new System.Drawing.Point(0, 250);
             this.panelControl1.Name = "panelControl1";
-            this.panelControl1.Size = new System.Drawing.Size(415, 53);
+            this.panelControl1.Size = new System.Drawing.Size(437, 53);
             this.panelControl1.TabIndex = 3;
             // 
             // btnXoa
@@ -413,11 +416,20 @@ namespace QLVT_DH
             this.btnThem.Text = "Thêm";
             this.btnThem.Click += new System.EventHandler(this.btnThem_Click);
             // 
+            // bdsPN
+            // 
+            this.bdsPN.DataMember = "PhieuNhap";
+            this.bdsPN.DataSource = this.DS;
+            // 
+            // phieuNhapTableAdapter
+            // 
+            this.phieuNhapTableAdapter.ClearBeforeFill = true;
+            // 
             // FormCTDH
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(919, 511);
+            this.ClientSize = new System.Drawing.Size(941, 518);
             this.Controls.Add(this.panelControl1);
             this.Controls.Add(this.groupControl1);
             this.Controls.Add(this.vattuGridControl);
@@ -441,6 +453,7 @@ namespace QLVT_DH
             ((System.ComponentModel.ISupportInitialize)(this.txtDonGia.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.panelControl1)).EndInit();
             this.panelControl1.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.bdsPN)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -473,5 +486,7 @@ namespace QLVT_DH
         private DevExpress.XtraEditors.SimpleButton btnXoa;
         private DevExpress.XtraEditors.TextEdit txtDonGia;
         private DevExpress.XtraEditors.TextEdit txtMaVT;
+        private System.Windows.Forms.BindingSource bdsPN;
+        private DSTableAdapters.PhieuNhapTableAdapter phieuNhapTableAdapter;
     }
 }

@@ -29,14 +29,26 @@ namespace QLVT_DH
 
         private void FormCTDH_Load(object sender, EventArgs e)
         {
+            // TODO: This line of code loads data into the 'DS.PhieuNhap' table. You can move, or remove it, as needed.
+            // TODO: This line of code loads data into the 'DS.DatHang' table. You can move, or remove it, as needed.
+            // TODO: This line of code loads data into the 'DS.PhieuNhap' table. You can move, or remove it, as needed.
+            // TODO: This line of code loads data into the 'DS.CTPN' table. You can move, or remove it, as needed.
+
 
             DS.EnforceConstraints = false;
+
+
             this.vattuTableAdapter.Connection.ConnectionString = Program.constr;
             this.vattuTableAdapter.Fill(this.DS.Vattu);
             this.CTDDHTableAdapter.Connection.ConnectionString = Program.constr;
             this.CTDDHTableAdapter.Fill(this.DS.CTDDH);
+            this.phieuNhapTableAdapter.Connection.ConnectionString = Program.constr;
+            this.phieuNhapTableAdapter.Fill(this.DS.PhieuNhap);
             this.bdsCTDDH.DataSource = Program.ddhForm.getbdsCTDDH();
-
+            if (bdsPN.Find("MasoDDH", FormDDH.MaDDH) != -1)
+            {
+                panelControl1.Enabled = false;
+            }
 
         }
 
@@ -59,6 +71,12 @@ namespace QLVT_DH
             if (action.Equals("actThem"))
             {
                 txtMavtDDH.Text = txtMaVT.Text;
+                int indexMaVT = bdsCTDDH.Find("MAVT", txtMavtDDH.Text);
+                if (indexMaVT != -1)
+                {
+                    MessageBox.Show("Đã tồn tại mã vật tư trong đơn hàng!", "Message", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    return;
+                }
 
             }
             txtMavtDDH.Visible = true;

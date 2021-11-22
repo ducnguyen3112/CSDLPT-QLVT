@@ -21,6 +21,7 @@ namespace QLVT_DH
         int vitri = 0;
         String DDHinfo = "";
         string maDDHtemp = "";
+        public static string MaDDH;
         public FormDDH()
         {
             InitializeComponent();
@@ -168,6 +169,7 @@ namespace QLVT_DH
         }
         private void gridCTDDH_DoubleClick(object sender, EventArgs e)
         {
+            MaDDH = ((DataRowView)bdsCTDDH[bdsCTDDH.Position])[0].ToString().Trim();
             if (txtMaNV.Text == Program.userName)
             {
                 Program.ctdhForm = new FormCTDH();
