@@ -1,10 +1,3 @@
-USE [QLVT]
-GO
-/****** Object:  StoredProcedure [dbo].[SP_RP_CTSLTGHN]    Script Date: 23/11/2021 15:39:35 ******/
-SET ANSI_NULLS ON
-GO
-SET QUOTED_IDENTIFIER ON
-GO
 ALTER PROCEDURE [dbo].[SP_RP_CTSLTGHN] 
 @date1 date, @date2 date,@group nvarchar(10)
 AS
