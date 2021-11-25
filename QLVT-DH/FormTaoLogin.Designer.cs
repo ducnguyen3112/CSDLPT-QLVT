@@ -35,7 +35,7 @@ namespace QLVT_DH
             this.txtLogin = new DevExpress.XtraEditors.TextEdit();
             this.txtPasswd = new DevExpress.XtraEditors.TextEdit();
             this.bdsTENNV = new System.Windows.Forms.BindingSource(this.components);
-            this.DS = new QLVT_DH.DS();
+            this.dS = new QLVT_DH.DS();
             this.cbCN = new System.Windows.Forms.ComboBox();
             this.get_SubscribesBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.DSPM = new QLVT_DH.DSPM();
@@ -53,7 +53,7 @@ namespace QLVT_DH
             ((System.ComponentModel.ISupportInitialize)(this.txtLogin.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtPasswd.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.bdsTENNV)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.DS)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dS)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.get_SubscribesBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.DSPM)).BeginInit();
             this.SuspendLayout();
@@ -103,12 +103,12 @@ namespace QLVT_DH
             // bdsTENNV
             // 
             this.bdsTENNV.DataMember = "V_DS_TENNV";
-            this.bdsTENNV.DataSource = this.DS;
+            this.bdsTENNV.DataSource = this.dS;
             // 
             // DS
             // 
-            this.DS.DataSetName = "DS";
-            this.DS.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            this.dS.DataSetName = "DS";
+            this.dS.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
             // 
             // cbCN
             // 
@@ -257,7 +257,7 @@ namespace QLVT_DH
             ((System.ComponentModel.ISupportInitialize)(this.txtLogin.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtPasswd.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.bdsTENNV)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.DS)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dS)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.get_SubscribesBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.DSPM)).EndInit();
             this.ResumeLayout(false);
@@ -278,7 +278,7 @@ namespace QLVT_DH
         private DevExpress.XtraEditors.LabelControl labelControl4;
         private DevExpress.XtraEditors.LabelControl labelControl5;
         private DevExpress.XtraEditors.LabelControl labelControl6;
-        private DS DS;
+        private DS dS;
         private System.Windows.Forms.BindingSource bdsTENNV;
         private DSTableAdapters.V_DS_TENNVTableAdapter TENNVTableAdapter;
         private DSTableAdapters.TableAdapterManager tableAdapterManager;

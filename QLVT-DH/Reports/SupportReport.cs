@@ -55,7 +55,7 @@ namespace QLVT_DH.Reports
             else if(FormMain.report == 4)
             {  
                 RP_DSDDHCHUACOPN report = new RP_DSDDHCHUACOPN();
-                report.label1.Text = "DANH SÁCH ĐƠN ĐẶT HÀNG CHƯA CÓ PHIẾU NHẬP CỦA " + cbChiNhanh.Text.ToUpper();
+                report.label1.Text = "DANH SÁCH ĐƠN ĐẶT HÀNG CHƯA CÓ PHIẾU NHẬP ";
                 ReportPrintTool printTool = new ReportPrintTool(report);
                 printTool.ShowPreviewDialog();
             }    
