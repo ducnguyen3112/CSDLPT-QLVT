@@ -23,7 +23,7 @@ namespace QLVT_DH
         {
             // TODO: This line of code loads data into the 'dS.V_DS_TENNV' table. You can move, or remove it, as needed.
             this.TENNVTableAdapter.Connection.ConnectionString = Program.constr;
-            this.TENNVTableAdapter.Fill(this.DS.V_DS_TENNV);
+            this.TENNVTableAdapter.Fill(this.dS.V_DS_TENNV);
             cbCN.DataSource = Program.bds_dspm;  // sao chép bds_dspm đã load ở form đăng nhập  qua
             cbCN.DisplayMember = "TENCN";
             cbCN.ValueMember = "TENSERVER";
@@ -61,7 +61,7 @@ namespace QLVT_DH
             else
             {
                 this.TENNVTableAdapter.Connection.ConnectionString = Program.constr;
-                this.TENNVTableAdapter.Fill(this.DS.V_DS_TENNV);
+                this.TENNVTableAdapter.Fill(this.dS.V_DS_TENNV);
                 /*this.phieuNhapTableAdapter.Connection.ConnectionString = Program.constr;
                 this.phieuNhapTableAdapter.Fill(this.DS.PhieuNhap);*/
             }
