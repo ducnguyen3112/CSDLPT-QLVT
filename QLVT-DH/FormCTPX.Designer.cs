@@ -55,8 +55,8 @@ namespace QLVT_DH
             this.btnThem = new DevExpress.XtraEditors.SimpleButton();
             this.groupControl1 = new DevExpress.XtraEditors.GroupControl();
             this.txtMaVT = new DevExpress.XtraEditors.TextEdit();
-            this.dONGIASpinEdit = new DevExpress.XtraEditors.SpinEdit();
-            this.sOLUONGSpinEdit = new DevExpress.XtraEditors.SpinEdit();
+            this.spinDG = new DevExpress.XtraEditors.SpinEdit();
+            this.spinSL = new DevExpress.XtraEditors.SpinEdit();
             this.txtMavtPX = new DevExpress.XtraEditors.TextEdit();
             this.CTPXTableAdapter = new QLVT_DH.DSTableAdapters.CTPXTableAdapter();
             dONGIALabel = new System.Windows.Forms.Label();
@@ -74,8 +74,8 @@ namespace QLVT_DH
             ((System.ComponentModel.ISupportInitialize)(this.groupControl1)).BeginInit();
             this.groupControl1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.txtMaVT.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dONGIASpinEdit.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.sOLUONGSpinEdit.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.spinDG.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.spinSL.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtMavtPX.Properties)).BeginInit();
             this.SuspendLayout();
             // 
@@ -126,6 +126,7 @@ namespace QLVT_DH
             this.tableAdapterManager.NhanVienTableAdapter = null;
             this.tableAdapterManager.PhieuNhapTableAdapter = null;
             this.tableAdapterManager.PhieuXuatTableAdapter = null;
+            this.tableAdapterManager.sp_DSNhanVienTableAdapter = null;
             this.tableAdapterManager.UpdateOrder = QLVT_DH.DSTableAdapters.TableAdapterManager.UpdateOrderOption.InsertUpdateDelete;
             this.tableAdapterManager.VattuTableAdapter = this.vattuTableAdapter;
             // 
@@ -152,6 +153,16 @@ namespace QLVT_DH
             // 
             // gridView1
             // 
+            this.gridView1.Appearance.HeaderPanel.Font = new System.Drawing.Font("Times New Roman", 10.2F, System.Drawing.FontStyle.Bold);
+            this.gridView1.Appearance.HeaderPanel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(90)))), ((int)(((byte)(158)))));
+            this.gridView1.Appearance.HeaderPanel.Options.UseFont = true;
+            this.gridView1.Appearance.HeaderPanel.Options.UseForeColor = true;
+            this.gridView1.Appearance.HeaderPanel.Options.UseTextOptions = true;
+            this.gridView1.Appearance.HeaderPanel.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
+            this.gridView1.Appearance.ViewCaption.Font = new System.Drawing.Font("Times New Roman", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.gridView1.Appearance.ViewCaption.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(90)))), ((int)(((byte)(158)))));
+            this.gridView1.Appearance.ViewCaption.Options.UseFont = true;
+            this.gridView1.Appearance.ViewCaption.Options.UseForeColor = true;
             this.gridView1.Columns.AddRange(new DevExpress.XtraGrid.Columns.GridColumn[] {
             this.colMAVT,
             this.colDONGIA,
@@ -164,6 +175,7 @@ namespace QLVT_DH
             // 
             // colMAVT
             // 
+            this.colMAVT.Caption = "Mã vật tư";
             this.colMAVT.FieldName = "MAVT";
             this.colMAVT.MinWidth = 25;
             this.colMAVT.Name = "colMAVT";
@@ -173,6 +185,7 @@ namespace QLVT_DH
             // 
             // colDONGIA
             // 
+            this.colDONGIA.Caption = "Đơn giá";
             this.colDONGIA.FieldName = "DONGIA";
             this.colDONGIA.MinWidth = 25;
             this.colDONGIA.Name = "colDONGIA";
@@ -182,6 +195,7 @@ namespace QLVT_DH
             // 
             // colSOLUONG
             // 
+            this.colSOLUONG.Caption = "Số lượng";
             this.colSOLUONG.FieldName = "SOLUONG";
             this.colSOLUONG.MinWidth = 25;
             this.colSOLUONG.Name = "colSOLUONG";
@@ -208,6 +222,16 @@ namespace QLVT_DH
             // 
             // gridView2
             // 
+            this.gridView2.Appearance.HeaderPanel.Font = new System.Drawing.Font("Times New Roman", 10.2F, System.Drawing.FontStyle.Bold);
+            this.gridView2.Appearance.HeaderPanel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(90)))), ((int)(((byte)(158)))));
+            this.gridView2.Appearance.HeaderPanel.Options.UseFont = true;
+            this.gridView2.Appearance.HeaderPanel.Options.UseForeColor = true;
+            this.gridView2.Appearance.HeaderPanel.Options.UseTextOptions = true;
+            this.gridView2.Appearance.HeaderPanel.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
+            this.gridView2.Appearance.ViewCaption.Font = new System.Drawing.Font("Times New Roman", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.gridView2.Appearance.ViewCaption.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(90)))), ((int)(((byte)(158)))));
+            this.gridView2.Appearance.ViewCaption.Options.UseFont = true;
+            this.gridView2.Appearance.ViewCaption.Options.UseForeColor = true;
             this.gridView2.Columns.AddRange(new DevExpress.XtraGrid.Columns.GridColumn[] {
             this.colMAVT1,
             this.colTENVT,
@@ -221,6 +245,7 @@ namespace QLVT_DH
             // 
             // colMAVT1
             // 
+            this.colMAVT1.Caption = "Mã vật tư";
             this.colMAVT1.FieldName = "MAVT";
             this.colMAVT1.MinWidth = 25;
             this.colMAVT1.Name = "colMAVT1";
@@ -230,6 +255,7 @@ namespace QLVT_DH
             // 
             // colTENVT
             // 
+            this.colTENVT.Caption = "Tên vật tư";
             this.colTENVT.FieldName = "TENVT";
             this.colTENVT.MinWidth = 25;
             this.colTENVT.Name = "colTENVT";
@@ -239,6 +265,7 @@ namespace QLVT_DH
             // 
             // colDVT
             // 
+            this.colDVT.Caption = "Đơn vị tính";
             this.colDVT.FieldName = "DVT";
             this.colDVT.MinWidth = 25;
             this.colDVT.Name = "colDVT";
@@ -248,6 +275,7 @@ namespace QLVT_DH
             // 
             // colSOLUONGTON
             // 
+            this.colSOLUONGTON.Caption = "Số lượng tồn";
             this.colSOLUONGTON.FieldName = "SOLUONGTON";
             this.colSOLUONGTON.MinWidth = 25;
             this.colSOLUONGTON.Name = "colSOLUONGTON";
@@ -308,8 +336,8 @@ namespace QLVT_DH
             this.groupControl1.AppearanceCaption.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(90)))), ((int)(((byte)(158)))));
             this.groupControl1.AppearanceCaption.Options.UseForeColor = true;
             this.groupControl1.Controls.Add(this.txtMaVT);
-            this.groupControl1.Controls.Add(this.dONGIASpinEdit);
-            this.groupControl1.Controls.Add(this.sOLUONGSpinEdit);
+            this.groupControl1.Controls.Add(this.spinDG);
+            this.groupControl1.Controls.Add(this.spinSL);
             this.groupControl1.Controls.Add(this.txtMavtPX);
             this.groupControl1.Controls.Add(dONGIALabel);
             this.groupControl1.Controls.Add(sOLUONGLabel);
@@ -332,39 +360,47 @@ namespace QLVT_DH
             this.txtMaVT.Size = new System.Drawing.Size(248, 26);
             this.txtMaVT.TabIndex = 13;
             // 
-            // dONGIASpinEdit
+            // spinDG
             // 
-            this.dONGIASpinEdit.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.bdsCTPX, "DONGIA", true));
-            this.dONGIASpinEdit.EditValue = new decimal(new int[] {
+            this.spinDG.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.bdsCTPX, "DONGIA", true));
+            this.spinDG.EditValue = new decimal(new int[] {
             0,
             0,
             0,
             0});
-            this.dONGIASpinEdit.Location = new System.Drawing.Point(132, 158);
-            this.dONGIASpinEdit.Name = "dONGIASpinEdit";
-            this.dONGIASpinEdit.Properties.Appearance.Font = new System.Drawing.Font("Consolas", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.dONGIASpinEdit.Properties.Appearance.Options.UseFont = true;
-            this.dONGIASpinEdit.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            this.spinDG.Location = new System.Drawing.Point(132, 158);
+            this.spinDG.Name = "spinDG";
+            this.spinDG.Properties.Appearance.Font = new System.Drawing.Font("Consolas", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.spinDG.Properties.Appearance.Options.UseFont = true;
+            this.spinDG.Properties.Appearance.Options.UseTextOptions = true;
+            this.spinDG.Properties.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Near;
+            this.spinDG.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.dONGIASpinEdit.Size = new System.Drawing.Size(248, 26);
-            this.dONGIASpinEdit.TabIndex = 12;
+            this.spinDG.Properties.DisplayFormat.FormatString = "n0";
+            this.spinDG.Properties.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
+            this.spinDG.Properties.EditFormat.FormatString = "n0";
+            this.spinDG.Properties.EditFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
+            this.spinDG.Size = new System.Drawing.Size(248, 26);
+            this.spinDG.TabIndex = 12;
             // 
-            // sOLUONGSpinEdit
+            // spinSL
             // 
-            this.sOLUONGSpinEdit.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.bdsCTPX, "SOLUONG", true));
-            this.sOLUONGSpinEdit.EditValue = new decimal(new int[] {
+            this.spinSL.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.bdsCTPX, "SOLUONG", true));
+            this.spinSL.EditValue = new decimal(new int[] {
             0,
             0,
             0,
             0});
-            this.sOLUONGSpinEdit.Location = new System.Drawing.Point(132, 112);
-            this.sOLUONGSpinEdit.Name = "sOLUONGSpinEdit";
-            this.sOLUONGSpinEdit.Properties.Appearance.Font = new System.Drawing.Font("Consolas", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.sOLUONGSpinEdit.Properties.Appearance.Options.UseFont = true;
-            this.sOLUONGSpinEdit.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            this.spinSL.Location = new System.Drawing.Point(132, 112);
+            this.spinSL.Name = "spinSL";
+            this.spinSL.Properties.Appearance.Font = new System.Drawing.Font("Consolas", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.spinSL.Properties.Appearance.Options.UseFont = true;
+            this.spinSL.Properties.Appearance.Options.UseTextOptions = true;
+            this.spinSL.Properties.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Near;
+            this.spinSL.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.sOLUONGSpinEdit.Size = new System.Drawing.Size(121, 26);
-            this.sOLUONGSpinEdit.TabIndex = 10;
+            this.spinSL.Size = new System.Drawing.Size(121, 26);
+            this.spinSL.TabIndex = 10;
             // 
             // txtMavtPX
             // 
@@ -390,7 +426,9 @@ namespace QLVT_DH
             this.Controls.Add(this.vattuGridControl);
             this.Controls.Add(this.cTPNGridControl);
             this.Name = "FormCTPX";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Form1";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.FormCTPX_FormClosing);
             this.Load += new System.EventHandler(this.FormCTPX_Load);
             ((System.ComponentModel.ISupportInitialize)(this.DS)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.cTPNGridControl)).EndInit();
@@ -405,8 +443,8 @@ namespace QLVT_DH
             this.groupControl1.ResumeLayout(false);
             this.groupControl1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.txtMaVT.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dONGIASpinEdit.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.sOLUONGSpinEdit.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.spinDG.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.spinSL.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtMavtPX.Properties)).EndInit();
             this.ResumeLayout(false);
 
@@ -436,8 +474,8 @@ namespace QLVT_DH
         private DevExpress.XtraEditors.GroupControl groupControl1;
         private System.Windows.Forms.BindingSource bdsCTPX;
         private DSTableAdapters.CTPXTableAdapter CTPXTableAdapter;
-        private DevExpress.XtraEditors.SpinEdit dONGIASpinEdit;
-        private DevExpress.XtraEditors.SpinEdit sOLUONGSpinEdit;
+        private DevExpress.XtraEditors.SpinEdit spinDG;
+        private DevExpress.XtraEditors.SpinEdit spinSL;
         private DevExpress.XtraEditors.TextEdit txtMavtPX;
         private DevExpress.XtraEditors.TextEdit txtMaVT;
     }

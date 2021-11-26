@@ -81,12 +81,13 @@ namespace QLVT_DH.Reports
                 if (rbtnNhap.Checked)
                 {
                     report = new RP_CTSLTGHN(dateEdit1.DateTime, dateEdit2.DateTime, Program.mGroup);
-                    filename = "ChiTietSoLuong-TriGiaHangNhap.pdf";
+                    filename = "ChiTietSoLuong-TriGiaHangNhap" + dateEdit1.DateTime.ToString("dd/MM/yyyy") + "-" + dateEdit2.DateTime.ToString("dd/MM/yyyy") + ".pdf";
+
                 }
                 else
                 {
                     report = new RP_CTSLTGHX(dateEdit1.DateTime, dateEdit2.DateTime, Program.mGroup);
-                    filename = "ChiTietSoLuong-TriGiaHangXuat.pdf";
+                    filename = "ChiTietSoLuong-TriGiaHangXuat"+dateEdit1.DateTime.ToString("dd/MM/yyyy")+"-"+dateEdit2.DateTime.ToString("dd/MM/yyyy") + ".pdf";
                 }
             }
 
@@ -97,22 +98,22 @@ namespace QLVT_DH.Reports
             }    
             try
             {
-                if (File.Exists(@"E:\" + filename))
+                if (File.Exists(@"D:\" + filename))
                 {
-                    DialogResult dr = MessageBox.Show("File " + filename + " tại ổ E đã có!\nBạn có muốn ghi đè?",
+                    DialogResult dr = MessageBox.Show("File " + filename + " tại ổ D đã tồn tại"+filename+"!\nBạn có muốn ghi đè?",
                         "Xác nhận", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
                     if (dr == DialogResult.Yes)
                     {
-                        report.ExportToPdf(@"E:\" + filename);
-                        MessageBox.Show("File " + filename + "đã được ghi thành công tại ổ E",
+                        report.ExportToPdf(@"D:\" + filename);
+                        MessageBox.Show("File " + filename + "đã được ghi thành công tại ổ D",
                 "Xác nhận", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     }
 
                 }
                 else
                 {
-                    report.ExportToPdf(@"E:\" + filename);
-                    MessageBox.Show("File " + filename + "đã được ghi thành công tại ổ E",
+                    report.ExportToPdf(@"D:\" + filename);
+                    MessageBox.Show("File " + filename + "đã được ghi thành công tại ổ D",
                  "Xác nhận", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
 

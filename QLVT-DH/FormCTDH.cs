@@ -49,11 +49,15 @@ namespace QLVT_DH
             {
                 panelControl1.Enabled = false;
             }
+            btnGhi.Enabled = false;
+
+
 
         }
 
         private void btnThem_Click(object sender, EventArgs e)
         {
+
             action = "actThem";
             txtMavtDDH.Visible = false;
             txtMaVT.Visible = true;
@@ -63,6 +67,7 @@ namespace QLVT_DH
             vitri = bdsCTDDH.Position;
             groupControl1.Enabled = true;
             btnGhi.Enabled = true;
+            btnXoa.Enabled = btnThem.Enabled = cTDDHGridControl.Enabled = false;
             txtMavtDDH.Focus();
         }
 
@@ -75,6 +80,7 @@ namespace QLVT_DH
                 if (indexMaVT != -1)
                 {
                     MessageBox.Show("Đã tồn tại mã vật tư trong đơn hàng!", "Message", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+
                     return;
                 }
 
@@ -87,13 +93,16 @@ namespace QLVT_DH
                 {
                     this.bdsCTDDH.EndEdit();
                     this.CTDDHTableAdapter.Update(Program.ddhForm.getDataset().CTDDH);
-                    groupControl1.Enabled = false;
+                    MessageBox.Show("Thêm vật tư vào danh sách thành công!", "Message", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    groupControl1.Enabled = btnGhi.Enabled = false;
+                    btnXoa.Enabled = btnThem.Enabled = true;
+                    action = "";
                 }
                 catch (Exception ex)
                 {
                     if (action.Equals("actThem"))
                     {
-                        bdsCTDDH.RemoveCurrent();
+
                     }
                     MessageBox.Show("LỖI!!\n" + ex.Message, "Message", MessageBoxButtons.OK, MessageBoxIcon.Error);
 
@@ -106,9 +115,21 @@ namespace QLVT_DH
 
         private void btnXoa_Click(object sender, EventArgs e)
         {
-            bdsCTDDH.RemoveCurrent();
+
             this.CTDDHTableAdapter.Update(Program.ddhForm.getDataset().CTDDH);
 
+        }
+
+        private void FormCTDH_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            if (MessageBox.Show("Thoát?", "Message", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+            {
+                if (action.Equals("actThem"))
+                {
+                    bdsCTDDH.RemoveCurrent();
+                }
+
+            }
         }
     }
 }

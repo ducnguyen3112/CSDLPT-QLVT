@@ -138,6 +138,7 @@ namespace QLVT_DH
             this.tableAdapterManager.NhanVienTableAdapter = null;
             this.tableAdapterManager.PhieuNhapTableAdapter = null;
             this.tableAdapterManager.PhieuXuatTableAdapter = null;
+            this.tableAdapterManager.sp_DSNhanVienTableAdapter = null;
             this.tableAdapterManager.UpdateOrder = QLVT_DH.DSTableAdapters.TableAdapterManager.UpdateOrderOption.InsertUpdateDelete;
             this.tableAdapterManager.VattuTableAdapter = null;
             // 
@@ -436,6 +437,7 @@ namespace QLVT_DH
             this.Controls.Add(this.cTDDHGridControl);
             this.Name = "FormCTDH";
             this.Text = "FormCTDH";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.FormCTDH_FormClosing);
             this.Load += new System.EventHandler(this.FormCTDH_Load);
             ((System.ComponentModel.ISupportInitialize)(this.DS)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.bdsCTDDH)).EndInit();

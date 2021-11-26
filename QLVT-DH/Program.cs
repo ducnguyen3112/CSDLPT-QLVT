@@ -49,6 +49,8 @@ namespace QLVT_DH
             {
                 Program.constr = "Data Source=" + Program.serverName + ";Initial Catalog=" + Program.database + ";User ID=" +
                       Program.mLogin + ";password=" + Program.passwd;
+                
+
                 Program.con.ConnectionString = Program.constr;
                 Program.con.Open();
                 return 1;
