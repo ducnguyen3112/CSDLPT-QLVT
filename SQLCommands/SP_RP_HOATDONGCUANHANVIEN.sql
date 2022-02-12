@@ -1,3 +1,4 @@
+*Mục đích : lấy chi tiết phiếu nhập | xuất do một nhân viên X lập từ ngày Y tới ngày Z với mã nhân viên.
 ALTER PROC [dbo].[SP_RP_HOATDONGCUANHANVIEN]
 @MANV INT, @FROM DATE, @TO DATE, @LOAI CHAR
 AS
