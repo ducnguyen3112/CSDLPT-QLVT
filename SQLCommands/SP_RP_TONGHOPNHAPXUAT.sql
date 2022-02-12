@@ -9,6 +9,7 @@ BEGIN
 		IF 1=0 BEGIN
 			SET FMTONLY OFF
 		END
+		--------------------phieu nhap--------------------------
 		SELECT	PN.NGAY,
 				NHAP = SUM(CTPN.SOLUONG * CTPN.DONGIA), -- tổng 1 ngày
 				-- tổng 1 ngày chia cho tổng nhập trong khoảng thời gian đưa vào
