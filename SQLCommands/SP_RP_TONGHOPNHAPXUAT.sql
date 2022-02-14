@@ -3,9 +3,7 @@ ALTER PROC [dbo].[SP_RP_TONGHOPNHAPXUAT]
 	@NGAYBD date, @NGAYKT date
 AS
 BEGIN
-	--SET NOCOUNT ON là một dòng mã được sử dụng trong SQL để không trả về giá trị cho một 
-	--số lượng hàng nào đó trong khi thực hiện truy vấn.Nó có nghĩa là không được tính toán.
-    --Và khi bạn SET NOCOUNT OFF thì các câu truy vấn sẽ ảnh hưởng đến giá trị của tất cả các hàng
+   *Đọc thêm lý do sử dụng if 1 = 0 set FTMonly off:https://www.sqlservercentral.com/forums/topic/if-10-begin-set-fmtonly-off-end#post-1207481
     - Ngắn gọn là nếu FTMonly = Off thì phải chạy hết STORED PROCEDURE này mới xuất ra tên các cột. 
     Điều này là ko hợp lý nếu cả hàng nghìn cột phải tính toán thì thời gian để quét hết các kết quả có thể quá thời gian Visual Studio chờ để lấy tên cột-> báo lỗi
 - Đặt là FTMonly= On thì sẽ bỏ qua hết các câu lênh tính toán để trả ngay về tên cột trước.
