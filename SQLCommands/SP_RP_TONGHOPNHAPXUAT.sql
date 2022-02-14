@@ -1,12 +1,17 @@
+*Mục đích: lấy tổng số tiền nhập và xuất của một ngày, tính tỉ lệ số tiền nhập | xuât trong 1 ngày với tổng số tiền từ ngày X tới ngày Y
 ALTER PROC [dbo].[SP_RP_TONGHOPNHAPXUAT]
 	@NGAYBD date, @NGAYKT date
 AS
 BEGIN
 	--SET NOCOUNT ON là một dòng mã được sử dụng trong SQL để không trả về giá trị cho một 
 	--số lượng hàng nào đó trong khi thực hiện truy vấn.Nó có nghĩa là không được tính toán.
-    --Và khi bạn SET NOCOUNT OFF thì các câu truy vấn sẽ ảnh hưởng đến giá trị của tất cả các hàng.
+    --Và khi bạn SET NOCOUNT OFF thì các câu truy vấn sẽ ảnh hưởng đến giá trị của tất cả các hàng
+    - Ngắn gọn là nếu FTMonly = Off thì phải chạy hết STORED PROCEDURE này mới xuất ra tên các cột. 
+    Điều này là ko hợp lý nếu cả hàng nghìn cột phải tính toán thì thời gian để quét hết các kết quả có thể quá thời gian Visual Studio chờ để lấy tên cột-> báo lỗi
+- Đặt là FTMonly= On thì sẽ bỏ qua hết các câu lênh tính toán để trả ngay về tên cột trước.
 	SET NOCOUNT ON;
-		IF 1=0 BEGIN
+		IF (1=0) 
+		BEGIN
 			SET FMTONLY OFF
 		END
 		--------------------phieu nhap--------------------------
@@ -21,7 +26,7 @@ BEGIN
 			ON PN.MAPN = CTPN.MAPN
 		WHERE NGAY BETWEEN @NGAYBD AND @NGAYKT
 		GROUP BY PN.NGAY
-
+		--------------------phieu xuat--------------------------
 		SELECT	PX.NGAY,
 				XUAT = SUM(CTPX.SOLUONG * CTPX.DONGIA),
 				TYLEXUAT = (SUM(CTPX.SOLUONG * CTPX.DONGIA) / (SELECT SUM(SOLUONG*DONGIA) 
@@ -31,7 +36,8 @@ BEGIN
 			INNER JOIN (SELECT * FROM CTPX) AS CTPX 
 			ON PX.MAPX = CTPX.MAPX
 		WHERE NGAY BETWEEN @NGAYBD AND @NGAYKT
-		GROUP BY PX.NGAY				
+		GROUP BY PX.NGAY		
+		-----------------------TONG HOP--------------------------------------
 		-- isnull lấy 1 giá trị cụ thể để thay thế giá trị bị null
 		SELECT 
 		ISNULL(PN.NGAY, PX.NGAY) AS NGAY, --
