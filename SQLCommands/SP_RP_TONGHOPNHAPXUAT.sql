@@ -7,7 +7,7 @@ BEGIN
     - Ngắn gọn là nếu FTMonly = Off thì phải chạy hết STORED PROCEDURE này mới xuất ra tên các cột. 
     Điều này là ko hợp lý nếu cả hàng nghìn cột phải tính toán thì thời gian để quét hết các kết quả có thể quá thời gian Visual Studio chờ để lấy tên cột-> báo lỗi
 - Đặt là FTMonly= On thì sẽ bỏ qua hết các câu lênh tính toán để trả ngay về tên cột trước.
-	SET NOCOUNT ON;
+
 		IF (1=0) 
 		BEGIN
 			SET FMTONLY OFF
