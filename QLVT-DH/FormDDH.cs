@@ -370,7 +370,7 @@ namespace QLVT_DH
                         stack.Pop();
                         return;
                     }
-
+                    
                     String maDDH = stack.Pop().ToString();
                     int vitrixoa = bdsDH.Find("MasoDDH", maDDH);
                     bdsDH.Position = vitrixoa;

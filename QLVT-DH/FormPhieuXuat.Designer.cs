@@ -306,6 +306,7 @@ namespace QLVT_DH
             this.tableAdapterManager.NhanVienTableAdapter = null;
             this.tableAdapterManager.PhieuNhapTableAdapter = null;
             this.tableAdapterManager.PhieuXuatTableAdapter = this.phieuXuatTableAdapter;
+            this.tableAdapterManager.sp_DSNhanVienTableAdapter = null;
             this.tableAdapterManager.UpdateOrder = QLVT_DH.DSTableAdapters.TableAdapterManager.UpdateOrderOption.InsertUpdateDelete;
             this.tableAdapterManager.VattuTableAdapter = null;
             // 
@@ -515,6 +516,8 @@ namespace QLVT_DH
             this.txtMK.Enabled = false;
             this.txtMK.Location = new System.Drawing.Point(29, 186);
             this.txtMK.Name = "txtMK";
+            this.txtMK.Properties.Appearance.ForeColor = System.Drawing.Color.White;
+            this.txtMK.Properties.Appearance.Options.UseForeColor = true;
             this.txtMK.Properties.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.NoBorder;
             this.txtMK.Properties.ReadOnly = true;
             this.txtMK.Size = new System.Drawing.Size(125, 20);

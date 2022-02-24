@@ -18,6 +18,8 @@ namespace QLVT_DH
 
         int position = 0;
         Stack undolist = new Stack();
+        Boolean them = false;
+        String query = "";
         public FormVatTu()
         {
             InitializeComponent();
@@ -28,7 +30,7 @@ namespace QLVT_DH
             position = bdsVT.Position;
             txtMaVT.Enabled = true;
             this.bdsVT.AddNew();
-            btnThem.Enabled = btnXoa.Enabled = gcVT.Enabled = btnReload.Enabled = btnUndo.Enabled = false;
+            btnThem.Enabled = btnXoa.Enabled = gcVT.Enabled = btnReload.Enabled = btnUndo.Enabled = btnSua.Enabled= false;
             btnGhi.Enabled = gcInfoVT.Enabled = true;
 
             //Program.flagCloseFormVT = false; //Bật cờ lên để chặn tắt Form đột ngột khi nhập liệu
@@ -66,7 +68,7 @@ namespace QLVT_DH
                 btnThem.Enabled = btnXoa.Enabled = btnGhi.Enabled = false;
             }
 
-            txtMaVT.Enabled = btnUndo.Enabled = false;
+            txtMaVT.Enabled = btnUndo.Enabled =gcInfoVT.Enabled= false;
 
 
         }
@@ -228,7 +230,7 @@ namespace QLVT_DH
                         try
                         {
                             //Program.flagCloseFormVT = true; // Bật cờ cho phép tắt Form NV
-                            btnThem.Enabled = btnXoa.Enabled = gcVT.Enabled = btnReload.Enabled = btnGhi.Enabled = gcInfoVT.Enabled = true;
+                            btnThem.Enabled = btnXoa.Enabled = gcVT.Enabled = btnReload.Enabled = btnGhi.Enabled = gcInfoVT.Enabled =btnSua.Enabled= true;
                             btnUndo.Enabled = true;
                             this.bdsVT.EndEdit();
                             this.vattuTableAdapter.Update(this.dS.Vattu);
@@ -375,6 +377,20 @@ namespace QLVT_DH
         private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
         {
 
+        }
+
+        private void btnSua_Click(object sender, EventArgs e)
+        {
+            
+            position = bdsVT.Position;
+            txtMaVT.Enabled = false;
+            them = false;
+            query = String.Format("update Vattu set TENVT=N'{1}', DVT=N'{2}' where MAVT=N'{0}'", txtMaVT.Text.Trim(), txtTenVT.Text, txtDVT.Text);
+            btnThem.Enabled = btnXoa.Enabled = gcVT.Enabled = btnReload.Enabled  = false;
+            btnGhi.Enabled = gcInfoVT.Enabled = btnUndo.Enabled=btnThoat.Enabled = gcVT.Enabled= true;
+
+            //Program.flagCloseFormVT = false; //Bật cờ lên để chặn tắt Form đột ngột khi nhập liệu
+            numSLT.Value = 0;
         }
     }
 }

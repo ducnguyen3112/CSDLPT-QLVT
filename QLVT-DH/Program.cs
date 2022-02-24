@@ -24,7 +24,7 @@ namespace QLVT_DH
         public static String mLogin = "";
         public static String passwd = "";
         public static String database = "QLVT_DATHANG";
-        public static String remoteLogin = "HTKN";
+        public static String remoteLogin = "sa";
         public static String remotePasswd = "123";
         public static String mloginDN = "";
         public static String passwdDN = "";

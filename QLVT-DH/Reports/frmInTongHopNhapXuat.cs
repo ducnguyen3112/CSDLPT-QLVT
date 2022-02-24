@@ -27,7 +27,7 @@ namespace QLVT_DH.Reports
                 String bd = dateEditFrom.Text;
                 String kt = dateEditTo.Text;
 
-                if (bd.CompareTo(kt) > 0)
+                if (bd.CompareTo(kt) < 0)
                 {
                     MessageBox.Show("Ngày kết thúc không được nhỏ hơn ngày bắt đầu", string.Empty, MessageBoxButtons.OK);
                     return;
