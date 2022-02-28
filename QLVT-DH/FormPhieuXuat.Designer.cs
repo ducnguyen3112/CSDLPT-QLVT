@@ -516,7 +516,7 @@ namespace QLVT_DH
             this.txtMK.Enabled = false;
             this.txtMK.Location = new System.Drawing.Point(29, 186);
             this.txtMK.Name = "txtMK";
-            this.txtMK.Properties.Appearance.ForeColor = System.Drawing.Color.Transparent;
+            this.txtMK.Properties.Appearance.ForeColor = System.Drawing.Color.White;
             this.txtMK.Properties.Appearance.Options.UseForeColor = true;
             this.txtMK.Properties.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.NoBorder;
             this.txtMK.Properties.ReadOnly = true;

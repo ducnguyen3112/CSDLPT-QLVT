@@ -231,7 +231,7 @@ namespace QLVT_DH
                 if (action == "actThem")
                 {
                     maDDH = txtMaDDH.Text.Trim();
-                    String query = "DECLARE @return_value int  EXEC @return_value = [dbo].[SP_KTTrungDDH] @MADDH "
+                    String query = "DECLARE @return_value int  EXEC @return_value = [dbo].[SP_KTTrungDDH_L] @MADDH "
                        + "SELECT 'Return Value' = @return_value";
                     SqlCommand sqlCommand = new SqlCommand(query, Program.con);
                     sqlCommand.Parameters.AddWithValue("@MADDH", maDDH);
@@ -370,7 +370,7 @@ namespace QLVT_DH
                         stack.Pop();
                         return;
                     }
-
+                    
                     String maDDH = stack.Pop().ToString();
                     int vitrixoa = bdsDH.Find("MasoDDH", maDDH);
                     bdsDH.Position = vitrixoa;

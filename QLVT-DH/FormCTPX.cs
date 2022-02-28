@@ -14,6 +14,9 @@ namespace QLVT_DH
     public partial class FormCTPX : Form
     {
         private int vitri = 0;
+        //private int soluong = 0;
+        //private string mavt;
+        //String loaiphieu = "X";
         string action = "";
         public FormCTPX()
         {
@@ -77,9 +80,9 @@ namespace QLVT_DH
                     return;
                 }
 
-            }
+            }           
             txtMavtPX.Visible = true;
-            txtMaVT.Visible = false;
+            txtMaVT.Visible = false;            
             if (ValidateChildren(ValidationConstraints.Enabled))
             {
                 try
