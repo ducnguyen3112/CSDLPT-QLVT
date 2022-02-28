@@ -1,3 +1,14 @@
+*Mục đích: lấy những đơn đặt hàng mà chưa có phiếu nhập tương ứng với đơn hàng đó. Yêu cầu phải xuất ra những trường dữ liệu sau:
+1.Mã số đơn hàng
+2.Ngày
+3.Nhà cung cấp
+4.Họ tên nhân viên( txtHO + txtTEN)
+5.Tên vật tư
+6.Số lượng 
+7.Đơn giá
+
+Chú ý: đơn đặt hàng ko có chi tiết đơn đặt hàng thì cũng ko hiện lên được. Đơn đặt hàng phải có chi tiết đơn đặt hàng và chưa có phiếu nhập thì mới hiển thị được
+
 CREATE PROCEDURE [dbo].[SP_DSDDHCHUACOPHIEUNHAP]
  AS
 BEGIN

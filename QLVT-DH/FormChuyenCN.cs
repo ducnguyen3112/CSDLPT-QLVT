@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Data.SqlClient;
 using System.Drawing;
 using System.Linq;
 using System.Text;
@@ -33,13 +34,53 @@ namespace QLVT_DH
 
 
         }
-        public delegate void getCN(string index);
-        public getCN server;
+
         private void btnChuyen_Click(object sender, EventArgs e)
         {
-            this.Cursor = Cursors.WaitCursor;
-            server(cbChuyenCN.SelectedValue.ToString());
-            this.Close();
+            string cnChuyen = cbChuyenCN.SelectedValue.ToString();
+            String maCN = "";
+
+            if (cnChuyen != Program.serverName)
+            {
+
+                if (cnChuyen.Contains("2")) maCN = "CN2";
+                else if (cnChuyen.Contains("1")) maCN = "CN1";
+
+                Program.con = new SqlConnection(Program.constr);
+                Program.con.Open();
+                SqlCommand cmd = new SqlCommand("SP_ChuyenCN", Program.con);
+                cmd.CommandType = CommandType.StoredProcedure;
+                cmd.Parameters.Add(new SqlParameter("@MANV", FormNV.maNV));
+                cmd.Parameters.Add(new SqlParameter("@MACN", maCN));
+                SqlDataReader myReader = null;
+                try
+                {
+                    this.Cursor = Cursors.WaitCursor;
+                    myReader = cmd.ExecuteReader();
+                    MessageBox.Show("Chuyển nhân viên thành công!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    FormNV.stack.Push(FormNV.maNV + "#" + cnChuyen);
+                    FormNV.stack.Push("CHUYENCN");
+                    this.Cursor = Cursors.Default;
+
+                    this.Close();
+
+
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show(ex.Message);
+                    this.Cursor = Cursors.Default;
+
+                }
+            }
+            else
+            {
+                MessageBox.Show("Vui lòng chọn CN khác chi nhánh hiện tại", "Cảnh báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                this.Cursor = Cursors.Default;
+
+
+                return;
+            }
         }
     }
 }
