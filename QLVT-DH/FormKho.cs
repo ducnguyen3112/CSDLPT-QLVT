@@ -177,7 +177,7 @@ namespace QLVT_DH
         private int kiemTraTonTai(String maKho)
         {
             int result = 1;
-            String lenh = String.Format("EXEC SP_TIMKHO {0}", maKho);
+            String lenh = String.Format("EXEC SP_TIMKHO_L {0}", maKho);
             using (SqlConnection connection = new SqlConnection(Program.constr))
             {
                 connection.Open();

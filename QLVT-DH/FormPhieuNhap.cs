@@ -18,6 +18,7 @@ namespace QLVT_DH
         private int vitri;
         private string mavt;
         private string maDDH;
+        String phieu = "N";
         private int soluong;
         public Stack<String> stackundo = new Stack<string>();
         String query = "";
@@ -498,9 +499,25 @@ namespace QLVT_DH
             {
                 bdsCTPN.EndEdit();
                 bdsCTPN.ResetCurrentItem();
+                int result = 1;
+                string lenh = string.Format("EXEC SP_CAPNHATSOLUONGTON {0},{1},{2}", mavt,soluong,phieu);
+                using (SqlConnection connection = new SqlConnection(Program.constr))
+                {
+                    connection.Open();
+                    SqlCommand sqlcmt = new SqlCommand(lenh, connection);
+                    sqlcmt.CommandType = CommandType.Text;
+                    try
+                    {
+                        sqlcmt.ExecuteNonQuery();
+                    }
+                    catch
+                    {
+                        result = 0;
+                    }
+                    MessageBox.Show("Ghi thành công !!!");
+                }
 
-
-                MessageBox.Show("Ghi thành công !!!");
+               // MessageBox.Show("Ghi thành công !!!");
 
                 this.cTPNTableAdapter.Connection.ConnectionString = Program.constr;
                 this.cTPNTableAdapter.Update(this.dS.CTPN);

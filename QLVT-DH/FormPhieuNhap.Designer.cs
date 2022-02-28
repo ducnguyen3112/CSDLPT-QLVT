@@ -70,13 +70,14 @@ namespace QLVT_DH
             this.colSOLUONG = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colDONGIA = new DevExpress.XtraGrid.Columns.GridColumn();
             this.gbInfoPN = new System.Windows.Forms.GroupBox();
-            this.phieuNhapBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.cbMaKho = new System.Windows.Forms.ComboBox();
             this.bdsKho = new System.Windows.Forms.BindingSource(this.components);
             this.txtMaNv = new DevExpress.XtraEditors.SpinEdit();
             this.ngay = new DevExpress.XtraEditors.DateEdit();
             this.cbDDH = new System.Windows.Forms.ComboBox();
             this.dsDDHchuaCoPNBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.txtMaPN = new DevExpress.XtraEditors.TextEdit();
+            this.phieuNhapBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.bdsDH = new System.Windows.Forms.BindingSource(this.components);
             this.cTPNTableAdapter = new QLVT_DH.DSTableAdapters.CTPNTableAdapter();
             this.khoTableAdapter = new QLVT_DH.DSTableAdapters.KhoTableAdapter();
@@ -88,7 +89,6 @@ namespace QLVT_DH
             this.vattuTableAdapter = new QLVT_DH.DSTableAdapters.VattuTableAdapter();
             this.productBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.productTableAdapter = new QLVT_DH.DSTableAdapters.productTableAdapter();
-            this.cbMaKho = new System.Windows.Forms.ComboBox();
             mAPNLabel = new System.Windows.Forms.Label();
             lbMaDDH = new System.Windows.Forms.Label();
             nGAYLabel = new System.Windows.Forms.Label();
@@ -109,13 +109,13 @@ namespace QLVT_DH
             ((System.ComponentModel.ISupportInitialize)(this.bdsCTPN)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridView2)).BeginInit();
             this.gbInfoPN.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.phieuNhapBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.bdsKho)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtMaNv.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.ngay.Properties.CalendarTimeProperties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.ngay.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dsDDHchuaCoPNBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtMaPN.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.phieuNhapBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.bdsDH)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.bdsCTDDH)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.bdsVT)).BeginInit();
@@ -157,6 +157,15 @@ namespace QLVT_DH
             mANVLabel.Size = new System.Drawing.Size(48, 17);
             mANVLabel.TabIndex = 9;
             mANVLabel.Text = "MANV:";
+            // 
+            // mAKHOLabel
+            // 
+            mAKHOLabel.AutoSize = true;
+            mAKHOLabel.Location = new System.Drawing.Point(26, 163);
+            mAKHOLabel.Name = "mAKHOLabel";
+            mAKHOLabel.Size = new System.Drawing.Size(58, 17);
+            mAKHOLabel.TabIndex = 10;
+            mAKHOLabel.Text = "MAKHO:";
             // 
             // panelControl1
             // 
@@ -309,6 +318,7 @@ namespace QLVT_DH
             this.tableAdapterManager.NhanVienTableAdapter = null;
             this.tableAdapterManager.PhieuNhapTableAdapter = this.phieuNhapTableAdapter;
             this.tableAdapterManager.PhieuXuatTableAdapter = null;
+            this.tableAdapterManager.sp_DSNhanVienTableAdapter = null;
             this.tableAdapterManager.UpdateOrder = QLVT_DH.DSTableAdapters.TableAdapterManager.UpdateOrderOption.InsertUpdateDelete;
             this.tableAdapterManager.VattuTableAdapter = null;
             // 
@@ -516,10 +526,17 @@ namespace QLVT_DH
             this.gbInfoPN.TabStop = false;
             this.gbInfoPN.Text = "Thông Tin";
             // 
-            // phieuNhapBindingSource
+            // cbMaKho
             // 
-            this.phieuNhapBindingSource.DataMember = "FK_PhieuNhap_Kho";
-            this.phieuNhapBindingSource.DataSource = this.bdsKho;
+            this.cbMaKho.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.bdsPN, "MAKHO", true));
+            this.cbMaKho.DataSource = this.bdsKho;
+            this.cbMaKho.DisplayMember = "MAKHO";
+            this.cbMaKho.FormattingEnabled = true;
+            this.cbMaKho.Location = new System.Drawing.Point(90, 160);
+            this.cbMaKho.Name = "cbMaKho";
+            this.cbMaKho.Size = new System.Drawing.Size(239, 24);
+            this.cbMaKho.TabIndex = 11;
+            this.cbMaKho.ValueMember = "MAKHO";
             // 
             // bdsKho
             // 
@@ -579,6 +596,11 @@ namespace QLVT_DH
             this.txtMaPN.Size = new System.Drawing.Size(239, 22);
             this.txtMaPN.TabIndex = 1;
             // 
+            // phieuNhapBindingSource
+            // 
+            this.phieuNhapBindingSource.DataMember = "FK_PhieuNhap_Kho";
+            this.phieuNhapBindingSource.DataSource = this.bdsKho;
+            // 
             // bdsDH
             // 
             this.bdsDH.DataMember = "DatHang";
@@ -627,27 +649,6 @@ namespace QLVT_DH
             // 
             this.productTableAdapter.ClearBeforeFill = true;
             // 
-            // mAKHOLabel
-            // 
-            mAKHOLabel.AutoSize = true;
-            mAKHOLabel.Location = new System.Drawing.Point(26, 163);
-            mAKHOLabel.Name = "mAKHOLabel";
-            mAKHOLabel.Size = new System.Drawing.Size(58, 17);
-            mAKHOLabel.TabIndex = 10;
-            mAKHOLabel.Text = "MAKHO:";
-            // 
-            // cbMaKho
-            // 
-            this.cbMaKho.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.bdsPN, "MAKHO", true));
-            this.cbMaKho.DataSource = this.bdsKho;
-            this.cbMaKho.DisplayMember = "MAKHO";
-            this.cbMaKho.FormattingEnabled = true;
-            this.cbMaKho.Location = new System.Drawing.Point(90, 160);
-            this.cbMaKho.Name = "cbMaKho";
-            this.cbMaKho.Size = new System.Drawing.Size(239, 24);
-            this.cbMaKho.TabIndex = 11;
-            this.cbMaKho.ValueMember = "MAKHO";
-            // 
             // FormPhieuNhap
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 16F);
@@ -682,13 +683,13 @@ namespace QLVT_DH
             ((System.ComponentModel.ISupportInitialize)(this.gridView2)).EndInit();
             this.gbInfoPN.ResumeLayout(false);
             this.gbInfoPN.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.phieuNhapBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.bdsKho)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtMaNv.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.ngay.Properties.CalendarTimeProperties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.ngay.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dsDDHchuaCoPNBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtMaPN.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.phieuNhapBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.bdsDH)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.bdsCTDDH)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.bdsVT)).EndInit();
